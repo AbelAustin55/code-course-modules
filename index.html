@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>UCC Course Modules</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<header class="header">
+    <div class="header-content">
+        <div>
+            <h1>UCC Course Modules</h1>
+            <p>College of Distance Education</p>
+        </div>
+    </div>
+</header>
+
+
+<main class="container">
+
+    <!-- HOME -->
+<section id="homeView" class="view active">
+
+
+    <!-- UNDERGRADUATE MODULES -->
+    <div class="module-section">
+
+        <div class="section-heading">
+            <h2>Undergraduate Course Modules</h2>
+            <p>Select your level to access course modules.</p>
+        </div>
+
+
+        <div class="level-grid">
+
+            <button class="level-card" onclick="showProgrammes('100')">
+                <span class="level-number">100</span>
+                <span class="level-title">Level 100</span>
+                <span class="level-action">
+                    View Modules →
+                </span>
+            </button>
+
+
+            <button class="level-card" onclick="showProgrammes('200')">
+                <span class="level-number">200</span>
+                <span class="level-title">Level 200</span>
+                <span class="level-action">
+                    View Modules →
+                </span>
+            </button>
+
+
+            <button class="level-card" onclick="showProgrammes('300')">
+                <span class="level-number">300</span>
+                <span class="level-title">Level 300</span>
+                <span class="level-action">
+                    View Modules →
+                </span>
+            </button>
+
+
+            <button class="level-card" onclick="showProgrammes('400')">
+                <span class="level-number">400</span>
+                <span class="level-title">Level 400</span>
+                <span class="level-action">
+                    View Modules →
+                </span>
+            </button>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- SWITCH MODULES -->
+
+<div class="module-section switch-section"> 
+
+
+    <div class="section-heading">
+
+        <h2>SWITCH Modules</h2>
+
+        <p>
+            Select your SWITCH programme.
+        </p>
+
+    </div>
+
+
+    <div class="level-grid" id="switchProgrammeList"> </div>
+
+
+</div>
+
+
+
+
+</section>
+
+    
+
+
+    <!-- PROGRAMMES -->
+    <section id="programmeView" class="view">
+
+        <button class="back-btn" onclick="goHome()">
+            ← Back
+        </button>
+
+        <div class="page-heading">
+            <h2 id="programmeHeading">Level 100</h2>
+            <p>Select your programme.</p>
+        </div>
+
+        <div id="programmeList" class="programme-grid"></div>
+
+    </section>
+
+
+    <!-- COURSES -->
+    <section id="courseView" class="view">
+
+        <button class="back-btn" onclick="backToProgrammes()">
+            ← Back
+        </button>
+
+        <div class="page-heading">
+            <h2 id="courseHeading">Courses</h2>
+            <p>Tap a course to access its modules.</p>
+        </div>
+
+        <div id="courseList" class="course-grid"></div>
+
+    </section>
+
+</main>
+
+
+<footer>
+    <p>University of Cape Coast • College of Distance Education</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
