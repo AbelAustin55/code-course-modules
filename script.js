@@ -188,7 +188,288 @@ const switchData = {
 };
 
 let selectedLevel = null;
+// ==========================
+// GLOBAL COURSE SEARCH
+// ==========================
 
+function searchAllCourses(
+    query,
+    undergraduateData = moduleData,
+    switchDataSource = switchData
+) {
+
+    const term = String(query || "")
+        .trim()
+        .toLowerCase();
+
+
+    // Require at least 2 characters
+    if (term.length < 2) {
+        return [];
+    }
+
+
+    const results = [];
+
+
+    // ==========================
+    // SEARCH UNDERGRADUATE
+    // ==========================
+
+    Object.entries(undergraduateData)
+        .forEach(([level, programmes]) => {
+
+
+            Object.entries(programmes)
+                .forEach(([programme, courses]) => {
+
+
+                    courses.forEach(course => {
+
+
+                        const searchText = [
+
+                            course.code,
+                            course.title,
+                            programme,
+                            level,
+                            `Level ${level}`,
+                            "Undergraduate"
+
+                        ]
+                        .join(" ")
+                        .toLowerCase();
+
+
+                        if (searchText.includes(term)) {
+
+                            results.push({
+
+                                ...course,
+
+                                type: "Undergraduate",
+
+                                programme: programme,
+
+                                level: level
+
+                            });
+
+                        }
+
+
+                    });
+
+
+                });
+
+
+        });
+
+
+
+    // ==========================
+    // SEARCH SWITCH
+    // ==========================
+
+    Object.entries(switchDataSource)
+        .forEach(([programme, courses]) => {
+
+
+            courses.forEach(course => {
+
+
+                const searchText = [
+
+                    course.code,
+                    course.title,
+                    programme,
+                    "SWITCH"
+
+                ]
+                .join(" ")
+                .toLowerCase();
+
+
+                if (searchText.includes(term)) {
+
+                    results.push({
+
+                        ...course,
+
+                        type: "SWITCH",
+
+                        programme: programme,
+
+                        level: null
+
+                    });
+
+                }
+
+
+            });
+
+
+        });
+
+
+    return results;
+
+}
+function handleCourseSearch(event) {
+
+    const query = event.target.value.trim();
+
+    const resultsContainer =
+        document.getElementById("searchResults");
+
+    const resultsList =
+        document.getElementById("searchResultsList");
+
+    const resultCount =
+        document.getElementById("searchResultCount");
+
+    const noResults =
+        document.getElementById("noSearchResults");
+
+
+    // Empty search
+    if (query.length === 0) {
+
+        resultsContainer.hidden = true;
+
+        resultsList.innerHTML = "";
+
+        noResults.hidden = true;
+
+        return;
+
+    }
+
+
+    // Require two characters
+    if (query.length < 2) {
+
+        resultsContainer.hidden = false;
+
+        resultsList.innerHTML = "";
+
+        noResults.hidden = true;
+
+        resultCount.textContent =
+            "Type at least 2 characters to search.";
+
+        return;
+
+    }
+
+
+    const results =
+        searchAllCourses(query);
+
+
+    resultsContainer.hidden = false;
+
+
+    renderSearchResults(results);
+
+}
+function renderSearchResults(results) {
+
+    const resultsList =
+        document.getElementById("searchResultsList");
+
+    const resultCount =
+        document.getElementById("searchResultCount");
+
+    const noResults =
+        document.getElementById("noSearchResults");
+
+
+    resultsList.innerHTML = "";
+
+
+    if (results.length === 0) {
+
+        resultCount.textContent =
+            "0 courses found";
+
+        noResults.hidden = false;
+
+        return;
+
+    }
+
+
+    noResults.hidden = true;
+
+
+    resultCount.textContent =
+        `${results.length} course${results.length === 1 ? "" : "s"} found`;
+
+
+    results.forEach(course => {
+
+
+        const card =
+            document.createElement("div");
+
+
+        card.className =
+            "search-result-card";
+
+
+        let courseMeta;
+
+
+        if (course.type === "Undergraduate") {
+
+            courseMeta =
+                `Undergraduate • Level ${course.level} • ${course.programme}`;
+
+        } else {
+
+            courseMeta =
+                `SWITCH • ${course.programme}`;
+
+        }
+
+
+        card.innerHTML = `
+
+            <div class="search-result-code">
+                ${course.code}
+            </div>
+
+
+            <div class="search-result-title">
+                ${course.title}
+            </div>
+
+
+            <div class="search-result-meta">
+                ${courseMeta}
+            </div>
+
+
+            <button
+                class="open-btn"
+                onclick="openModule(event, '${course.link}')">
+
+                OPEN MODULES
+
+            </button>
+
+        `;
+
+
+        resultsList.appendChild(card);
+
+
+    });
+
+}
 
 function showProgrammes(level) {
 
@@ -482,8 +763,28 @@ function loadSwitchCards(){
     });
 
 }
-document.addEventListener("DOMContentLoaded",function(){
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
 
-    loadSwitchCards();
+        // Load SWITCH programme cards
+        loadSwitchCards();
 
-});
+
+        // Activate global course search
+        const searchInput =
+            document.getElementById("courseSearch");
+
+
+        if (searchInput) {
+
+            searchInput.addEventListener(
+                "input",
+                handleCourseSearch
+            );
+
+        }
+
+    }
+);
+}
