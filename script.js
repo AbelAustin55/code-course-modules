@@ -188,6 +188,7 @@ const switchData = {
 };
 
 let selectedLevel = null;
+let navigationType = null;
 // ==========================
 // GLOBAL COURSE SEARCH
 // ==========================
@@ -472,8 +473,10 @@ function renderSearchResults(results) {
 }
 
 function showProgrammes(level) {
-
+    
     selectedLevel = level;
+    navigationType = "undergraduate";
+
 
     document.getElementById("homeView").classList.remove("active");
     document.getElementById("courseView").classList.remove("active");
@@ -510,24 +513,31 @@ function showProgrammes(level) {
 }
 
 
-function showCourses(programme) {
+function showSwitchCourses(programme) {
 
+    navigationType = "switch";
+
+    // Hide the entire home page
+    document.getElementById("homeView")
+        .classList.remove("active");
+
+    // Hide programme view if it happens to be open
     document.getElementById("programmeView")
         .classList.remove("active");
 
+    // Show the dedicated courses page
     document.getElementById("courseView")
         .classList.add("active");
 
     document.getElementById("courseHeading").textContent =
-        `${programme} – Level ${selectedLevel}`;
+        `${programme} - SWITCH`;
 
     const courseList =
         document.getElementById("courseList");
 
     courseList.innerHTML = "";
 
-    const courses =
-        moduleData[selectedLevel][programme];
+    const courses = switchData[programme];
 
     courses.forEach(course => {
 
@@ -536,6 +546,7 @@ function showCourses(programme) {
         card.className = "course-card";
 
         card.innerHTML = `
+
             <div class="course-code">
                 ${course.code}
             </div>
@@ -547,7 +558,9 @@ function showCourses(programme) {
             <button
                 class="open-btn"
                 onclick="openModule(event, '${course.link}')">
+
                 OPEN MODULES
+
             </button>
         `;
 
@@ -555,6 +568,10 @@ function showCourses(programme) {
 
     });
 
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
 }
 
 
@@ -570,6 +587,7 @@ function openModule(event, link) {
 function goHome() {
 
     selectedLevel = null;
+    navigationType = null;
 
     document.getElementById("programmeView")
         .classList.remove("active");
@@ -580,6 +598,12 @@ function goHome() {
     document.getElementById("homeView")
         .classList.add("active");
 
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
 }
 
 
@@ -588,8 +612,38 @@ function backToProgrammes() {
     document.getElementById("courseView")
         .classList.remove("active");
 
-    document.getElementById("programmeView")
-        .classList.add("active");
+
+    if (navigationType === "switch") {
+
+        // SWITCH goes back to the homepage,
+        // where all SWITCH programmes are listed.
+
+        document.getElementById("programmeView")
+            .classList.remove("active");
+
+        document.getElementById("homeView")
+            .classList.add("active");
+
+        navigationType = null;
+
+    } else {
+
+        // Undergraduate goes back to the
+        // programme list for the selected level.
+
+        document.getElementById("homeView")
+            .classList.remove("active");
+
+        document.getElementById("programmeView")
+            .classList.add("active");
+
+    }
+
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
 }
 function showSwitchModules(){
 
