@@ -493,6 +493,9 @@ footer {
     .course-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+    .search-results-grid {
+    grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 
@@ -529,6 +532,21 @@ footer {
 
     .level-number {
         font-size: 32px;
+    }
+    .search-results-grid {
+    grid-template-columns: 1fr;
+    }
+
+    .search-box {
+    padding: 20px;
+    }
+
+    .search-label {
+    font-size: 20px;
+    }
+
+   .course-search-input {
+    font-size: 15px;
     }
 
 
