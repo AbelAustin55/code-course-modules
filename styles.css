@@ -6,7 +6,6 @@
 
 
 :root {
-
     --navy: #071e58;
     --navy-2: #0c3278;
     --gold: #f2b705;
@@ -18,6 +17,14 @@
     --muted: #667085;
 
     --border: #e2e7f0;
+
+    --success-bg: #ecfdf3;
+    --success-border: #abefc6;
+    --success-text: #067647;
+
+    --error-bg: #fff4f4;
+    --error-border: #fecaca;
+    --error-text: #b42318;
 
     --shadow:
         0 12px 32px
@@ -31,7 +38,6 @@ html {
 
 
 body {
-
     font-family:
         "Rubik",
         Arial,
@@ -39,9 +45,7 @@ body {
         sans-serif;
 
     background: var(--bg);
-
     color: var(--text);
-
     min-height: 100vh;
 }
 
@@ -57,6 +61,12 @@ button {
 }
 
 
+button:disabled {
+    cursor: wait;
+    opacity: .72;
+}
+
+
 
 /* =========================
    HEADER
@@ -64,36 +74,27 @@ button {
 
 
 .header {
-
     background: var(--navy);
-
     color: #fff;
-
     padding: 18px 24px;
 }
 
 
 .header-content {
-
     max-width: 1100px;
-
     margin: auto;
 
     display: grid;
-
     grid-template-columns:
         1fr auto 1fr;
 
     align-items: center;
-
     gap: 20px;
 }
 
 
 .header-logo {
-
     display: flex;
-
     align-items: center;
 }
 
@@ -109,41 +110,30 @@ button {
 
 
 .header-logo img {
-
     width: 82px;
-
     height: 82px;
 
     object-fit: contain;
-
     display: block;
 }
 
 
 .header-title {
-
     border: 0;
-
     background: transparent;
-
     color: #fff;
-
     text-align: center;
 }
 
 
 .header-title h1 {
-
     font-size: 29px;
-
     font-weight: 800;
-
     margin-bottom: 6px;
 }
 
 
 .header-title p {
-
     font-size: 15px;
 
     color:
@@ -163,9 +153,7 @@ button {
 
 
 .container {
-
     max-width: 1100px;
-
     margin: auto;
 
     padding:
@@ -199,9 +187,7 @@ button {
 .search-box,
 .home-section,
 .page-heading {
-
-    background:
-        var(--surface);
+    background: var(--surface);
 
     border:
         1px solid
@@ -221,9 +207,7 @@ button {
 
 
 .search-box {
-
     padding: 26px;
-
     margin-bottom: 30px;
 }
 
@@ -231,9 +215,7 @@ button {
 .search-copy h2,
 .section-heading h2,
 .page-heading h2 {
-
     font-size: 27px;
-
     color: var(--navy);
 
     margin:
@@ -244,21 +226,16 @@ button {
 .search-copy p,
 .section-heading p,
 .page-heading p {
-
     color: var(--muted);
-
     line-height: 1.55;
 }
 
 
 .eyebrow {
-
     display: inline-block;
 
     font-size: 12px;
-
     font-weight: 800;
-
     letter-spacing: 1.5px;
 
     text-transform: uppercase;
@@ -268,9 +245,7 @@ button {
 
 
 .course-search-input {
-
     width: 100%;
-
     margin-top: 18px;
 
     padding:
@@ -283,7 +258,6 @@ button {
     border-radius: 12px;
 
     background: #fbfcff;
-
     color: var(--text);
 
     outline: none;
@@ -291,7 +265,6 @@ button {
 
 
 .course-search-input:focus {
-
     border-color:
         var(--navy-2);
 
@@ -307,21 +280,17 @@ button {
 
 
 .search-results {
-
     margin-top: 20px;
 }
 
 
 .search-results-header {
-
     margin-bottom: 12px;
-
     color: var(--muted);
 }
 
 
 .search-results-grid {
-
     display: grid;
 
     grid-template-columns:
@@ -335,7 +304,6 @@ button {
 
 
 .search-result-card {
-
     padding: 18px;
 
     border:
@@ -345,41 +313,39 @@ button {
     border-radius: 14px;
 
     background: #fff;
+
+    display: flex;
+    flex-direction: column;
 }
 
 
 .search-result-code,
 .course-code {
-
     font-weight: 800;
-
     color: var(--navy);
 }
 
 
 .search-result-title {
-
     margin-top: 5px;
-
     font-weight: 650;
 }
 
 
 .search-result-meta {
-
     margin:
         8px 0 14px;
 
     color: var(--muted);
 
     font-size: 13px;
-
     line-height: 1.45;
+
+    flex: 1;
 }
 
 
 .no-results {
-
     color: var(--muted);
 
     padding:
@@ -394,15 +360,12 @@ button {
 
 
 .home-section {
-
     padding: 28px;
-
     margin-bottom: 30px;
 }
 
 
 .section-heading {
-
     margin-bottom: 20px;
 }
 
@@ -414,7 +377,6 @@ button {
 
 
 .semester-grid {
-
     display: grid;
 
     grid-template-columns:
@@ -428,11 +390,9 @@ button {
 
 
 .semester-card {
-
     min-height: 180px;
 
     display: flex;
-
     flex-direction: column;
 
     align-items: flex-start;
@@ -466,7 +426,6 @@ button {
 .level-card:hover,
 .programme-card:hover,
 .switch-card:hover {
-
     transform:
         translateY(-3px);
 
@@ -485,32 +444,26 @@ button {
 
 
 .semester-number {
-
     color: var(--gold);
 
     font-size: 30px;
-
     font-weight: 900;
 }
 
 
 .semester-name {
-
     color: var(--navy);
 
     font-size: 22px;
-
     font-weight: 800;
 }
 
 
 .semester-action,
 .level-action {
-
     color: var(--muted);
 
     font-size: 13px;
-
     font-weight: 650;
 }
 
@@ -524,10 +477,9 @@ button {
 .switch-grid,
 .level-grid,
 .programme-grid,
-.course-grid {
-
+.course-grid,
+.module-files-grid {
     display: grid;
-
     gap: 16px;
 }
 
@@ -539,7 +491,6 @@ button {
 
 
 .switch-grid {
-
     grid-template-columns:
         repeat(
             4,
@@ -549,7 +500,6 @@ button {
 
 
 .switch-card {
-
     min-height: 120px;
 
     padding: 18px;
@@ -565,7 +515,6 @@ button {
     text-align: left;
 
     display: flex;
-
     flex-direction: column;
 
     justify-content:
@@ -577,11 +526,9 @@ button {
 
 
 .switch-name {
-
     color: var(--navy);
 
     font-weight: 800;
-
     line-height: 1.3;
 }
 
@@ -593,14 +540,12 @@ button {
 
 
 .back-btn {
-
     margin-bottom: 18px;
 
     padding:
         10px 14px;
 
     border: 0;
-
     border-radius: 10px;
 
     background: #eaf0fb;
@@ -611,6 +556,11 @@ button {
 }
 
 
+.back-btn:hover {
+    background: #dfe8f8;
+}
+
+
 
 /* =========================
    PAGE HEADING
@@ -618,7 +568,6 @@ button {
 
 
 .page-heading {
-
     padding:
         24px 26px;
 
@@ -633,7 +582,6 @@ button {
 
 
 .level-grid {
-
     grid-template-columns:
         repeat(
             4,
@@ -643,7 +591,6 @@ button {
 
 
 .level-card {
-
     min-height: 160px;
 
     padding: 22px;
@@ -657,7 +604,6 @@ button {
     background: #fff;
 
     display: flex;
-
     flex-direction: column;
 
     align-items:
@@ -674,9 +620,7 @@ button {
 
 
 .level-number {
-
     font-size: 34px;
-
     font-weight: 900;
 
     color: var(--gold);
@@ -684,9 +628,7 @@ button {
 
 
 .level-title {
-
     font-size: 18px;
-
     font-weight: 800;
 
     color: var(--navy);
@@ -700,7 +642,6 @@ button {
 
 
 .programme-grid {
-
     grid-template-columns:
         repeat(
             3,
@@ -710,7 +651,6 @@ button {
 
 
 .programme-card {
-
     min-height: 140px;
 
     padding: 20px;
@@ -731,11 +671,9 @@ button {
 
 
 .programme-card h3 {
-
     color: var(--navy);
 
     font-size: 17px;
-
     line-height: 1.35;
 
     margin-bottom: 10px;
@@ -743,7 +681,6 @@ button {
 
 
 .programme-card p {
-
     color: var(--muted);
 
     margin-bottom: 18px;
@@ -751,11 +688,9 @@ button {
 
 
 .programme-card span {
-
     color: #8b6b00;
 
     font-size: 13px;
-
     font-weight: 700;
 }
 
@@ -767,7 +702,6 @@ button {
 
 
 .course-grid {
-
     grid-template-columns:
         repeat(
             2,
@@ -777,7 +711,6 @@ button {
 
 
 .course-card {
-
     min-height: 150px;
 
     padding: 20px;
@@ -791,25 +724,20 @@ button {
     background: #fff;
 
     display: flex;
-
     flex-direction: column;
 }
 
 
 .course-code {
-
     font-size: 17px;
-
     margin-bottom: 8px;
 }
 
 
 .course-title {
-
     flex: 1;
 
     font-weight: 650;
-
     line-height: 1.45;
 
     margin-bottom: 18px;
@@ -817,11 +745,9 @@ button {
 
 
 .open-btn {
-
     align-self: flex-start;
 
     border: 0;
-
     border-radius: 9px;
 
     padding:
@@ -833,17 +759,201 @@ button {
     color: #fff;
 
     font-size: 12px;
-
     font-weight: 800;
 
     letter-spacing: .4px;
+
+    transition:
+        background .15s ease,
+        transform .15s ease;
 }
 
 
-.open-btn:hover {
-
+.open-btn:hover:not(:disabled) {
     background:
         var(--navy-2);
+
+    transform:
+        translateY(-1px);
+}
+
+
+
+/* =========================
+   MODULE RESULTS
+   ========================= */
+
+
+.module-files-grid {
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(0, 1fr)
+        );
+}
+
+
+.module-file-card {
+    min-height: 145px;
+
+    padding: 20px;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius: 16px;
+
+    background: #fff;
+
+    box-shadow:
+        var(--shadow);
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+.module-file-number {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    align-self: flex-start;
+
+    min-width: 64px;
+    min-height: 31px;
+
+    margin-bottom: 12px;
+
+    padding:
+        6px 10px;
+
+    border-radius: 999px;
+
+    background: #fff7d6;
+
+    color: #775900;
+
+    font-size: 12px;
+    font-weight: 800;
+}
+
+
+.module-file-title {
+    flex: 1;
+
+    color: var(--text);
+
+    font-weight: 650;
+    line-height: 1.45;
+
+    margin-bottom: 18px;
+
+    overflow-wrap: anywhere;
+}
+
+
+.module-file-card .open-btn {
+    margin-top: auto;
+}
+
+
+
+/* =========================
+   MODULE STATUS / ERRORS
+   ========================= */
+
+
+.module-message {
+    grid-column:
+        1 / -1;
+
+    padding: 20px;
+
+    border-radius: 14px;
+
+    line-height: 1.55;
+}
+
+
+.module-message strong {
+    display: block;
+
+    margin-bottom: 5px;
+}
+
+
+.module-message-error {
+    background:
+        var(--error-bg);
+
+    border:
+        1px solid
+        var(--error-border);
+
+    color:
+        var(--error-text);
+}
+
+
+.module-message-success {
+    background:
+        var(--success-bg);
+
+    border:
+        1px solid
+        var(--success-border);
+
+    color:
+        var(--success-text);
+}
+
+
+
+/* =========================
+   LOADING
+   ========================= */
+
+
+.loading-module {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+}
+
+
+.loading-module::after {
+    content: "";
+
+    width: 11px;
+    height: 11px;
+
+    border:
+        2px solid
+        rgba(
+            255,
+            255,
+            255,
+            .45
+        );
+
+    border-top-color: #fff;
+
+    border-radius: 50%;
+
+    animation:
+        module-spin .7s
+        linear infinite;
+}
+
+
+@keyframes module-spin {
+    to {
+        transform:
+            rotate(360deg);
+    }
 }
 
 
@@ -854,7 +964,6 @@ button {
 
 
 .footer {
-
     padding:
         22px 20px 30px;
 
@@ -868,6 +977,27 @@ button {
 
 
 /* =========================
+   ACCESSIBILITY
+   ========================= */
+
+
+button:focus-visible,
+input:focus-visible {
+    outline:
+        3px solid
+        rgba(
+            242,
+            183,
+            5,
+            .55
+        );
+
+    outline-offset: 3px;
+}
+
+
+
+/* =========================
    TABLET
    ========================= */
 
@@ -876,7 +1006,6 @@ button {
 
     .switch-grid,
     .level-grid {
-
         grid-template-columns:
             repeat(
                 2,
@@ -886,7 +1015,6 @@ button {
 
 
     .programme-grid {
-
         grid-template-columns:
             repeat(
                 2,
@@ -911,7 +1039,6 @@ button {
 
 
     .header-content {
-
         grid-template-columns:
             62px 1fr 62px;
 
@@ -920,31 +1047,24 @@ button {
 
 
     .header-logo img {
-
         width: 56px;
-
         height: 56px;
     }
 
 
     .header-title h1 {
-
         font-size: 20px;
-
         line-height: 1.2;
     }
 
 
     .header-title p {
-
         font-size: 12px;
-
         line-height: 1.3;
     }
 
 
     .container {
-
         padding:
             28px
             15px
@@ -955,20 +1075,17 @@ button {
     .search-box,
     .home-section,
     .page-heading {
-
         border-radius: 16px;
     }
 
 
     .search-box,
     .home-section {
-
         padding: 20px;
     }
 
 
     .page-heading {
-
         padding: 20px;
     }
 
@@ -976,7 +1093,6 @@ button {
     .search-copy h2,
     .section-heading h2,
     .page-heading h2 {
-
         font-size: 23px;
     }
 
@@ -986,24 +1102,34 @@ button {
     .level-grid,
     .programme-grid,
     .course-grid,
-    .search-results-grid {
-
+    .search-results-grid,
+    .module-files-grid {
         grid-template-columns:
             1fr;
     }
 
 
     .semester-card {
-
         min-height: 145px;
-
         padding: 20px;
     }
 
 
     .level-card {
-
         min-height: 135px;
+    }
+
+
+    .module-file-card {
+        min-height: 130px;
+    }
+
+
+    .open-btn {
+        min-height: 42px;
+
+        padding:
+            11px 15px;
     }
 
 }
