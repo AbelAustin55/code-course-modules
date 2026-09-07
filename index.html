@@ -4,84 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="UCC College of Distance Education course modules portal">
-
     <title>UCC Course Modules</title>
-
     <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-
 <header class="header">
-
     <div class="header-content">
-
-        <!-- UCC LOGO -->
         <div class="header-logo header-logo-left">
-            <img
-                src="logos/ucc-logo-png.png"
-                alt="University of Cape Coast Logo"
-            >
+            <img src="logos/ucc-logo-png.png" alt="University of Cape Coast Logo">
         </div>
 
-        <!-- CENTRE TITLE -->
-        <button
-            class="header-title"
-            type="button"
-            onclick="goHome()"
-            aria-label="Return to home"
-        >
+        <button class="header-title" type="button" onclick="goHome()" aria-label="Return to home">
             <h1>UCC Course Modules</h1>
             <p>College of Distance Education</p>
         </button>
 
-        <!-- CODE LOGO -->
         <div class="header-logo header-logo-right">
-            <img
-                src="logos/code-logo-png.png"
-                alt="College of Distance Education Logo"
-            >
+            <img src="logos/code-logo-png.png" alt="College of Distance Education Logo">
         </div>
-
     </div>
-
 </header>
-
 
 <main class="container">
 
-
-    <!-- =========================
-         HOME
-         ========================= -->
-
     <section id="homeView" class="view active">
 
-
-        <!-- SEARCH -->
-
-        <section
-            class="search-box"
-            aria-labelledby="searchLabel"
-        >
-
+        <section class="search-box" aria-labelledby="searchLabel">
             <div class="search-copy">
-
-                <span class="eyebrow">
-                    Quick Access
-                </span>
-
-                <h2 id="searchLabel">
-                    Find a course module
-                </h2>
-
-                <p>
-                    Search by course code, title,
-                    programme, level or semester.
-                </p>
-
+                <span class="eyebrow">Quick Access</span>
+                <h2 id="searchLabel">Find a course module</h2>
+                <p>Search by course code, title, programme, level or semester.</p>
             </div>
-
 
             <input
                 id="courseSearch"
@@ -91,370 +44,151 @@
                 autocomplete="off"
             >
 
-
-            <div
-                id="searchResults"
-                class="search-results"
-                hidden
-            >
-
+            <div id="searchResults" class="search-results" hidden>
                 <div class="search-results-header">
                     <strong id="searchResultCount"></strong>
                 </div>
 
-                <div
-                    id="searchResultsList"
-                    class="search-results-grid"
-                ></div>
+                <div id="searchResultsList" class="search-results-grid"></div>
 
-                <p
-                    id="noSearchResults"
-                    class="no-results"
-                    hidden
-                >
+                <p id="noSearchResults" class="no-results" hidden>
                     No matching courses found.
                 </p>
-
             </div>
-
         </section>
 
-
-
-        <!-- =========================
-             UNDERGRADUATE
-             ========================= -->
-
         <section class="home-section">
-
             <div class="section-heading">
-
-                <span class="eyebrow">
-                    Undergraduate
-                </span>
-
-                <h2>
-                    Undergraduate Course Modules
-                </h2>
-
-                <p>
-                    Select the semester you want to browse.
-                </p>
-
+                <span class="eyebrow">Undergraduate</span>
+                <h2>Undergraduate Course Modules</h2>
+                <p>Select the semester you want to browse.</p>
             </div>
-
 
             <div class="semester-grid">
 
-
-                <!-- FIRST SEMESTER -->
-
-                <button
-                    class="semester-card"
-                    onclick="showLevels('firstSemester')"
-                >
-
-                    <span class="semester-number">
-                        01
-                    </span>
-
-                    <span class="semester-name">
-                        First Semester
-                    </span>
-
-                    <span class="semester-action">
-                        Select Semester →
-                    </span>
-
+                <button class="semester-card" onclick="showLevels('firstSemester')">
+                    <span class="semester-number">01</span>
+                    <span class="semester-name">First Semester</span>
+                    <span class="semester-action">Select Semester →</span>
                 </button>
 
-
-
-                <!-- SECOND SEMESTER -->
-
-                <button
-                    class="semester-card"
-                    onclick="showLevels('secondSemester')"
-                >
-
-                    <span class="semester-number">
-                        02
-                    </span>
-
-                    <span class="semester-name">
-                        Second Semester
-                    </span>
-
-                    <span class="semester-action">
-                        Select Semester →
-                    </span>
-
+                <button class="semester-card" onclick="showLevels('secondSemester')">
+                    <span class="semester-number">02</span>
+                    <span class="semester-name">Second Semester</span>
+                    <span class="semester-action">Select Semester →</span>
                 </button>
-
 
             </div>
-
         </section>
-
-
-
-        <!-- =========================
-             SWITCH
-             ========================= -->
 
         <section class="home-section switch-section">
-
             <div class="section-heading">
-
-                <span class="eyebrow">
-                    SWITCH
-                </span>
-
-                <h2>
-                    SWITCH Modules
-                </h2>
-
-                <p>
-                    Select your programme to view available modules.
-                </p>
-
+                <span class="eyebrow">SWITCH</span>
+                <h2>SWITCH Modules</h2>
+                <p>Select your programme to view available modules.</p>
             </div>
 
-
-            <div
-                id="switchProgrammeList"
-                class="switch-grid"
-            ></div>
-
+            <div id="switchProgrammeList" class="switch-grid"></div>
         </section>
-
 
     </section>
 
+    <section id="levelView" class="view">
 
-
-    <!-- =========================
-         LEVEL VIEW
-         ========================= -->
-
-    <section
-        id="levelView"
-        class="view"
-    >
-
-        <button
-            class="back-btn"
-            onclick="goHome()"
-        >
+        <button class="back-btn" onclick="goHome()">
             ← Back to Semesters
         </button>
 
-
         <div class="page-heading">
-
-            <span class="eyebrow">
-                Undergraduate
-            </span>
-
-            <h2 id="levelHeading">
-                Semester
-            </h2>
-
-            <p id="levelSubheading">
-                Select your level
-            </p>
-
+            <span class="eyebrow">Undergraduate</span>
+            <h2 id="levelHeading">Semester</h2>
+            <p id="levelSubheading">Select your level</p>
         </div>
-
 
         <div class="level-grid">
 
-
-            <button
-                class="level-card"
-                onclick="showProgrammes('100')"
-            >
-
-                <span class="level-number">
-                    100
-                </span>
-
-                <span class="level-title">
-                    Level 100
-                </span>
-
-                <span class="level-action">
-                    View Programmes →
-                </span>
-
+            <button class="level-card" onclick="showProgrammes('100')">
+                <span class="level-number">100</span>
+                <span class="level-title">Level 100</span>
+                <span class="level-action">View Programmes →</span>
             </button>
 
-
-
-            <button
-                class="level-card"
-                onclick="showProgrammes('200')"
-            >
-
-                <span class="level-number">
-                    200
-                </span>
-
-                <span class="level-title">
-                    Level 200
-                </span>
-
-                <span class="level-action">
-                    View Programmes →
-                </span>
-
+            <button class="level-card" onclick="showProgrammes('200')">
+                <span class="level-number">200</span>
+                <span class="level-title">Level 200</span>
+                <span class="level-action">View Programmes →</span>
             </button>
 
-
-
-            <button
-                class="level-card"
-                onclick="showProgrammes('300')"
-            >
-
-                <span class="level-number">
-                    300
-                </span>
-
-                <span class="level-title">
-                    Level 300
-                </span>
-
-                <span class="level-action">
-                    View Programmes →
-                </span>
-
+            <button class="level-card" onclick="showProgrammes('300')">
+                <span class="level-number">300</span>
+                <span class="level-title">Level 300</span>
+                <span class="level-action">View Programmes →</span>
             </button>
 
-
-
-            <button
-                class="level-card"
-                onclick="showProgrammes('400')"
-            >
-
-                <span class="level-number">
-                    400
-                </span>
-
-                <span class="level-title">
-                    Level 400
-                </span>
-
-                <span class="level-action">
-                    View Programmes →
-                </span>
-
+            <button class="level-card" onclick="showProgrammes('400')">
+                <span class="level-number">400</span>
+                <span class="level-title">Level 400</span>
+                <span class="level-action">View Programmes →</span>
             </button>
-
 
         </div>
-
     </section>
 
+    <section id="programmeView" class="view">
 
-
-    <!-- =========================
-         PROGRAMME VIEW
-         ========================= -->
-
-    <section
-        id="programmeView"
-        class="view"
-    >
-
-        <button
-            class="back-btn"
-            onclick="backToLevels()"
-        >
+        <button class="back-btn" onclick="backToLevels()">
             ← Back to Levels
         </button>
 
-
         <div class="page-heading">
-
-            <span class="eyebrow">
-                Choose Programme
-            </span>
-
-            <h2 id="programmeHeading">
-                Programmes
-            </h2>
-
-            <p>
-                Select your programme to see its courses.
-            </p>
-
+            <span class="eyebrow">Choose Programme</span>
+            <h2 id="programmeHeading">Programmes</h2>
+            <p>Select your programme to see its courses.</p>
         </div>
 
-
-        <div
-            id="programmeList"
-            class="programme-grid"
-        ></div>
+        <div id="programmeList" class="programme-grid"></div>
 
     </section>
 
+    <section id="courseView" class="view">
 
-
-    <!-- =========================
-         COURSE VIEW
-         ========================= -->
-
-    <section
-        id="courseView"
-        class="view"
-    >
-
-        <button
-            class="back-btn"
-            onclick="backToProgrammes()"
-        >
+        <button class="back-btn" onclick="backToProgrammes()">
             ← Back
         </button>
 
-
         <div class="page-heading">
-
-            <span class="eyebrow">
-                Course Modules
-            </span>
-
-            <h2 id="courseHeading">
-                Courses
-            </h2>
-
+            <span class="eyebrow">Course Modules</span>
+            <h2 id="courseHeading">Courses</h2>
             <p id="courseSubheading"></p>
-
         </div>
 
-
-        <div
-            id="courseList"
-            class="course-grid"
-        ></div>
+        <div id="courseList" class="course-grid"></div>
 
     </section>
 
+    <section id="moduleResultsView" class="view">
+
+        <button class="back-btn" onclick="backToCourseList()">
+            ← Back to Courses
+        </button>
+
+        <div class="page-heading">
+            <span class="eyebrow">Available Modules</span>
+            <h2 id="moduleResultsHeading">Course Modules</h2>
+            <p id="moduleResultsSubheading"></p>
+        </div>
+
+        <div id="moduleFilesList" class="module-files-grid"></div>
+
+    </section>
 
 </main>
 
-
-
 <footer class="footer">
-
     <p>
-        University of Cape Coast ·
-        College of Distance Education
+        University of Cape Coast · College of Distance Education
     </p>
-
 </footer>
-
 
 <script src="script.js"></script>
 
