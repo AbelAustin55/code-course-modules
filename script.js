@@ -5059,7 +5059,365 @@ function normalizeSearchTitle(
 
 }
 
+/* ---------------------------------------------------------
+   EXTRACT UNIT / SESSION NUMBER
+   --------------------------------------------------------- */
 
+
+function extractCloudUnitInfo(
+    filename
+) {
+
+    const title =
+        cleanCloudModuleTitle(
+            filename
+        );
+
+
+    const match =
+        title.match(
+            /^(unit|session|chapter|part)\s*(\d+)\s*[-:._]?\s*(.+)$/i
+        );
+
+
+    if (!match) {
+
+        return {
+            isUnit: false,
+            type: null,
+            number: null,
+            baseTitle: title
+        };
+
+    }
+
+
+    return {
+        isUnit: true,
+        type: match[1],
+        number: Number(match[2]),
+        baseTitle: match[3].trim()
+    };
+
+}
+
+
+
+/* ---------------------------------------------------------
+   GROUP RELATED CLOUD MODULE FILES
+   --------------------------------------------------------- */
+
+
+function groupCloudModuleResults(
+    cloudResults
+) {
+
+    const groups =
+        new Map();
+
+
+    const singles =
+        [];
+
+
+    cloudResults.forEach(
+        item => {
+
+            const unitInfo =
+                extractCloudUnitInfo(
+                    item.filename
+                );
+
+
+            if (!unitInfo.isUnit) {
+
+                singles.push(
+                    item
+                );
+
+                return;
+            }
+
+
+            const groupKey = [
+                String(
+                    item.semester || ""
+                ).toLowerCase(),
+
+                normalizeSearchTitle(
+                    unitInfo.baseTitle
+                ),
+
+                String(
+                    item.folder || ""
+                )
+                    .toLowerCase()
+                    .replace(
+                        /\/[^/]+$/,
+                        ""
+                    )
+            ].join("|");
+
+
+            if (!groups.has(groupKey)) {
+
+                groups.set(
+                    groupKey,
+                    {
+                        type:
+                            "CloudGroup",
+
+                        title:
+                            unitInfo.baseTitle,
+
+                        semester:
+                            item.semester,
+
+                        semesterName:
+                            item.semesterName,
+
+                        folder:
+                            item.folder,
+
+                        files:
+                            []
+                    }
+                );
+
+            }
+
+
+            groups.get(groupKey)
+                .files
+                .push({
+                    ...item,
+                    unitType:
+                        unitInfo.type,
+
+                    unitNumber:
+                        unitInfo.number
+                });
+
+        }
+    );
+
+
+    const groupedResults =
+        [];
+
+
+    groups.forEach(
+        group => {
+
+            group.files.sort(
+                (a, b) =>
+                    a.unitNumber -
+                    b.unitNumber
+            );
+
+
+            /*
+            Only convert to a grouped card if at
+            least two related files exist.
+            */
+
+            if (
+                group.files.length >= 2
+            ) {
+
+                groupedResults.push(
+                    group
+                );
+
+            }
+            else {
+
+                singles.push(
+                    group.files[0]
+                );
+
+            }
+
+        }
+    );
+
+
+    return [
+        ...singles,
+        ...groupedResults
+    ];
+
+}
+
+
+
+/* ---------------------------------------------------------
+   CREATE GROUPED CLOUD MODULE CARD
+   --------------------------------------------------------- */
+
+
+function createCloudGroupCard(
+    item
+) {
+
+    const card =
+        document.createElement(
+            "article"
+        );
+
+
+    card.className =
+        "search-result-card cloud-group-card";
+
+
+    const code =
+        document.createElement(
+            "div"
+        );
+
+
+    code.className =
+        "search-result-code";
+
+
+    code.textContent =
+        "CLOUD MODULE";
+
+
+    const title =
+        document.createElement(
+            "div"
+        );
+
+
+    title.className =
+        "search-result-title";
+
+
+    title.textContent =
+        item.title;
+
+
+    const meta =
+        document.createElement(
+            "div"
+        );
+
+
+    meta.className =
+        "search-result-meta";
+
+
+    meta.textContent =
+        `${item.files.length} files available · ${
+            item.semesterName ||
+            "Module Library"
+        } · ${
+            getCloudFolderLabel(
+                item.folder
+            )
+        }`;
+
+
+    const fileList =
+        document.createElement(
+            "div"
+        );
+
+
+    fileList.className =
+        "cloud-unit-list";
+
+
+    item.files.forEach(
+        file => {
+
+            const row =
+                document.createElement(
+                    "div"
+                );
+
+
+            row.className =
+                "cloud-unit-row";
+
+
+            const label =
+                document.createElement(
+                    "span"
+                );
+
+
+            label.className =
+                "cloud-unit-label";
+
+
+            const unitType =
+                String(
+                    file.unitType || "Unit"
+                );
+
+
+            label.textContent =
+                `${unitType.charAt(0).toUpperCase()}${unitType.slice(1)} ${file.unitNumber}`;
+
+
+            const button =
+                document.createElement(
+                    "button"
+                );
+
+
+            button.type =
+                "button";
+
+
+            button.className =
+                "open-btn cloud-unit-button";
+
+
+            button.textContent =
+                "PREVIEW";
+
+
+            button.addEventListener(
+                "click",
+                event => {
+
+                    openCloudModule(
+                        event,
+                        file.url
+                    );
+
+                }
+            );
+
+
+            row.append(
+                label,
+                button
+            );
+
+
+            fileList.appendChild(
+                row
+            );
+
+        }
+    );
+
+
+    card.append(
+        code,
+        title,
+        meta,
+        fileList
+    );
+
+
+    return card;
+
+}
 
 /* ---------------------------------------------------------
    REMOVE CLOUD RESULTS ALREADY REPRESENTED
@@ -5329,6 +5687,11 @@ async function renderSearchResults(
             frontendResults,
             cloudResults
         );
+   
+   cloudResults =
+    groupCloudModuleResults(
+        cloudResults
+    );
 
 
     const combinedResults = [
@@ -5370,6 +5733,20 @@ async function renderSearchResults(
 
     combinedResults.forEach(
         item => {
+           
+           if (
+    item.type ===
+    "CloudGroup"
+) {
+
+    resultsList.appendChild(
+        createCloudGroupCard(
+            item
+        )
+    );
+
+    return;
+}
 
 
             const card =
