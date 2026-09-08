@@ -4868,7 +4868,322 @@ function searchAllCourses(
    ========================================================= */
 
 
-function renderSearchResults(
+let cloudSearchRequestNumber = 0;
+
+
+/* ---------------------------------------------------------
+   SEARCH CLOUD MODULE INDEX
+   --------------------------------------------------------- */
+
+
+async function searchCloudModules(query) {
+
+    const trimmed =
+        String(query || "").trim();
+
+
+    if (trimmed.length < 2) {
+        return [];
+    }
+
+
+    const params =
+        new URLSearchParams();
+
+
+    params.set(
+        "q",
+        trimmed
+    );
+
+
+    try {
+
+        const response =
+            await fetch(
+                `${MODULE_API_BASE}/modules/search?${params.toString()}`,
+                {
+                    method: "GET",
+                    headers: {
+                        "Accept":
+                            "application/json"
+                    }
+                }
+            );
+
+
+        if (!response.ok) {
+            return [];
+        }
+
+
+        const data =
+            await response.json();
+
+
+        if (
+            !data.found ||
+            !Array.isArray(data.results)
+        ) {
+            return [];
+        }
+
+
+        /*
+        The same PDF may exist in several programme
+        folders in Nextcloud.
+
+        For student search, show only one copy of an
+        identical filename.
+        */
+
+        const uniqueFiles =
+            new Map();
+
+
+        data.results.forEach(
+            file => {
+
+                const key =
+                    String(
+                        file.filename || ""
+                    )
+                        .trim()
+                        .toLowerCase();
+
+
+                if (
+                    key &&
+                    !uniqueFiles.has(key)
+                ) {
+
+                    uniqueFiles.set(
+                        key,
+                        {
+                            type:
+                                "Cloud",
+
+                            filename:
+                                file.filename,
+
+                            title:
+                                cleanCloudModuleTitle(
+                                    file.filename
+                                ),
+
+                            semester:
+                                file.semester,
+
+                            semesterName:
+                                file.semester_name,
+
+                            folder:
+                                file.folder,
+
+                            relativePath:
+                                file.relative_path,
+
+                            url:
+                                file.url
+                        }
+                    );
+
+                }
+
+            }
+        );
+
+
+        return Array.from(
+            uniqueFiles.values()
+        );
+
+    }
+    catch (error) {
+
+        console.error(
+            "Cloud module search failed:",
+            error
+        );
+
+
+        /*
+        A cloud-search failure must not prevent
+        the normal frontend catalogue search
+        from continuing to work.
+        */
+
+        return [];
+
+    }
+
+}
+
+
+
+/* ---------------------------------------------------------
+   CLEAN CLOUD PDF TITLE
+   --------------------------------------------------------- */
+
+
+function cleanCloudModuleTitle(
+    filename
+) {
+
+    return String(filename || "")
+        .replace(/\.pdf$/i, "")
+        .replace(/_/g, " ")
+        .replace(/\s+/g, " ")
+        .trim();
+
+}
+
+
+
+/* ---------------------------------------------------------
+   NORMALISE TITLE FOR DUPLICATE CHECKING
+   --------------------------------------------------------- */
+
+
+function normalizeSearchTitle(
+    value
+) {
+
+    return String(value || "")
+        .toLowerCase()
+        .replace(/\.pdf$/i, "")
+        .replace(/[_-]+/g, " ")
+        .replace(/[^a-z0-9]+/g, " ")
+        .replace(/\s+/g, " ")
+        .trim();
+
+}
+
+
+
+/* ---------------------------------------------------------
+   REMOVE CLOUD RESULTS ALREADY REPRESENTED
+   BY FRONTEND COURSE RESULTS
+   --------------------------------------------------------- */
+
+
+function removeFrontendCloudDuplicates(
+    frontendResults,
+    cloudResults
+) {
+
+    const frontendTitles =
+        new Set();
+
+
+    frontendResults.forEach(
+        item => {
+
+            frontendTitles.add(
+                normalizeSearchTitle(
+                    item.title
+                )
+            );
+
+        }
+    );
+
+
+    return cloudResults.filter(
+        item => {
+
+            const cloudTitle =
+                normalizeSearchTitle(
+                    item.title
+                );
+
+
+            return !frontendTitles.has(
+                cloudTitle
+            );
+
+        }
+    );
+
+}
+
+
+
+/* ---------------------------------------------------------
+   SHORTEN CLOUD FOLDER DISPLAY
+   --------------------------------------------------------- */
+
+
+function getCloudFolderLabel(
+    folder
+) {
+
+    const parts =
+        String(folder || "")
+            .split("/")
+            .filter(Boolean);
+
+
+    if (!parts.length) {
+        return "Cloud module library";
+    }
+
+
+    /*
+    Showing the entire Nextcloud path would make
+    cards unnecessarily long.
+
+    Keep only the final two useful folder names.
+    */
+
+    return parts
+        .slice(-2)
+        .join(" · ");
+
+}
+
+
+
+/* ---------------------------------------------------------
+   OPEN CLOUD PDF
+   --------------------------------------------------------- */
+
+
+function openCloudModule(
+    event,
+    url
+) {
+
+    event?.stopPropagation();
+
+
+    if (!url) {
+
+        showModuleMessage(
+            "Unable to open this module.",
+            "The PDF preview address is unavailable."
+        );
+
+        return;
+    }
+
+
+    window.open(
+        url,
+        "_blank",
+        "noopener,noreferrer"
+    );
+
+}
+
+
+
+/* ---------------------------------------------------------
+   RENDER COMBINED SEARCH
+   --------------------------------------------------------- */
+
+
+async function renderSearchResults(
     query
 ) {
 
@@ -4910,54 +5225,150 @@ function renderSearchResults(
         String(query || "").trim();
 
 
+    /*
+    Incrementing this number lets us ignore an
+    older API response if the student continues
+    typing before that response finishes.
+    */
+
+    const requestNumber =
+        ++cloudSearchRequestNumber;
+
+
     if (!trimmed) {
 
-        resultsBox.hidden = true;
+        resultsBox.hidden =
+            true;
 
-        resultsList.innerHTML = "";
 
-        noResults.hidden = true;
+        resultsList.innerHTML =
+            "";
 
-        count.textContent = "";
+
+        noResults.hidden =
+            true;
+
+
+        count.textContent =
+            "";
+
 
         return;
-
     }
 
 
-    const results =
+    resultsBox.hidden =
+        false;
+
+
+    if (trimmed.length < 2) {
+
+        resultsList.innerHTML =
+            "";
+
+
+        noResults.hidden =
+            true;
+
+
+        count.textContent =
+            "Type at least 2 characters to search.";
+
+
+        return;
+    }
+
+
+    /*
+    Frontend results are immediate.
+    */
+
+    const frontendResults =
         searchAllCourses(
             trimmed
         );
 
 
-    resultsBox.hidden = false;
+    resultsList.innerHTML =
+        "";
 
 
-    resultsList.innerHTML = "";
+    noResults.hidden =
+        true;
 
 
     count.textContent =
-        `${results.length} ${
-            results.length === 1
-                ? "course"
-                : "courses"
-        } found`;
+        "Searching course catalogue and cloud modules…";
 
 
-    if (!results.length) {
+    /*
+    Search the Nextcloud index through our API.
+    */
 
-        noResults.hidden = false;
+    let cloudResults =
+        await searchCloudModules(
+            trimmed
+        );
 
+
+    /*
+    Ignore this response if a newer search has
+    already started.
+    */
+
+    if (
+        requestNumber !==
+        cloudSearchRequestNumber
+    ) {
         return;
-
     }
 
 
-    noResults.hidden = true;
+    cloudResults =
+        removeFrontendCloudDuplicates(
+            frontendResults,
+            cloudResults
+        );
 
 
-    results.forEach(
+    const combinedResults = [
+        ...frontendResults,
+        ...cloudResults
+    ];
+
+
+    resultsList.innerHTML =
+        "";
+
+
+    if (!combinedResults.length) {
+
+        count.textContent =
+            "0 results found";
+
+
+        noResults.hidden =
+            false;
+
+
+        return;
+    }
+
+
+    noResults.hidden =
+        true;
+
+
+    count.textContent =
+        `${combinedResults.length} ${
+            combinedResults.length === 1
+                ? "result"
+                : "results"
+        } found`;
+
+
+
+    combinedResults.forEach(
         item => {
 
 
@@ -4971,6 +5382,7 @@ function renderSearchResults(
                 "search-result-card";
 
 
+
             const code =
                 document.createElement(
                     "div"
@@ -4980,9 +5392,6 @@ function renderSearchResults(
             code.className =
                 "search-result-code";
 
-
-            code.textContent =
-                item.code;
 
 
             const title =
@@ -4995,9 +5404,6 @@ function renderSearchResults(
                 "search-result-title";
 
 
-            title.textContent =
-                item.title;
-
 
             const meta =
                 document.createElement(
@@ -5008,22 +5414,6 @@ function renderSearchResults(
             meta.className =
                 "search-result-meta";
 
-
-            if (
-                item.type ===
-                "Undergraduate"
-            ) {
-
-                meta.textContent =
-                    `${item.semester} · Level ${item.level} · ${item.programme}`;
-
-            }
-            else {
-
-                meta.textContent =
-                    `SWITCH · ${item.programme}`;
-
-            }
 
 
             const button =
@@ -5040,19 +5430,86 @@ function renderSearchResults(
                 "open-btn";
 
 
-            button.textContent =
-                "OPEN MODULES";
+
+            /* =========================
+               CLOUD PDF RESULT
+               ========================= */
 
 
-            button.addEventListener(
-                "click",
-                event => {
+            if (
+                item.type ===
+                "Cloud"
+            ) {
+
+                code.textContent =
+                    "CLOUD MODULE";
 
 
-                    if (
-                        item.type ===
-                        "Undergraduate"
-                    ) {
+                title.textContent =
+                    item.title;
+
+
+                meta.textContent =
+                    `${
+                        item.semesterName ||
+                        "Module Library"
+                    } · ${
+                        getCloudFolderLabel(
+                            item.folder
+                        )
+                    }`;
+
+
+                button.textContent =
+                    "PREVIEW PDF";
+
+
+                button.addEventListener(
+                    "click",
+                    event => {
+
+                        openCloudModule(
+                            event,
+                            item.url
+                        );
+
+                    }
+                );
+
+            }
+
+
+
+            /* =========================
+               UNDERGRADUATE RESULT
+               ========================= */
+
+
+            else if (
+                item.type ===
+                "Undergraduate"
+            ) {
+
+                code.textContent =
+                    item.code;
+
+
+                title.textContent =
+                    item.title;
+
+
+                meta.textContent =
+                    `${item.semester} · Level ${item.level} · ${item.programme}`;
+
+
+                button.textContent =
+                    "OPEN MODULES";
+
+
+                button.addEventListener(
+                    "click",
+                    event => {
+
 
                         navigationType =
                             "undergraduate";
@@ -5076,7 +5533,39 @@ function renderSearchResults(
                         );
 
                     }
-                    else {
+                );
+
+            }
+
+
+
+            /* =========================
+               SWITCH RESULT
+               ========================= */
+
+
+            else {
+
+                code.textContent =
+                    item.code;
+
+
+                title.textContent =
+                    item.title;
+
+
+                meta.textContent =
+                    `SWITCH · ${item.programme}`;
+
+
+                button.textContent =
+                    "OPEN MODULES";
+
+
+                button.addEventListener(
+                    "click",
+                    event => {
+
 
                         navigationType =
                             "switch";
@@ -5092,9 +5581,10 @@ function renderSearchResults(
                         );
 
                     }
+                );
 
-                }
-            );
+            }
+
 
 
             card.append(
@@ -5113,7 +5603,6 @@ function renderSearchResults(
     );
 
 }
-
 
 
 /* =========================================================
