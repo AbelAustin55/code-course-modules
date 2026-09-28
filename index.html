@@ -28,13 +28,18 @@
 
 <main class="container">
 
-    <section id="homeView" class="view active">
+    <!-- GLOBAL SEARCH - ALWAYS AVAILABLE -->
+    <section class="global-search-wrapper">
 
-        <section class="search-box" aria-labelledby="searchLabel">
+        <div class="search-box" aria-labelledby="searchLabel">
+
             <div class="search-copy">
                 <span class="eyebrow">Quick Access</span>
                 <h2 id="searchLabel">Find a course module</h2>
-                <p>Search by course code, title, programme, level or semester.</p>
+                <p>
+                    Search by course code, title, programme,
+                    level or semester.
+                </p>
             </div>
 
             <input
@@ -45,18 +50,35 @@
                 autocomplete="off"
             >
 
-            <div id="searchResults" class="search-results" hidden>
+            <div
+                id="searchResults"
+                class="search-results"
+                hidden
+            >
                 <div class="search-results-header">
                     <strong id="searchResultCount"></strong>
                 </div>
 
-                <div id="searchResultsList" class="search-results-grid"></div>
+                <div
+                    id="searchResultsList"
+                    class="search-results-grid"
+                ></div>
 
-                <p id="noSearchResults" class="no-results" hidden>
+                <p
+                    id="noSearchResults"
+                    class="no-results"
+                    hidden
+                >
                     No matching courses found.
                 </p>
             </div>
-        </section>
+
+        </div>
+
+    </section>
+
+
+    <section id="homeView" class="view active">
 
         <section class="home-section">
             <div class="section-heading">
