@@ -3156,9 +3156,226 @@ function escapeHtml(value = "") {
 /* =========================================================
    HOME / NAVIGATION
    ========================================================= */
+/* =========================================================
+   BROWSER HISTORY NAVIGATION
+   ========================================================= */
+
+let isRestoringHistory = false;
 
 
-function goHome() {
+/*
+Store the current portal screen in the browser history.
+
+This allows the browser Back and Forward buttons to move
+through the portal instead of leaving the website.
+*/
+
+function savePortalHistory(view) {
+
+    if (isRestoringHistory) {
+        return;
+    }
+
+    const state = {
+        portal: true,
+        view: view,
+        navigationType: navigationType,
+        semester: selectedSemester,
+        level: selectedLevel,
+        programme: selectedProgramme
+    };
+
+    window.history.pushState(
+        state,
+        "",
+        window.location.pathname
+    );
+}
+
+
+/*
+Replace the current browser-history entry.
+
+Used when the portal first loads so Home becomes the
+starting point of portal navigation.
+*/
+
+function replacePortalHistory(view) {
+
+    const state = {
+        portal: true,
+        view: view,
+        navigationType: navigationType,
+        semester: selectedSemester,
+        level: selectedLevel,
+        programme: selectedProgramme
+    };
+
+    window.history.replaceState(
+        state,
+        "",
+        window.location.pathname
+    );
+}
+
+
+/*
+Restore a previous portal screen when the browser
+Back or Forward button is pressed.
+*/
+
+function restorePortalHistory(state) {
+
+    if (!state || !state.portal) {
+
+        selectedSemester = null;
+        selectedLevel = null;
+        selectedProgramme = null;
+        navigationType = "undergraduate";
+
+        showView("homeView");
+
+        return;
+    }
+
+
+    isRestoringHistory = true;
+
+    navigationType =
+        state.navigationType ||
+        "undergraduate";
+
+    selectedSemester =
+        state.semester || null;
+
+    selectedLevel =
+        state.level || null;
+
+    selectedProgramme =
+        state.programme || null;
+
+
+    /*
+    HOME
+    */
+
+    if (state.view === "home") {
+
+        showView("homeView");
+
+    }
+
+
+    /*
+    LEVEL SELECTION
+    */
+
+    else if (
+        state.view === "levels" &&
+        selectedSemester
+    ) {
+
+        showLevels(
+            selectedSemester,
+            false
+        );
+
+    }
+
+
+    /*
+    PROGRAMME SELECTION
+    */
+
+    else if (
+        state.view === "programmes" &&
+        selectedSemester &&
+        selectedLevel
+    ) {
+
+        showProgrammes(
+            selectedLevel,
+            false
+        );
+
+    }
+
+
+    /*
+    COURSE LIST
+    */
+
+    else if (
+        state.view === "courses"
+    ) {
+
+        if (
+            navigationType === "switch" &&
+            selectedProgramme
+        ) {
+
+            showSwitchCourses(
+                selectedProgramme,
+                false
+            );
+
+        }
+
+        else if (
+            selectedSemester &&
+            selectedLevel &&
+            selectedProgramme
+        ) {
+
+            showCourses(
+                selectedProgramme,
+                false
+            );
+
+        }
+
+        else {
+
+            showView("homeView");
+
+        }
+
+    }
+
+
+    /*
+    Unknown/invalid history state
+    */
+
+    else {
+
+        showView("homeView");
+
+    }
+
+
+    isRestoringHistory = false;
+}
+
+
+/*
+Listen for the browser Back and Forward buttons.
+*/
+
+window.addEventListener(
+    "popstate",
+    event => {
+
+        restorePortalHistory(
+            event.state
+        );
+
+    }
+);
+
+function goHome(
+    addHistory = true
+) {
 
     selectedSemester = null;
     selectedLevel = null;
@@ -3167,69 +3384,46 @@ function goHome() {
 
     showView("homeView");
 
-}
+    if (addHistory) {
+        savePortalHistory("home");
+    }
 
+}
 
 function backToLevels() {
 
-    if (!selectedSemester) {
-        goHome();
+    if (window.history.length > 1) {
+        window.history.back();
         return;
     }
 
-    showView("levelView");
+    goHome();
 
 }
 
 
 function backToProgrammes() {
 
-    if (
-        navigationType === "switch"
-    ) {
-        goHome();
+    if (window.history.length > 1) {
+        window.history.back();
         return;
     }
 
-
-    if (
-        !selectedSemester ||
-        !selectedLevel
-    ) {
-        goHome();
-        return;
-    }
-
-
-    showView("programmeView");
+    goHome();
 
 }
 
 
 function backToCourseList() {
 
-    if (
-        navigationType === "switch"
-    ) {
-        showView("courseView");
+    if (window.history.length > 1) {
+        window.history.back();
         return;
     }
-
-
-    if (
-        selectedSemester &&
-        selectedLevel &&
-        selectedProgramme
-    ) {
-        showView("courseView");
-        return;
-    }
-
 
     goHome();
 
 }
-
 
 
 /* =========================================================
@@ -3237,8 +3431,10 @@ function backToCourseList() {
    ========================================================= */
 
 
-function showLevels(semesterKey) {
-
+function showLevels(
+    semesterKey,
+    addHistory = true
+) {
     if (
         !undergraduateData[semesterKey]
     ) {
@@ -3286,12 +3482,21 @@ function showLevels(semesterKey) {
     }
 
 
-    showView("levelView");
+      showView("levelView");
+
+    if (addHistory) {
+        savePortalHistory("levels");
+    }
+
+
 
 }
 
 
-function showProgrammes(level) {
+function showProgrammes(
+    level,
+    addHistory = true
+) {
 
     if (
         !selectedSemester ||
@@ -3407,7 +3612,11 @@ function showProgrammes(level) {
         });
 
 
-    showView("programmeView");
+       showView("programmeView");
+
+    if (addHistory) {
+        savePortalHistory("programmes");
+    }
 
 }
 
@@ -3418,7 +3627,10 @@ function showProgrammes(level) {
    ========================================================= */
 
 
-function showCourses(programme) {
+function showCourses(
+    programme,
+    addHistory = true
+) {
 
     navigationType =
         "undergraduate";
@@ -3581,7 +3793,11 @@ function showCourses(programme) {
     });
 
 
-    showView("courseView");
+       showView("courseView");
+
+    if (addHistory) {
+        savePortalHistory("courses");
+    }
 
 }
 
@@ -3653,8 +3869,10 @@ function loadSwitchProgrammes() {
 }
 
 
-function showSwitchCourses(programme) {
-
+function showSwitchCourses(
+    programme,
+    addHistory = true
+) {
     navigationType =
         "switch";
 
@@ -3786,7 +4004,13 @@ function showSwitchCourses(programme) {
     });
 
 
-    showView("courseView");
+        showView("courseView");
+
+    if (addHistory) {
+        savePortalHistory("courses");
+    }
+
+
 
 }
 /* =========================================================
@@ -6014,12 +6238,21 @@ function initialisePortal() {
     }
 
 
-    showView(
+       showView(
         "homeView"
     );
 
-}
 
+    /*
+    Make the initially loaded Home screen the first
+    portal state in browser history.
+    */
+
+    replacePortalHistory(
+        "home"
+    );
+
+}
 
 
 if (
