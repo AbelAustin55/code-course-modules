@@ -3154,9 +3154,6 @@ function escapeHtml(value = "") {
 
 
 /* =========================================================
-   HOME / NAVIGATION
-   ========================================================= */
-/* =========================================================
    BROWSER HISTORY NAVIGATION
    ========================================================= */
 
@@ -3164,10 +3161,50 @@ let isRestoringHistory = false;
 
 
 /*
-Store the current portal screen in the browser history.
+Build a unique URL hash for each portal screen.
+*/
 
-This allows the browser Back and Forward buttons to move
-through the portal instead of leaving the website.
+function getPortalHistoryUrl(view) {
+
+    const params =
+        new URLSearchParams();
+
+    params.set("view", view);
+
+    if (navigationType) {
+        params.set(
+            "type",
+            navigationType
+        );
+    }
+
+    if (selectedSemester) {
+        params.set(
+            "semester",
+            selectedSemester
+        );
+    }
+
+    if (selectedLevel) {
+        params.set(
+            "level",
+            selectedLevel
+        );
+    }
+
+    if (selectedProgramme) {
+        params.set(
+            "programme",
+            selectedProgramme
+        );
+    }
+
+    return `#${params.toString()}`;
+}
+
+
+/*
+Store a portal screen in browser history.
 */
 
 function savePortalHistory(view) {
@@ -3188,16 +3225,13 @@ function savePortalHistory(view) {
     window.history.pushState(
         state,
         "",
-        window.location.pathname
+        getPortalHistoryUrl(view)
     );
 }
 
 
 /*
-Replace the current browser-history entry.
-
-Used when the portal first loads so Home becomes the
-starting point of portal navigation.
+Set the initial Home history entry.
 */
 
 function replacePortalHistory(view) {
@@ -3214,30 +3248,20 @@ function replacePortalHistory(view) {
     window.history.replaceState(
         state,
         "",
-        window.location.pathname
+        getPortalHistoryUrl(view)
     );
 }
 
 
 /*
-Restore a previous portal screen when the browser
-Back or Forward button is pressed.
+Restore a portal screen when Back or Forward is pressed.
 */
 
 function restorePortalHistory(state) {
 
     if (!state || !state.portal) {
-
-        selectedSemester = null;
-        selectedLevel = null;
-        selectedProgramme = null;
-        navigationType = "undergraduate";
-
-        showView("homeView");
-
         return;
     }
-
 
     isRestoringHistory = true;
 
@@ -3255,20 +3279,19 @@ function restorePortalHistory(state) {
         state.programme || null;
 
 
-    /*
-    HOME
-    */
-
     if (state.view === "home") {
 
-        showView("homeView");
+        selectedSemester = null;
+        selectedLevel = null;
+        selectedProgramme = null;
+        navigationType = "undergraduate";
+
+        showView(
+            "homeView"
+        );
 
     }
 
-
-    /*
-    LEVEL SELECTION
-    */
 
     else if (
         state.view === "levels" &&
@@ -3282,10 +3305,6 @@ function restorePortalHistory(state) {
 
     }
 
-
-    /*
-    PROGRAMME SELECTION
-    */
 
     else if (
         state.view === "programmes" &&
@@ -3301,65 +3320,49 @@ function restorePortalHistory(state) {
     }
 
 
-    /*
-    COURSE LIST
-    */
-
     else if (
-        state.view === "courses"
+        state.view === "courses" &&
+        navigationType === "switch" &&
+        selectedProgramme
     ) {
 
-        if (
-            navigationType === "switch" &&
-            selectedProgramme
-        ) {
-
-            showSwitchCourses(
-                selectedProgramme,
-                false
-            );
-
-        }
-
-        else if (
-            selectedSemester &&
-            selectedLevel &&
-            selectedProgramme
-        ) {
-
-            showCourses(
-                selectedProgramme,
-                false
-            );
-
-        }
-
-        else {
-
-            showView("homeView");
-
-        }
+        showSwitchCourses(
+            selectedProgramme,
+            false
+        );
 
     }
 
 
-    /*
-    Unknown/invalid history state
-    */
+    else if (
+        state.view === "courses" &&
+        selectedSemester &&
+        selectedLevel &&
+        selectedProgramme
+    ) {
+
+        showCourses(
+            selectedProgramme,
+            false
+        );
+
+    }
+
 
     else {
 
-        showView("homeView");
+        showView(
+            "homeView"
+        );
 
     }
-
 
     isRestoringHistory = false;
 }
 
 
 /*
-Listen for the browser Back and Forward buttons.
+Browser Back / Forward.
 */
 
 window.addEventListener(
