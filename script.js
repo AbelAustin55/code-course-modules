@@ -3701,6 +3701,76 @@ const businessProgrammeLevels = {
 };
 
 
+/* =========================================
+   BUSINESS SPECIALISATIONS
+   ========================================= */
+
+const businessSpecialisations = [
+    "Accounting",
+    "Finance",
+    "Human Resource Management",
+    "Management",
+    "Marketing",
+    "Procurement and Supply Chain Management"
+];
+
+let selectedSpecialisation = null;
+
+function showBusinessSpecialisations(level) {
+
+    selectedLevel = String(level);
+    selectedSpecialisation = null;
+
+    const heading =
+        document.getElementById("specialisationHeading");
+
+    const subheading =
+        document.getElementById("specialisationSubheading");
+
+    const list =
+        document.getElementById("specialisationList");
+
+    if (!list) return;
+
+    heading.textContent =
+        `${selectedProgramme} · Level ${selectedLevel}`;
+
+    subheading.textContent =
+        "Select your specialisation to view its courses.";
+
+    list.innerHTML = "";
+
+    businessSpecialisations.forEach(name => {
+
+        const card = document.createElement("article");
+        card.className = "programme-card";
+
+        const title = document.createElement("h3");
+        title.textContent = name;
+
+        const action = document.createElement("span");
+        action.textContent = "Course selection will be connected next";
+
+        card.append(title, action);
+        list.appendChild(card);
+
+    });
+
+    showView("specialisationView");
+
+    savePortalHistory("specialisations");
+}
+
+function backToProgrammeLevels() {
+
+    if (selectedProgramme) {
+        showProgrammeLevels(selectedProgramme);
+    } else {
+        goHome();
+    }
+
+}
+
 
 function showProgrammeLevels(
     programme,
@@ -3767,8 +3837,16 @@ const availableLevels =
                 return;
             }
 
-            selectedLevel = level;
-            showCourses(programme);
+           selectedLevel = level;
+
+if (
+    selectedDepartment === "Business" &&
+    programme === "4YR BCOM 100,200,300,400"
+) {
+    showBusinessSpecialisations(level);
+} else {
+    showCourses(programme);
+}
 
         };
 
