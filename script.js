@@ -3093,6 +3093,7 @@ let selectedSemester = null;
 let selectedLevel = null;
 let selectedProgramme = null;
 let navigationType = "undergraduate";
+let selectedDepartment = null;
 
 
 
@@ -3517,6 +3518,239 @@ function showDepartments(
     }
 
 }
+
+
+/* =========================================================
+   DEPARTMENT TO PROGRAMME NAVIGATION
+   ========================================================= */
+
+const departmentProgrammeMap = {
+
+    "Business": [
+        "B.Com Accounting",
+        "B.Com Accounting / Business / Management",
+        "B.Com Accounting / Management",
+        "B.Com Finance",
+        "B.Com Human Resource Management",
+        "B.Com Management",
+        "B.Ed Accounting / Management",
+        "B.Ed Accounting / Management / Social Studies",
+        "Business / Management",
+        "Business Administration / Management",
+        "Business Programmes",
+        "Marketing",
+        "Procurement & Supply Chain Management"
+    ],
+
+    "Education": [
+        "B.Ed Early Childhood / Primary / JHS Education",
+        "B.Ed Early Childhood Education",
+        "B.Ed Primary / JHS Education",
+        "Education / Teacher Education",
+        "Home Economics"
+    ],
+
+    "Mathematics and Science": [
+        "B.Ed Mathematics",
+        "B.Ed Science",
+        "B.Sc Information Technology",
+        "B.Ed Information Technology / Computing Education",
+        "Information Technology"
+    ],
+
+    "Arts and Social Sciences": [
+        "B.Ed Arts",
+        "B.Ed Arts / Religious Studies",
+        "B.Ed Social Studies",
+        "B.Sc Psychology",
+        "BA Social Behaviour & Conflict Management",
+        "Geography / Social Sciences",
+        "Ghanaian Language Education",
+        "Visual / Communication Design"
+    ]
+
+};
+
+
+function showDepartmentProgrammes(
+    department,
+    addHistory = true
+) {
+
+    if (
+        !selectedSemester ||
+        !departmentProgrammeMap[department]
+    ) {
+        return;
+    }
+
+    selectedDepartment = department;
+    selectedProgramme = null;
+    selectedLevel = null;
+
+    navigationType = "undergraduate";
+
+    const semesterData =
+        undergraduateData[selectedSemester] || {};
+
+    const availableProgrammes = new Set();
+
+    Object.values(semesterData).forEach(levelData => {
+        Object.keys(levelData).forEach(programme => {
+            availableProgrammes.add(programme);
+        });
+    });
+
+    const programmes =
+        departmentProgrammeMap[department].filter(
+            programme => availableProgrammes.has(programme)
+        );
+
+    const heading =
+        document.getElementById("programmeHeading");
+
+    const list =
+        document.getElementById("programmeList");
+
+    if (!list) return;
+
+    if (heading) {
+        heading.textContent =
+            `${semesterLabels[selectedSemester]} · ${department}`;
+    }
+
+    list.innerHTML = "";
+
+    programmes.sort((a, b) => a.localeCompare(b));
+
+    programmes.forEach(programme => {
+
+        const card =
+            document.createElement("button");
+
+        card.type = "button";
+        card.className = "programme-card";
+
+        const title =
+            document.createElement("h3");
+
+        title.textContent = programme;
+
+        const action =
+            document.createElement("span");
+
+        action.textContent = "View Levels →";
+
+        card.append(title, action);
+
+        card.addEventListener("click", () => {
+            showProgrammeLevels(programme);
+        });
+
+        list.appendChild(card);
+
+    });
+
+    if (programmes.length === 0) {
+
+        const message =
+            document.createElement("p");
+
+        message.textContent =
+            "No programmes are currently listed for this department and semester.";
+
+        list.appendChild(message);
+    }
+
+    showView("programmeView");
+
+    if (addHistory) {
+        savePortalHistory("programmes");
+    }
+
+}
+
+
+/* =========================================================
+   PROGRAMME TO LEVEL NAVIGATION
+   ========================================================= */
+
+function showProgrammeLevels(
+    programme,
+    addHistory = true
+) {
+
+    if (!selectedSemester) return;
+
+    const semesterData =
+        undergraduateData[selectedSemester] || {};
+
+    const availableLevels =
+        ["100", "200", "300", "400"].filter(
+            level => Array.isArray(
+                semesterData[level]?.[programme]
+            )
+        );
+
+    if (!availableLevels.length) return;
+
+    selectedProgramme = programme;
+    selectedLevel = null;
+
+    const heading =
+        document.getElementById("levelHeading");
+
+    const subheading =
+        document.getElementById("levelSubheading");
+
+    if (heading) {
+        heading.textContent = programme;
+    }
+
+    if (subheading) {
+        subheading.textContent =
+            `${semesterLabels[selectedSemester]} · Select your level`;
+    }
+
+    document.querySelectorAll(
+        "#levelView .level-card"
+    ).forEach(button => {
+
+        const level =
+            button.querySelector(".level-number")
+                ?.textContent.trim();
+
+        button.disabled =
+            !availableLevels.includes(level);
+
+        const action =
+            button.querySelector(".level-action");
+
+        if (action) {
+            action.textContent = "View Courses →";
+        }
+
+        button.onclick = () => {
+
+            if (!availableLevels.includes(level)) {
+                return;
+            }
+
+            selectedLevel = level;
+            showCourses(programme);
+
+        };
+
+    });
+
+    showView("levelView");
+
+    if (addHistory) {
+        savePortalHistory("levels");
+    }
+
+}
+
 
 function showLevels(
     semesterKey,
