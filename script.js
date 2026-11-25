@@ -5304,8 +5304,8 @@ function createModuleFileCard(
         "open-btn";
 
 
-    button.textContent =
-        "OPEN MODULE";
+   button.textContent =
+    "DOWNLOAD MODULE";
 
 
     button.addEventListener(
@@ -5327,10 +5327,7 @@ function createModuleFileCard(
             }
 
 
-            window.open(
-                file.url,
-                "_blank",
-                "noopener,noreferrer"
+           window.location.assign(file.url);
             );
 
         }
