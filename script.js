@@ -3768,6 +3768,81 @@ const businessCourseCatalogue = {
 };
 
 
+/* =========================================
+   DISPLAY BUSINESS COURSE CARDS
+   ========================================= */
+
+function showBusinessCourseCards(specialisation) {
+
+    const courses =
+        businessCourseCatalogue[selectedSemester]
+            ?.[selectedProgramme]
+            ?.[selectedLevel]
+            ?.[specialisation] || [];
+
+    if (!courses.length) return;
+
+    selectedSpecialisation = specialisation;
+
+    const heading =
+        document.getElementById("courseHeading");
+
+    const subheading =
+        document.getElementById("courseSubheading");
+
+    const list =
+        document.getElementById("courseList");
+
+    if (!list) return;
+
+    if (heading) {
+        heading.textContent =
+            specialisation + " · Level " + selectedLevel;
+    }
+
+    if (subheading) {
+        subheading.textContent =
+            semesterLabels[selectedSemester] +
+            " · " + selectedProgramme;
+    }
+
+    list.innerHTML = "";
+
+    courses.forEach(item => {
+
+        const card = document.createElement("article");
+        card.className = "course-card";
+
+        if (item.code) {
+            const code = document.createElement("div");
+            code.className = "course-code";
+            code.textContent = item.code;
+            card.appendChild(code);
+        }
+
+        const title = document.createElement("div");
+        title.className = "course-title";
+        title.textContent = item.title;
+
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "open-btn";
+        button.textContent = "OPEN MODULES";
+
+        // PDF matching will be connected next.
+        button.disabled = true;
+
+        card.append(title, button);
+        list.appendChild(card);
+
+    });
+
+    showView("courseView");
+    savePortalHistory("businessCourses");
+}
+
+
+
 function showBusinessSpecialisations(level) {
 
     selectedLevel = String(level);
@@ -3792,21 +3867,41 @@ function showBusinessSpecialisations(level) {
 
     list.innerHTML = "";
 
-    businessSpecialisations.forEach(name => {
+    
+businessSpecialisations.forEach(name => {
 
-        const card = document.createElement("article");
-        card.className = "programme-card";
+    const courses =
+        businessCourseCatalogue[selectedSemester]
+            ?.[selectedProgramme]
+            ?.[selectedLevel]
+            ?.[name] || [];
 
-        const title = document.createElement("h3");
-        title.textContent = name;
+    const card = document.createElement("button");
+    card.type = "button";
+    card.className = "programme-card";
 
-        const action = document.createElement("span");
-        action.textContent = "Course selection will be connected next";
+    const title = document.createElement("h3");
+    title.textContent = name;
 
-        card.append(title, action);
-        list.appendChild(card);
+    const action = document.createElement("span");
 
-    });
+    if (courses.length > 0) {
+        action.textContent = "View Courses →";
+
+        card.addEventListener("click", () => {
+            showBusinessCourseCards(name);
+        });
+
+    } else {
+        action.textContent = "Courses being added";
+        card.disabled = true;
+    }
+
+    card.append(title, action);
+    list.appendChild(card);
+
+});
+
 
     showView("specialisationView");
 
