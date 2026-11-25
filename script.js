@@ -3527,20 +3527,14 @@ function showDepartments(
 const departmentProgrammeMap = {
 
     "Business": [
-        "B.Com Accounting",
-        "B.Com Accounting / Business / Management",
-        "B.Com Accounting / Management",
-        "B.Com Finance",
-        "B.Com Human Resource Management",
-        "B.Com Management",
-        "B.Ed Accounting / Management",
-        "B.Ed Accounting / Management / Social Studies",
-        "Business / Management",
-        "Business Administration / Management",
-        "Business Programmes",
-        "Marketing",
-        "Procurement & Supply Chain Management"
-    ],
+    "DCO YR2 LEVEL 200",
+    "4YR BCOM 100,200,300,400",
+    "3YR DCO YR3 LEVEL 200",
+    "3YR BCOM YR1 LEVEL 300 _ LEVEL 400",
+    "3YR BCOM YR1 LEVEL 200",
+    "2YR DCO LEVEL 100",
+    "2YR BCOM YR1 LEVEL 300 _ LEVEL 400"
+     ],
 
     "Education": [
         "B.Ed Early Childhood / Primary / JHS Education",
@@ -3602,7 +3596,9 @@ function showDepartmentProgrammes(
     });
 
     const programmes =
-        departmentProgrammeMap[department].filter(
+    department === "Business"
+        ? [...departmentProgrammeMap["Business"]]
+        : departmentProgrammeMap[department].filter(
             programme => availableProgrammes.has(programme)
         );
 
