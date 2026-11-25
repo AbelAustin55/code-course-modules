@@ -3726,11 +3726,14 @@ const businessCourseCatalogue = {
         "4YR BCOM 100,200,300,400": {
             "100": {
                 "Accounting": [
-                    {
-                        code: "ECO101D",
-                        title: "Principles of Economics 1",
-                        filename: "Principles_of_Economics_1.pdf"
-                    },
+                   
+{
+    code: "ECO101D",
+    title: "Principles of Economics 1",
+    filename: "Principles_of_Economics_1.pdf",
+    relativePath: "/BUSINESS/4YR BCOM  100,200,300, 400/YR1 LEVEL 100/ACCOUNTING LEVEL 100/Principles_of_Economics_1.pdf"
+},
+
                     {
                         code: "",
                         title: "Principles of Accounting 1",
@@ -3829,8 +3832,34 @@ function showBusinessCourseCards(specialisation) {
         button.className = "open-btn";
         button.textContent = "OPEN MODULES";
 
-        // PDF matching will be connected next.
-        button.disabled = true;
+      
+if (
+    item.relativePath &&
+    semesterApiKeys[selectedSemester]
+) {
+
+    button.textContent = "DOWNLOAD MODULE";
+    button.disabled = false;
+
+    button.addEventListener("click", () => {
+
+        const params = new URLSearchParams({
+            semester: semesterApiKeys[selectedSemester],
+            path: item.relativePath
+        });
+
+        const downloadUrl =
+            `${MODULE_API_BASE}/module/view?${params.toString()}`;
+
+        window.location.assign(downloadUrl);
+
+    });
+
+} else {
+
+    button.disabled = true;
+
+}
 
         card.append(title, button);
         list.appendChild(card);
