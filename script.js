@@ -4721,23 +4721,8 @@ async function openUndergraduateModule(
     after the asynchronous API request finishes.
     */
 
-    let moduleWindow = null;
-
-
-    try {
-
-        moduleWindow =
-            window.open(
-                "about:blank",
-                "_blank"
-            );
-
-    }
-    catch (error) {
-
-        moduleWindow = null;
-
-    }
+   // Downloads no longer need a temporary tab.
+let moduleWindow = null;
 
 
     setModuleButtonLoading(
@@ -5007,10 +4992,7 @@ function openResolvedModuleUrl(
     clickable result instead of failing silently.
     */
 
-    showSingleModuleFallback(
-        courseInfo,
-        file
-    );
+   window.location.assign(url);
 
 }
 
