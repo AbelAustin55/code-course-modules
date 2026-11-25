@@ -5357,7 +5357,7 @@ function createModuleFileCard(
 
 
            window.location.assign(file.url);
-            );
+            
 
         }
     );
