@@ -3305,7 +3305,17 @@ function restorePortalHistory(state) {
 
     }
 
+else if (
+    state.view === "departments" &&
+    selectedSemester
+) {
 
+    showDepartments(
+        selectedSemester,
+        false
+    );
+
+}
     else if (
         state.view === "programmes" &&
         selectedSemester &&
@@ -3433,6 +3443,80 @@ function backToCourseList() {
    UNDERGRADUATE NAVIGATION
    ========================================================= */
 
+/* =========================================================
+   DEPARTMENT SELECTION
+   ========================================================= */
+
+const undergraduateDepartments = [
+    "Business",
+    "Education",
+    "Mathematics and Science",
+    "Arts and Social Sciences"
+];
+
+
+function showDepartments(
+    semesterKey,
+    addHistory = true
+) {
+
+    if (!undergraduateData[semesterKey]) {
+        return;
+    }
+
+    navigationType = "undergraduate";
+
+    selectedSemester = semesterKey;
+    selectedLevel = null;
+    selectedProgramme = null;
+
+    const heading =
+        document.getElementById("departmentHeading");
+
+    const list =
+        document.getElementById("departmentList");
+
+    if (!list) {
+        return;
+    }
+
+    if (heading) {
+        heading.textContent =
+            `${semesterLabels[semesterKey]} · Select Department`;
+    }
+
+    list.innerHTML = "";
+
+    undergraduateDepartments.forEach(department => {
+
+        const card = document.createElement("button");
+
+        card.type = "button";
+        card.className = "programme-card";
+
+        const title = document.createElement("h3");
+        title.textContent = department;
+
+        const action = document.createElement("span");
+        action.textContent = "View Programmes →";
+
+        card.append(title, action);
+
+        card.addEventListener("click", () => {
+            showDepartmentProgrammes(department);
+        });
+
+        list.appendChild(card);
+
+    });
+
+    showView("departmentView");
+
+    if (addHistory) {
+        savePortalHistory("departments");
+    }
+
+}
 
 function showLevels(
     semesterKey,
