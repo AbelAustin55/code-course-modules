@@ -6177,8 +6177,7 @@ function createCloudGroupCard(
                 "open-btn cloud-unit-button";
 
 
-            button.textContent =
-                "PREVIEW";
+           button.textContent = "DOWNLOAD";
 
 
             button.addEventListener(
@@ -6308,32 +6307,25 @@ function getCloudFolderLabel(
    --------------------------------------------------------- */
 
 
-function openCloudModule(
-    event,
-    url
-) {
+function openCloudModule(event, url) {
 
     event?.stopPropagation();
 
-
     if (!url) {
-
         showModuleMessage(
-            "Unable to open this module.",
-            "The PDF preview address is unavailable."
+            "Unable to download this module.",
+            "The PDF download link is unavailable."
         );
-
         return;
     }
 
-
-    window.open(
-        url,
-        "_blank",
-        "noopener,noreferrer"
-    );
+    // Download without opening another browser tab.
+    window.location.assign(url);
 
 }
+
+
+
 
 
 
@@ -6638,8 +6630,7 @@ async function renderSearchResults(
                     }`;
 
 
-                button.textContent =
-                    "PREVIEW PDF";
+              button.textContent = "DOWNLOAD PDF";
 
 
                 button.addEventListener(
