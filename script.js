@@ -3833,10 +3833,22 @@ function showBusinessCourseCards(specialisation) {
         button.textContent = "OPEN MODULES";
 
       
-if (
-    item.relativePath &&
-    semesterApiKeys[selectedSemester]
-) {
+
+const accountingL100Folder =
+    "/BUSINESS/4YR BCOM  100,200,300, 400/YR1 LEVEL 100/ACCOUNTING LEVEL 100/";
+
+const isAccountingL100 =
+    selectedSemester === "firstSemester" &&
+    selectedProgramme === "4YR BCOM 100,200,300,400" &&
+    String(selectedLevel) === "100" &&
+    specialisation === "Accounting";
+
+const relativePath = item.relativePath ||
+    (isAccountingL100 && item.filename
+        ? accountingL100Folder + item.filename
+        : "");
+
+if (relativePath && semesterApiKeys[selectedSemester]) {
 
     button.textContent = "DOWNLOAD MODULE";
     button.disabled = false;
@@ -3845,7 +3857,7 @@ if (
 
         const params = new URLSearchParams({
             semester: semesterApiKeys[selectedSemester],
-            path: item.relativePath
+            path: relativePath
         });
 
         const downloadUrl =
@@ -3861,14 +3873,6 @@ if (
 
 }
 
-        card.append(title, button);
-        list.appendChild(card);
-
-    });
-
-    showView("courseView");
-    savePortalHistory("businessCourses");
-}
 
 
 
