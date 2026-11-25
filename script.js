@@ -3671,6 +3671,37 @@ function showDepartmentProgrammes(
    PROGRAMME TO LEVEL NAVIGATION
    ========================================================= */
 
+
+/* =========================================================
+   BUSINESS PROGRAMME LEVELS
+   ========================================================= */
+
+const businessProgrammeLevels = {
+
+    "DCO YR2 LEVEL 200": ["200"],
+
+    "4YR BCOM 100,200,300,400": [
+        "100", "200", "300", "400"
+    ],
+
+    "3YR DCO YR3 LEVEL 200": ["200"],
+
+    "3YR BCOM YR1 LEVEL 300 _ LEVEL 400": [
+        "300", "400"
+    ],
+
+    "3YR BCOM YR1 LEVEL 200": ["200"],
+
+    "2YR DCO LEVEL 100": ["100"],
+
+    "2YR BCOM YR1 LEVEL 300 _ LEVEL 400": [
+        "300", "400"
+    ]
+
+};
+
+
+
 function showProgrammeLevels(
     programme,
     addHistory = true
@@ -3681,12 +3712,16 @@ function showProgrammeLevels(
     const semesterData =
         undergraduateData[selectedSemester] || {};
 
-    const availableLevels =
-        ["100", "200", "300", "400"].filter(
+   
+const availableLevels =
+    selectedDepartment === "Business"
+        ? (businessProgrammeLevels[programme] || [])
+        : ["100", "200", "300", "400"].filter(
             level => Array.isArray(
                 semesterData[level]?.[programme]
             )
         );
+
 
     if (!availableLevels.length) return;
 
@@ -3716,10 +3751,10 @@ function showProgrammeLevels(
             button.querySelector(".level-number")
                 ?.textContent.trim();
 
-        button.disabled =
-            !availableLevels.includes(level);
-
-        const action =
+       button.style.display =
+    availableLevels.includes(level) ? "" : "none";
+        
+       const action =
             button.querySelector(".level-action");
 
         if (action) {
