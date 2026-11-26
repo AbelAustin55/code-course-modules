@@ -3763,12 +3763,51 @@ const businessCourseCatalogue = {
                         code: "CMS107D",
                         title: "Communicative Skills 1",
                         filename: "Communicative_Skills_1.pdf"
+                    
+                ],
+
+                "Finance": [
+                    {
+                        code: "ECO101D",
+                        title: "Principles of Economics 1",
+                        filename: "Principles_of_Economics_1.pdf"
+                    },
+                    {
+                        code: "",
+                        title: "Principles of Accounting 1",
+                        filename: "Principles_of_Accounting_1.pdf"
+                    },
+                    {
+                        code: "INF101D",
+                        title: "Introduction to Computing",
+                        filename: "Introduction_to_Computing.pdf"
+                    },
+                    {
+                        code: "",
+                        title: "Introduction to Business 1",
+                        filename: "Introduction_to_Business_1.pdf"
+                    },
+                    {
+                        code: "ILT101D",
+                        title: "Information Literacy",
+                        filename: "Info_Lit. (1).pdf"
+                    },
+                    {
+                        code: "ASP101D",
+                        title: "Core African Studies",
+                        filename: "Core-African_Studies.pdf"
+                    },
+                    {
+                        code: "CMS107D",
+                        title: "Communicative Skills 1",
+                        filename: "Communicative_Skills_1.pdf"
                     }
                 ]
             }
         }
     }
 };
+
 
 
 
@@ -3833,19 +3872,41 @@ function showBusinessCourseCards(specialisation, addHistory = true) {
         button.className = "open-btn";
         button.textContent = "OPEN MODULES";
 
-        const accountingL100Folder =
-            "/BUSINESS/4YR BCOM  100,200,300, 400/YR1 LEVEL 100/ACCOUNTING LEVEL 100/";
+        
+/* =========================================
+   BUSINESS LEVEL 100 MODULE FOLDERS
+   ========================================= */
 
-        const isAccountingL100 =
-            selectedSemester === "firstSemester" &&
-            selectedProgramme === "4YR BCOM 100,200,300,400" &&
-            String(selectedLevel) === "100" &&
-            specialisation === "Accounting";
+const businessLevel100Root =
+    "/BUSINESS/4YR BCOM  100,200,300, 400/YR1 LEVEL 100/";
 
-        const relativePath = item.relativePath ||
-            (isAccountingL100 && item.filename
-                ? accountingL100Folder + item.filename
-                : "");
+const businessLevel100Folders = {
+
+    "Accounting":
+        businessLevel100Root + "ACCOUNTING LEVEL 100/",
+
+    "Finance":
+        businessLevel100Root + "FINANCE LEVEL 100/"
+
+};
+
+const isBusinessLevel100 =
+    selectedSemester === "firstSemester" &&
+    selectedProgramme === "4YR BCOM 100,200,300,400" &&
+    String(selectedLevel) === "100";
+
+const selectedFolder =
+    isBusinessLevel100
+        ? businessLevel100Folders[specialisation]
+        : null;
+
+const relativePath =
+    item.relativePath ||
+    (
+        selectedFolder && item.filename
+            ? selectedFolder + item.filename
+            : ""
+    );
 
         if (
             relativePath &&
