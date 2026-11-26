@@ -3970,6 +3970,129 @@ const dcoYear3Level200Courses = {
     ]
 };
 
+/* =========================================================
+   3YR BCOM YR1 LEVEL 300 _ LEVEL 400 — FIRST SEMESTER
+   The source-folder overview screenshots establish the names
+   of the twelve specialisation folders. The Level 300 and Level 400
+   course lists are kept separate; in particular Management Level 300
+   contains six PDFs, while Management Level 400 contains seven
+   DIFFERENT PDFs confirmed in the follow-up screenshot.
+   HRM Level 300 includes six PDFs from the follow-up screenshot.
+   The partially obscured HUM304D filename is matched within the
+   exact HRM Level 300 folder; no filename is invented.
+   Separate Nextcloud folder roots prevent cross-programme downloads.
+   Only explicit, previously confirmed course codes are used.
+   ========================================================= */
+const threeYearBcomYr1Level300Courses = {
+    "Accounting": [
+        { code: "", title: "Taxation", units: [
+            { label: "UNIT 4", filename: "TAXATION UNIT 4.pdf" },
+            { label: "ADDITIONAL PDF", filename: "TAXATION (2).pdf" }
+        ] },
+        { code: "ACC303D", title: "Public Sector Accounting",
+          lookupQuery: "Public Sector Accounting", lookupPrefix: "Public Sector Accounting" },
+        { code: "", title: "Operations Management", filename: "Operations Management.pdf" },
+        { code: "", title: "Managerial Economics", filename: "MANAGERIAL ECONOMICS.pdf" },
+        { code: "", title: "Management and Cost Accounting", filename: "MANAGEMENT AND COST ACCOUNTING.pdf" },
+        { code: "", title: "Company and Partnership Law", filename: "Company and Partnership Law.pdf" }
+    ],
+    "Finance": [
+        { code: "", title: "Operations Management", filename: "Operations Management.pdf" },
+        { code: "", title: "Managerial Economics", filename: "MANAGERIAL ECONOMICS.pdf" },
+        { code: "", title: "Management and Cost Accounting", filename: "MANAGEMENT AND COST ACCOUNTING.pdf" },
+        { code: "", title: "Financial Market and Institutions",
+          lookupQuery: "FINANCIAL_MARKET", lookupPrefix: "FINANCIAL_MARKET" },
+        { code: "FIN071D", title: "Principles of Finance", filename: "FIN 071D Principles of Finance.pdf" },
+        { code: "", title: "Company and Partnership Law", filename: "Company and Partnership Law.pdf" }
+    ],
+    // HRM Level 300: six PDFs confirmed in the supplied folder screenshot.
+    "Human Resource Management": [
+        { code: "", title: "Operations Management", filename: "Operations Management.pdf" },
+        { code: "", title: "Managerial Economics", filename: "MANAGERIAL ECONOMICS.pdf" },
+        { code: "", title: "Human Resource Information System", filename: "Human_Resource_Info_System.pdf" },
+        // The remaining part of this filename is hidden by the Drive UI.
+        // The existing folder-scoped search resolves it without guessing.
+        { code: "HUM304D", title: "Performance and Compensation Management",
+          lookupQuery: "HUM304D PERFORMANCE AND COMPENSATION MGT",
+          lookupPrefix: "HUM304D PERFORMANCE AND COMPENSATION MGT" },
+        { code: "HUM311D", title: "Managing Workplace Conflict", filename: "HUM 311D Managing Workplace Conflict.pdf" },
+        { code: "", title: "Employment Law", filename: "Employment_Law.pdf" }
+    ],
+    "Management": [
+        { code: "", title: "Public Relations", filename: "Public_Relations.pdf" },
+        { code: "", title: "Operations Management", filename: "Operations Management.pdf" },
+        { code: "", title: "Managerial Economics", filename: "MANAGERIAL ECONOMICS.pdf" },
+        { code: "", title: "Introduction to Cost and Management Accounting", filename: "Introduction to Cost and Management Accounting.pdf" },
+        { code: "", title: "International Business", filename: "INTERNATIONAL_BUS.pdf" },
+        { code: "", title: "Company and Partnership Law", filename: "Company and Partnership Law.pdf" }
+    ],
+    "Marketing": [
+        { code: "", title: "Operations Management", filename: "Operations Management.pdf" },
+        { code: "", title: "Marketing Management", filename: "Marketing_Management.pdf" },
+        { code: "", title: "Managerial Economics", filename: "MANAGERIAL ECONOMICS.pdf" },
+        { code: "", title: "Introduction to Cost and Management Accounting", filename: "Introduction to Cost and Management Accounting.pdf" },
+        { code: "", title: "Innovations and Digital Marketing", filename: "Innovations_and_Digital_Marketing (1).pdf" },
+        { code: "", title: "Consumer Behaviour", filename: "Consumer_Behaviour.pdf" }
+    ],
+    "Procurement and Supply Chain Management": [
+        { code: "", title: "Procurement and Supply Context", filename: "PROCUREMENT AND SUPPLY CONTEXT edited.pdf" },
+        { code: "", title: "Operations Management", filename: "Operations Management.pdf" },
+        { code: "", title: "Managing Procurement and Supply Relationships",
+          lookupQuery: "MANAGING_PROCUREMENT_AND_SUPPLY_RELATIONSH", lookupPrefix: "MANAGING_PROCUREMENT_AND_SUPPLY_RELATIONSH" },
+        { code: "", title: "Managerial Economics", filename: "MANAGERIAL ECONOMICS.pdf" },
+        { code: "", title: "Introduction to Cost and Management Accounting", filename: "Introduction to Cost and Management Accounting.pdf" },
+        { code: "", title: "Company and Partnership Law", filename: "Company and Partnership Law.pdf" }
+    ]
+};
+
+const threeYearBcomYr1Level400Courses = {
+    "Accounting": [
+        { code: "", title: "Investment Management", filename: "Investment Management.pdf" },
+        { code: "", title: "Introduction to Project Management", filename: "Intro_to_Project_Management.pdf" },
+        { code: "FIN405D", title: "Corporate Financial Analysis", filename: "FIN 405D Corporate Financial Analysis Edited 2.pdf" },
+        { code: "", title: "Entrepreneurship", filename: "Entrepreneurship.pdf" },
+        { code: "", title: "Advanced Accounting I", filename: "Advanced Accounting 1 (rev'd) 2015.pdf" },
+        { code: "ACC403D", title: "Audit and Internal Review", filename: "ACC 403D Audit and Internal Review.pdf" }
+    ],
+    "Finance": [
+        { code: "FIN407D", title: "Public Finance", filename: "Public Finance.pdf" },
+        { code: "", title: "Investment Management", filename: "Investment Management.pdf" },
+        { code: "", title: "Introduction to Project Management", filename: "Intro_to_Project_Management.pdf" },
+        { code: "", title: "Financial Modelling", filename: "Financial Modelling.pdf" },
+        { code: "FIN405D", title: "Corporate Financial Analysis", filename: "FIN 405D Corporate Financial Analysis Edited 2.pdf" },
+        { code: "", title: "Entrepreneurship", filename: "Entrepreneurship.pdf" }
+    ],
+    "Human Resource Management": [
+        { code: "", title: "Leadership and Emotional Intelligence", filename: "Leadership and Emotional Intelligence_.pdf" },
+        { code: "", title: "Introduction to Project Management", filename: "Intro_to_Project_Management.pdf" },
+        { code: "", title: "Health and Safety at Work", filename: "Health and Safety at Work.pdf" },
+        { code: "", title: "Entrepreneurship", filename: "Entrepreneurship.pdf" },
+        { code: "HUM401D", title: "Collective Bargaining and Negotiation Skills", filename: "Collective Bargaining and Negotiation Skills.pdf" }
+    ],
+    // Management Level 400 has its own seven PDFs; do not reuse Level 300.
+    "Management": [
+        { code: "SBU403D", title: "Self-Management Skills", filename: "Self-Management Skills.pdf" },
+        { code: "", title: "Leadership and Organisational Development", filename: "Leadership__Org_Dev.pdf" },
+        { code: "", title: "Investment Management", filename: "Investment Management.pdf" },
+        { code: "", title: "Introduction to Project Management", filename: "Intro_to_Project_Management.pdf" },
+        { code: "", title: "Industrial and Employment Relationship", filename: "Industrial and Employment Relationship.pdf" },
+        { code: "", title: "Entrepreneurship", filename: "Entrepreneurship.pdf" },
+        { code: "", title: "Database Management", filename: "Database_Management.pdf" }
+    ],
+    "Marketing": [
+        { code: "SBU403D", title: "Self-Management Skills", filename: "Self-Management Skills.pdf" },
+        { code: "MKT402D", title: "Marketing Research", filename: "MARKETING_RESEARCH.pdf" },
+        { code: "", title: "Introduction to Project Management", filename: "Intro_to_Project_Management.pdf" },
+        { code: "", title: "Entrepreneurship", filename: "Entrepreneurship.pdf" }
+    ],
+    "Procurement and Supply Chain Management": [
+        { code: "", title: "Sustainable Procurement and Supply", filename: "Sustainable Procurement and Supply_.pdf" },
+        { code: "SBU403D", title: "Self-Management Skills", filename: "Self-Management Skills.pdf" },
+        { code: "", title: "Managing Risk in Procurement and Supply", filename: "Managing Risk in Procurement and Supply_.pdf" },
+        { code: "", title: "Introduction to Project Management", filename: "Intro_to_Project_Management.pdf" }
+    ]
+};
+
 const businessCourseCatalogue = {
     firstSemester: {
         "4YR BCOM 100,200,300,400": {
@@ -3988,6 +4111,10 @@ const businessCourseCatalogue = {
         },
         "3YR DCO YR3 LEVEL 200": {
             "200": dcoYear3Level200Courses
+        },
+        "3YR BCOM YR1 LEVEL 300 _ LEVEL 400": {
+            "300": threeYearBcomYr1Level300Courses,
+            "400": threeYearBcomYr1Level400Courses
         }
     }
 };
@@ -4290,7 +4417,30 @@ function showBusinessCourseCards(specialisation, addHistory = true) {
             ? dcoYear2FolderNames[specialisation]
             : null;
 
+        // Three-year BCom (Year 1): the Level 300 and Level 400 files
+        // live in separate specialisation folders beneath ONE programme root.
+        const isThreeYearBcomYr1 =
+            selectedSemester === "firstSemester" &&
+            selectedProgramme === "3YR BCOM YR1 LEVEL 300 _ LEVEL 400" &&
+            (String(selectedLevel) === "300" || String(selectedLevel) === "400");
+        const threeYearBcomYr1Root =
+            "/BUSINESS/3YR BCOM YR1 LEVEL 300 _ LEVEL 400/";
+        const threeYearBcomFolderNames = {
+            "Accounting": "ACCOUNTING",
+            "Finance": "FINANCE",
+            "Human Resource Management": "HRM",
+            "Management": "MANAGEMENT",
+            "Marketing": "MARKETING",
+            "Procurement and Supply Chain Management": "PSCM"
+        };
+        const threeYearBcomYr1Folder = isThreeYearBcomYr1 &&
+            threeYearBcomFolderNames[specialisation]
+                ? threeYearBcomYr1Root + threeYearBcomFolderNames[specialisation] +
+                  " LEVEL " + selectedLevel + "/"
+                : null;
+
         const activeBusinessFolder =
+            threeYearBcomYr1Folder ? threeYearBcomYr1Folder :
             dcoYear3Folder ? dcoYear3Level200Root + dcoYear3Folder :
             dcoYear2Folder ? dcoYear2Level200Root + dcoYear2Folder :
             selectedLevel400Folder ? businessLevel400Root + selectedLevel400Folder :
@@ -4436,7 +4586,7 @@ function showBusinessCourseCards(specialisation, addHistory = true) {
         }
         // Unknown exact filename: select one unambiguous PDF from
         // the Nextcloud index, and only from the expected department folder.
-        else if (selectedLevel300Folder && item.lookupQuery) {
+        else if (activeBusinessFolder && item.lookupQuery) {
             button.textContent = "DOWNLOAD MODULE";
             button.disabled = false;
             button.addEventListener("click", async () => {
@@ -4450,7 +4600,7 @@ function showBusinessCourseCards(specialisation, addHistory = true) {
                     );
                     if (!response.ok) throw new Error("Catalogue search unavailable");
                     const found = await response.json();
-                    const prefix = (businessLevel300Root + selectedLevel300Folder).toLowerCase();
+                    const prefix = activeBusinessFolder.toLowerCase();
                     const matches = (Array.isArray(found.results) ? found.results : [])
                         .filter(record => {
                             const path = String(record.relative_path || "").replace(/\\/g, "/");
@@ -4679,7 +4829,8 @@ if (
     selectedDepartment === "Business" &&
     (programme === "4YR BCOM 100,200,300,400" ||
      programme === "DCO YR2 LEVEL 200" ||
-     programme === "3YR DCO YR3 LEVEL 200")
+     programme === "3YR DCO YR3 LEVEL 200" ||
+     programme === "3YR BCOM YR1 LEVEL 300 _ LEVEL 400")
 ) {
     showBusinessSpecialisations(level);
 } else {
