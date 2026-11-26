@@ -3663,6 +3663,12 @@ const businessSpecialisations = [
 // DCO Year 2 has two programme options, not the six BCom specialisations.
 const dcoYear2Options = ["Accounting Option", "Management Option"];
 
+// 3-year BCom Year 1 Level 200 also includes a separate joint option.
+const threeYearBcomLevel200Options = [
+    ...businessSpecialisations,
+    "Accounting _ Finance Option"
+];
+
 
 let selectedSpecialisation = null;
 
@@ -4093,6 +4099,50 @@ const threeYearBcomYr1Level400Courses = {
     ]
 };
 
+/* =========================================================
+   3YR BCOM YR1 LEVEL 200 — FIRST SEMESTER
+   All seven option folders verified from the supplied screenshots.
+   Each Level 200 option uses its OWN Nextcloud directory.
+   Accounting and the combined Accounting _ Finance Option are
+   intentionally different catalogues. Do not silently reuse files
+   across folders, even if course titles are the same.
+   ========================================================= */
+const threeYearBcomYr1Level200Courses = {
+    "Accounting": [
+        { code: "SBU201D", title: "Quantitative Methods I", filename: "Quantitative_Methods_1.pdf" },
+        { code: "SBU205D", title: "Principles of Management I", filename: "Principles_of_Management_1.pdf" },
+        { code: "", title: "Human Resource Management", filename: "Human Resource Mgt. (Revised) 2016.pdf" },
+        { code: "", title: "Financial Reporting I", filename: "Financial_Reporting_I.pdf" },
+        { code: "", title: "Business Law I", filename: "Business_Law_I.pdf" },
+        { code: "SBU207D", title: "Business Communication", filename: "Bus._communication.pdf" }
+    ],
+    "Finance": businessLevel200Courses["Finance"].map(item => ({ ...item })),
+    "Human Resource Management": businessLevel200Courses["Human Resource Management"].map(item => ({ ...item })),
+    "Management": businessLevel200Courses["Management"].map(item => ({ ...item })),
+    "Marketing": businessLevel200Courses["Marketing"].map(item => ({ ...item })),
+    "Procurement and Supply Chain Management": businessLevel200Courses["Procurement and Supply Chain Management"].map(item =>
+        item.title === "Sourcing in Procurement and Supply"
+            ? { ...item, filename: "Sourcing in Procurement and Supply edited.pdf" }
+            : { ...item }
+    ),
+    "Accounting _ Finance Option": [
+        // Five distinct Taxation PDFs, one course card. The unnumbered
+        // TAXATION.pdf is not assumed to be Unit 1 or Unit 2.
+        { code: "", title: "Taxation", units: [
+            { label: "UNIT 3", filename: "UNIT 3 TAXATION.pdf" },
+            { label: "UNIT 4", filename: "TAXATION UNIT 4.pdf" },
+            { label: "UNIT 5", filename: "TAXATION UNIT 5.pdf" },
+            { label: "UNIT 6", filename: "UNIT 6 TAXATION PRACTICE-TAXATION.pdf" },
+            { label: "ADDITIONAL PDF", filename: "TAXATION.pdf" }
+        ] },
+        { code: "SBU201D", title: "Quantitative Methods I", filename: "Quantitative_Methods_1.pdf" },
+        { code: "SBU205D", title: "Principles of Management I", filename: "Principles_of_Management_1.pdf" },
+        { code: "", title: "Principles of Corporate Governance and Ethics", filename: "Principles_of_Corporate_Governance_and_Ethics.pdf" },
+        { code: "", title: "Cost and Management Accounting I", filename: "COST AND MANAGEMENT ACCOUNTING 1.pdf" },
+        { code: "CMS108D", title: "Communicative Skills II", filename: "Communicative_Skills_2.pdf" }
+    ]
+};
+
 const businessCourseCatalogue = {
     firstSemester: {
         "4YR BCOM 100,200,300,400": {
@@ -4115,6 +4165,9 @@ const businessCourseCatalogue = {
         "3YR BCOM YR1 LEVEL 300 _ LEVEL 400": {
             "300": threeYearBcomYr1Level300Courses,
             "400": threeYearBcomYr1Level400Courses
+        },
+        "3YR BCOM YR1 LEVEL 200": {
+            "200": threeYearBcomYr1Level200Courses
         }
     }
 };
@@ -4439,7 +4492,28 @@ function showBusinessCourseCards(specialisation, addHistory = true) {
                   " LEVEL " + selectedLevel + "/"
                 : null;
 
+        // Separate 3YR BCOM YR1 LEVEL 200 folders, including joint option.
+        const isThreeYearBcomLevel200 =
+            selectedSemester === "firstSemester" &&
+            selectedProgramme === "3YR BCOM YR1 LEVEL 200" &&
+            String(selectedLevel) === "200";
+        const threeYearBcomLevel200Folders = {
+            "Accounting": "ACCOUNTING LEVEL 200/",
+            "Finance": "FINANCE LEVEL 200/",
+            "Human Resource Management": "HRM LEVEL 200/",
+            "Management": "MANAGEMENT LEVEL 200/",
+            "Marketing": "MARKETING LEVEL 200/",
+            "Procurement and Supply Chain Management": "PSCM LEVEL 200/",
+            "Accounting _ Finance Option": "ACCOUNTING _ FINANCE OPTION/"
+        };
+        const threeYearBcomLevel200Folder = isThreeYearBcomLevel200 &&
+            threeYearBcomLevel200Folders[specialisation]
+                ? "/BUSINESS/3YR BCOM YR1 LEVEL 200/" +
+                  threeYearBcomLevel200Folders[specialisation]
+                : null;
+
         const activeBusinessFolder =
+            threeYearBcomLevel200Folder ? threeYearBcomLevel200Folder :
             threeYearBcomYr1Folder ? threeYearBcomYr1Folder :
             dcoYear3Folder ? dcoYear3Level200Root + dcoYear3Folder :
             dcoYear2Folder ? dcoYear2Level200Root + dcoYear2Folder :
@@ -4704,7 +4778,11 @@ function showBusinessSpecialisations(level, addHistory = true) {
 
     list.innerHTML = "";
 
-    const availableOptions = isDcoOptionProgramme ? dcoYear2Options : businessSpecialisations;
+    const availableOptions = isDcoOptionProgramme
+        ? dcoYear2Options
+        : selectedProgramme === "3YR BCOM YR1 LEVEL 200"
+            ? threeYearBcomLevel200Options
+            : businessSpecialisations;
     availableOptions.forEach(name => {
 
     const courses =
@@ -4830,7 +4908,8 @@ if (
     (programme === "4YR BCOM 100,200,300,400" ||
      programme === "DCO YR2 LEVEL 200" ||
      programme === "3YR DCO YR3 LEVEL 200" ||
-     programme === "3YR BCOM YR1 LEVEL 300 _ LEVEL 400")
+     programme === "3YR BCOM YR1 LEVEL 300 _ LEVEL 400" ||
+     programme === "3YR BCOM YR1 LEVEL 200")
 ) {
     showBusinessSpecialisations(level);
 } else {
