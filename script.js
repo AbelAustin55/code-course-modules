@@ -3730,6 +3730,83 @@ const businessLevel200Courses = Object.fromEntries(
     })
 );
 
+/*
+ * First Semester, 4-year BCom, Level 300.
+ * Module names come from the six supplied folder screenshots.
+ * Blank codes are intentionally left unassigned where no reliable
+ * exact match was found in the existing website catalogue.
+ * For cropped/ambiguous PDF names, use an index lookup restricted to
+ * the intended Level 300 specialisation folder; never guess filenames.
+ * The Finance "Principles of Finance" subfolder contains six
+ * individual Unit PDFs, verified from the supplied folder screenshot.
+ */
+const businessLevel300Courses = {
+    "Accounting": [
+        { code: "", title: "Taxation — Unit 6: Taxation Practice", filename: "UNIT 6 TAXATION PRACTICE-TAXATION.pdf" },
+        { code: "", title: "Taxation — Unit 3", filename: "UNIT 3 TAXATION.pdf" },
+        { code: "", title: "Taxation — Unit 5", filename: "TAXATION UNIT 5.pdf" },
+        { code: "", title: "Taxation — Unit 4", filename: "TAXATION UNIT 4.pdf" },
+        { code: "", title: "Taxation (2)", filename: "TAXATION (2).pdf" },
+        { code: "ACC303D", title: "Public Sector Accounting", lookupQuery: "Public Sector Accounting", lookupPrefix: "Public Sector Accounting" },
+        { code: "", title: "Operations Management", filename: "Operations Management.pdf" },
+        { code: "", title: "Managerial Economics", filename: "MANAGERIAL ECONOMICS.pdf" },
+        { code: "", title: "Cost and Management Accounting I", filename: "COST AND MANAGEMENT ACCOUNTING 1.pdf" },
+        { code: "", title: "Company and Partnership Law", filename: "Company and Partnership Law.pdf" }
+    ],
+    "Finance": [
+        {
+            code: "",
+            title: "Principles of Finance",
+            unitFolder: "Principles of Finance/",
+            units: [
+                { number: 1, filename: "Unit 1 FIN 071D Principles of Finance unedited.pdf" },
+                { number: 2, filename: "Unit 2 FIN 071D Principles of Finance unedited.pdf" },
+                { number: 3, filename: "Unit 3 FIN 071D Principles of Finance unedited.pdf" },
+                { number: 4, filename: "Unit 4 FIN 071D Principles of Finance unedited.pdf" },
+                { number: 5, filename: "Unit 5 FIN 071D Principles of Finance unedited.pdf" },
+                { number: 6, filename: "Unit 6 FIN 071D Principles of Finance unedited.pdf" }
+            ]
+        },
+        { code: "", title: "Operations Management", filename: "Operations Management.pdf" },
+        { code: "", title: "Managerial Economics", filename: "MANAGERIAL ECONOMICS.pdf" },
+        { code: "", title: "Financial Market and Institutions", filename: "Financial Market and Institutions.pdf" },
+        { code: "", title: "Cost and Management Accounting I", filename: "COST AND MANAGEMENT ACCOUNTING 1.pdf" },
+        { code: "", title: "Company and Partnership Law", filename: "Company and Partnership Law.pdf" }
+    ],
+    "Human Resource Management": [
+        { code: "", title: "Operations Management", filename: "Operations Management.pdf" },
+        { code: "", title: "Managerial Economics", filename: "MANAGERIAL ECONOMICS.pdf" },
+        { code: "", title: "Human Resource Information System", filename: "Human_Resource_Info_System.pdf" },
+        { code: "HUM304D", title: "Performance and Compensation Management", lookupQuery: "HUM304D", lookupPrefix: "HUM304D PERFORMANCE AND COMPENSATION MGT" },
+        { code: "HUM311D", title: "Managing Workplace Conflict", filename: "HUM 311D Managing Workplace Conflict.pdf" },
+        { code: "", title: "Employment Law", filename: "Employment_Law.pdf" }
+    ],
+    "Management": [
+        { code: "", title: "Public Relations", filename: "Public_Relations.pdf" },
+        { code: "", title: "Operations Management", filename: "Operations Management.pdf" },
+        { code: "", title: "Managerial Economics", filename: "MANAGERIAL ECONOMICS.pdf" },
+        { code: "", title: "Introduction to Cost and Management Accounting", filename: "Introduction to Cost and Management Accounting.pdf" },
+        { code: "", title: "International Business", filename: "INTERNATIONAL_BUS.pdf" },
+        { code: "", title: "Company and Partnership Law", filename: "Company and Partnership Law.pdf" }
+    ],
+    "Marketing": [
+        { code: "", title: "Operations Management", filename: "Operations Management.pdf" },
+        { code: "", title: "Marketing Management", filename: "Marketing_Management.pdf" },
+        { code: "", title: "Managerial Economics", filename: "MANAGERIAL ECONOMICS.pdf" },
+        { code: "", title: "Introduction to Cost and Management Accounting", filename: "Introduction to Cost and Management Accounting.pdf" },
+        { code: "", title: "Innovations and Digital Marketing", filename: "Innovations_and_Digital_Marketing.pdf" },
+        { code: "", title: "Consumer Behaviour", filename: "Consumer_Behaviour.pdf" }
+    ],
+    "Procurement and Supply Chain Management": [
+        { code: "", title: "Procurement and Supply Context", filename: "PROCUREMENT AND SUPPLY CONTEXT edited.pdf" },
+        { code: "", title: "Operations Management", filename: "Operations Management.pdf" },
+        { code: "", title: "Managing Procurement and Supply Relationships", lookupQuery: "MANAGING_PROCUREMENT_AND_SUPPLY_RELATIONSH", lookupPrefix: "MANAGING_PROCUREMENT_AND_SUPPLY_RELATIONSH" },
+        { code: "", title: "Managerial Economics", filename: "MANAGERIAL ECONOMICS.pdf" },
+        { code: "", title: "Introduction to Cost and Management Accounting", filename: "Introduction to Cost and Management Accounting.pdf" },
+        { code: "", title: "Company and Partnership Law", filename: "Company and Partnership Law.pdf" }
+    ]
+};
+
 const businessCourseCatalogue = {
     firstSemester: {
         "4YR BCOM 100,200,300,400": {
@@ -3739,7 +3816,8 @@ const businessCourseCatalogue = {
                     businessLevel100Courses.map(module => ({ ...module }))
                 ])
             ),
-            "200": businessLevel200Courses
+            "200": businessLevel200Courses,
+            "300": businessLevel300Courses
         }
     }
 };
@@ -3862,14 +3940,140 @@ function showBusinessCourseCards(specialisation, addHistory = true) {
             ? businessLevel200Folders[specialisation]
             : null;
 
+        /*
+         * Level 300 folder names are shown in the supplied screenshots.
+         * The full root is based on the working Level 100/200 pattern;
+         * verify all paths against the Nextcloud First Semester index.
+         */
+        const businessLevel300Root =
+            "/BUSINESS/4YR BCOM  100,200,300, 400/YR3 LEVEL 300/";
+
+        const businessLevel300Folders = {
+            "Accounting": "ACCOUNTING LEVEL 300/",
+            "Finance": "FINANCE LEVEL 300/",
+            "Human Resource Management": "HRM LEVEL 300/",
+            "Management": "MANAGEMENT LEVEL 300/",
+            "Marketing": "MARKETING LEVEL 300/",
+            "Procurement and Supply Chain Management": "PSCM LEVEL 300/"
+        };
+
+        const isBusinessLevel300 =
+            selectedSemester === "firstSemester" &&
+            selectedProgramme === "4YR BCOM 100,200,300,400" &&
+            String(selectedLevel) === "300";
+
+        const selectedLevel300Folder = isBusinessLevel300
+            ? businessLevel300Folders[specialisation]
+            : null;
+
         const relativePath = item.relativePath ||
             (selectedFolder && item.filename
                 ? businessLevel100Root + selectedFolder + item.filename
                 : selectedLevel200Folder && item.filename
                     ? businessLevel200Root + selectedLevel200Folder + item.filename
-                    : "");
+                    : selectedLevel300Folder && item.filename
+                        ? businessLevel300Root + selectedLevel300Folder + item.filename
+                        : "");
 
+        // A course may contain several unit PDFs within one Nextcloud folder.
+        // Show one course card with separate direct-download controls per unit.
+        let downloadControl = button;
         if (
+            selectedLevel300Folder &&
+            Array.isArray(item.units) &&
+            item.units.length > 0 &&
+            item.unitFolder
+        ) {
+            const unitList = document.createElement("div");
+            unitList.className = "course-unit-downloads";
+            unitList.style.display = "grid";
+            unitList.style.gridTemplateColumns =
+                "repeat(auto-fit, minmax(150px, 1fr))";
+            unitList.style.gap = "10px";
+            unitList.style.marginTop = "14px";
+
+            item.units.forEach(unit => {
+                const unitButton = document.createElement("button");
+                unitButton.type = "button";
+                unitButton.className = "open-btn";
+                unitButton.textContent = `DOWNLOAD UNIT ${unit.number}`;
+
+                const unitPath =
+                    businessLevel300Root +
+                    selectedLevel300Folder +
+                    item.unitFolder +
+                    unit.filename;
+
+                unitButton.addEventListener("click", () => {
+                    const params = new URLSearchParams({
+                        semester: semesterApiKeys[selectedSemester],
+                        path: unitPath
+                    });
+                    window.location.assign(
+                        `${MODULE_API_BASE}/module/view?${params.toString()}`
+                    );
+                });
+                unitList.appendChild(unitButton);
+            });
+            downloadControl = unitList;
+        }
+
+        if (downloadControl !== button) {
+            // Six unit download buttons have been added in place of one.
+        }
+        // A folder without known contents is not a downloadable PDF.
+        else if (item.folderPending) {
+            button.textContent = "FOLDER CONTENTS PENDING";
+            button.disabled = true;
+        }
+        // Unknown exact filename: select one unambiguous PDF from
+        // the Nextcloud index, and only from the expected department folder.
+        else if (selectedLevel300Folder && item.lookupQuery) {
+            button.textContent = "DOWNLOAD MODULE";
+            button.disabled = false;
+            button.addEventListener("click", async () => {
+                button.disabled = true;
+                button.textContent = "FINDING MODULE";
+                try {
+                    const query = new URLSearchParams({ q: item.lookupQuery });
+                    const response = await fetch(
+                        `${MODULE_API_BASE}/modules/search?${query.toString()}`,
+                        { headers: { Accept: "application/json" } }
+                    );
+                    if (!response.ok) throw new Error("Catalogue search unavailable");
+                    const found = await response.json();
+                    const prefix = (businessLevel300Root + selectedLevel300Folder).toLowerCase();
+                    const matches = (Array.isArray(found.results) ? found.results : [])
+                        .filter(record => {
+                            const path = String(record.relative_path || "").replace(/\\/g, "/");
+                            const name = String(record.filename || path.split("/").pop());
+                            return path.toLowerCase().startsWith(prefix) &&
+                                name.toLowerCase().startsWith(item.lookupPrefix.toLowerCase()) &&
+                                name.toLowerCase().endsWith(".pdf");
+                        });
+                    if (matches.length !== 1) {
+                        throw new Error(matches.length === 0
+                            ? "No matching PDF found in this specialisation folder"
+                            : "Multiple matching PDFs require review");
+                    }
+                    const params = new URLSearchParams({
+                        semester: semesterApiKeys[selectedSemester],
+                        path: matches[0].relative_path
+                    });
+                    window.location.assign(`${MODULE_API_BASE}/module/view?${params.toString()}`);
+                } catch (error) {
+                    console.warn("Could not resolve Level 300 PDF:", error);
+                    showModuleMessage(
+                        "Module filename needs verification",
+                        "The PDF could not be matched uniquely in the permitted Nextcloud folder."
+                    );
+                } finally {
+                    button.disabled = false;
+                    button.textContent = "DOWNLOAD MODULE";
+                }
+            });
+        }
+        else if (
             relativePath &&
             semesterApiKeys[selectedSemester]
         ) {
@@ -3898,7 +4102,7 @@ function showBusinessCourseCards(specialisation, addHistory = true) {
 
         }
 
-        card.append(title, button);
+        card.append(title, downloadControl);
         list.appendChild(card);
 
     });
