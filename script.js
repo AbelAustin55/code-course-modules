@@ -3771,11 +3771,12 @@ const businessCourseCatalogue = {
 };
 
 
+
 /* =========================================
    DISPLAY BUSINESS COURSE CARDS
    ========================================= */
 
-function showBusinessCourseCards(specialisation) {
+function showBusinessCourseCards(specialisation, addHistory = true) {
 
     const courses =
         businessCourseCatalogue[selectedSemester]
@@ -3832,51 +3833,66 @@ function showBusinessCourseCards(specialisation) {
         button.className = "open-btn";
         button.textContent = "OPEN MODULES";
 
-      
+        const accountingL100Folder =
+            "/BUSINESS/4YR BCOM  100,200,300, 400/YR1 LEVEL 100/ACCOUNTING LEVEL 100/";
 
-const accountingL100Folder =
-    "/BUSINESS/4YR BCOM  100,200,300, 400/YR1 LEVEL 100/ACCOUNTING LEVEL 100/";
+        const isAccountingL100 =
+            selectedSemester === "firstSemester" &&
+            selectedProgramme === "4YR BCOM 100,200,300,400" &&
+            String(selectedLevel) === "100" &&
+            specialisation === "Accounting";
 
-const isAccountingL100 =
-    selectedSemester === "firstSemester" &&
-    selectedProgramme === "4YR BCOM 100,200,300,400" &&
-    String(selectedLevel) === "100" &&
-    specialisation === "Accounting";
+        const relativePath = item.relativePath ||
+            (isAccountingL100 && item.filename
+                ? accountingL100Folder + item.filename
+                : "");
 
-const relativePath = item.relativePath ||
-    (isAccountingL100 && item.filename
-        ? accountingL100Folder + item.filename
-        : "");
+        if (
+            relativePath &&
+            semesterApiKeys[selectedSemester]
+        ) {
 
-if (relativePath && semesterApiKeys[selectedSemester]) {
+            button.textContent = "DOWNLOAD MODULE";
+            button.disabled = false;
 
-    button.textContent = "DOWNLOAD MODULE";
-    button.disabled = false;
+            button.addEventListener("click", () => {
 
-    button.addEventListener("click", () => {
+                const params = new URLSearchParams({
+                    semester: semesterApiKeys[selectedSemester],
+                    path: relativePath
+                });
 
-        const params = new URLSearchParams({
-            semester: semesterApiKeys[selectedSemester],
-            path: relativePath
-        });
+                const downloadUrl =
+                    `${MODULE_API_BASE}/module/view?${params.toString()}`;
 
-        const downloadUrl =
-            `${MODULE_API_BASE}/module/view?${params.toString()}`;
+                window.location.assign(downloadUrl);
 
-        window.location.assign(downloadUrl);
+            });
+
+        } else {
+
+            button.disabled = true;
+            button.textContent = "MODULE UNAVAILABLE";
+
+        }
+
+        card.append(title, button);
+        list.appendChild(card);
 
     });
 
-} else {
+    showView("courseView");
 
-    button.disabled = true;
-
+    if (addHistory) {
+        savePortalHistory("businessCourses");
+    }
 }
 
 
 
 
-function showBusinessSpecialisations(level) {
+
+function showBusinessSpecialisations(level, addHistory = true) {
 
     selectedLevel = String(level);
     selectedSpecialisation = null;
@@ -3938,7 +3954,9 @@ businessSpecialisations.forEach(name => {
 
     showView("specialisationView");
 
+   if (addHistory) {
     savePortalHistory("specialisations");
+}
 }
 
 function backToProgrammeLevels() {
