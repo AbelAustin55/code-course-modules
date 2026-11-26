@@ -1,0 +1,126 @@
+{
+  "scans": [
+    {
+      "level": "200",
+      "option": "MATHS & ICT",
+      "folderName": "Advanced Algebra and Calculus - EMA 202D-20250120T075149Z-001",
+      "files": [
+        {
+          "name": "Advanced Algebra and Calculus - EMA 202D",
+          "id": "1Vq5mq4wu6NVmwlTGT4VxPts_8_kzM2Y_",
+          "type": "folder"
+        }
+      ]
+    },
+    {
+      "level": "200",
+      "option": "MATHS & ACCOUNTING",
+      "folderName": "Advanced Algebra and Calculus - EMA 202D-20250120T075149Z-001",
+      "files": [
+        {
+          "name": "Advanced Algebra and Calculus - EMA 202D",
+          "id": "1sNdTMvc0l_EScL5iJhSgRq1_rz0pR0q1",
+          "type": "folder"
+        }
+      ]
+    },
+    {
+      "level": "200",
+      "option": "MATHS & MANAGEMENT",
+      "folderName": "Advanced Algebra and Calculus - EMA 202D",
+      "files": [
+        {
+          "name": "Unit 1 EMA 202D.pdf",
+          "id": "1mwUxDgRKE2j5cpD2KAyvLBADo9OplqC6",
+          "type": "file"
+        },
+        {
+          "name": "Unit 2 EMA202D.pdf",
+          "id": "1KQppZA101BVr23Czt_y0ENri69FdInQF",
+          "type": "file"
+        },
+        {
+          "name": "UNIT 3 EMA202D.pdf",
+          "id": "1ILKo5T4Jzazroley-4aAJe_RY3G9qg9C",
+          "type": "file"
+        },
+        {
+          "name": "Unit 4 EMA202D.pdf",
+          "id": "1HGuGFGIJEziyQRLol394XtO0REvcWXjj",
+          "type": "file"
+        },
+        {
+          "name": "UNIT 5 EMA202D.pdf",
+          "id": "1PKzCejlLxH2Xsq9EcMi8OTPACdciOyly",
+          "type": "file"
+        },
+        {
+          "name": "UNIT 6 EMA 202D.pdf",
+          "id": "1Spm14gNYSutNv2V8t0bHHRb2tnpO3GDs",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "level": "300",
+      "option": "MATHS & ICT",
+      "folderName": "ESC309D Assessment in Mathematics Education-20250120T135852Z-001",
+      "files": [
+        {
+          "name": "ESC309D Assessment in Mathematics Education",
+          "id": "1KIWeswwDBGQOza1s--NDXjIzQt5FkoTC",
+          "type": "folder"
+        }
+      ]
+    },
+    {
+      "level": "300",
+      "option": "MATHS & ACCOUNTING",
+      "folderName": "ESC309D Assessment in Mathematics Education-20250120T135852Z-001",
+      "files": [
+        {
+          "name": "ESC309D Assessment in Mathematics Education",
+          "id": "1T7KIKI6N-Tiggt5i-ULVNsB9Hya1TaXG",
+          "type": "folder"
+        }
+      ]
+    },
+    {
+      "level": "300",
+      "option": "MATHS & MANAGEMENT",
+      "folderName": "ESC309D Assessment in Mathematics Education",
+      "files": [
+        {
+          "name": "UNIT 1 ASSESSMENT IN MATHS EDUCATION formatted.pdf",
+          "id": "1T6Pb8b4oaf9F4oG7huBQae8_t0j0k6Ma",
+          "type": "file"
+        },
+        {
+          "name": "UNIT 2 ASSESSMENT IN MATHS EDUCATION formatted.pdf",
+          "id": "1TLUrh99tJpFAR9RUA50TyJ30_dswZOrt",
+          "type": "file"
+        },
+        {
+          "name": "UNIT 3 ASSESSMENT IN MATHS EDUCATION formatted.pdf",
+          "id": "17Q24eN0QQ7lwQyr5gIyqpzcpIgv0j6WS",
+          "type": "file"
+        },
+        {
+          "name": "UNIT 4 ASSESSMENT IN MATHS EDUCATION formatted.pdf",
+          "id": "1sRqlarCQhENsJ3IVXvJnIUQOxJScB-Ba",
+          "type": "file"
+        },
+        {
+          "name": "UNIT 5 ASSESSMENT IN MATHS EDUCATION formatted.pdf",
+          "id": "1ZPprZrm0WdCIgISGc1xNeNVEHp_h66x3",
+          "type": "file"
+        },
+        {
+          "name": "UNIT 6 ASSESSMENT IN MATHS EDUCATION formatted.pdf",
+          "id": "1sqtOy8aQ0hiYgPZ2ER5M8KCwd9YxGTsA",
+          "type": "file"
+        }
+      ]
+    }
+  ]
+}
