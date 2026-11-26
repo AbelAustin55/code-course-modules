@@ -3495,6 +3495,17 @@ const undergraduateDepartments = [
     "Arts and Social Sciences"
 ];
 
+/* Only approved course inventories appear to students.
+   The older undergraduateData entries are reference data, not published modules. */
+const publishedDepartmentMap = Object.freeze({
+    firstSemester: ["Business", "Education"],
+    secondSemester: []
+});
+const legacyUndergraduateCataloguePublished = false;
+function isPublishedDepartment(semester, department) {
+    return (publishedDepartmentMap[semester] || []).includes(department);
+}
+
 
 function showDepartments(
     semesterKey,
@@ -3537,15 +3548,25 @@ function showDepartments(
         card.type = "button";
         card.className = "programme-card";
 
+        const published = isPublishedDepartment(semesterKey, department);
+        if (!published) {
+            card.disabled = true;
+            card.style.cursor = "not-allowed";
+            card.style.opacity = ".65";
+            card.setAttribute("aria-label", department + " — modules coming soon");
+        }
+
         const title = document.createElement("h3");
         title.textContent = department;
 
         const action = document.createElement("span");
-        action.textContent = "View Programmes →";
+        action.textContent = published
+            ? "View Programmes →"
+            : "Coming Soon · Modules not yet published";
 
         card.append(title, action);
 
-        card.addEventListener("click", () => {
+        if (published) card.addEventListener("click", () => {
             showDepartmentProgrammes(department);
         });
 
@@ -3629,6 +3650,11 @@ function showDepartmentProgrammes(
         !selectedSemester ||
         !departmentProgrammeMap[department]
     ) {
+        return;
+    }
+
+    if (!isPublishedDepartment(selectedSemester, department)) {
+        showDepartments(selectedSemester, false);
         return;
     }
 
@@ -5623,7 +5649,7 @@ function showProgrammeLevels(
     addHistory = true
 ) {
 
-    if (!selectedSemester) return;
+    if (!selectedSemester || !isPublishedDepartment(selectedSemester, selectedDepartment)) return;
 
     const semesterData =
         undergraduateData[selectedSemester] || {};
@@ -5725,6 +5751,10 @@ function showLevels(
     semesterKey,
     addHistory = true
 ) {
+    if (!legacyUndergraduateCataloguePublished) {
+        showDepartments(semesterKey, false);
+        return;
+    }
     if (
         !undergraduateData[semesterKey]
     ) {
@@ -5788,6 +5818,7 @@ function showProgrammes(
     addHistory = true
 ) {
 
+    if (!legacyUndergraduateCataloguePublished) return;
     if (
         !selectedSemester ||
         !undergraduateData[
@@ -5922,6 +5953,7 @@ function showCourses(
     addHistory = true
 ) {
 
+    if (!legacyUndergraduateCataloguePublished) return;
     navigationType =
         "undergraduate";
 
@@ -7184,109 +7216,44 @@ function searchAllCourses(
 
 
 
-    /* =========================
-       UNDERGRADUATE
-       ========================= */
-
-
-    Object.entries(
-        undergraduateData
-    ).forEach(
-        (
-            [
-                semesterKey,
-                levels
-            ]
-        ) => {
-
-
-            Object.entries(
-                levels
-            ).forEach(
-                (
-                    [
-                        level,
-                        programmes
-                    ]
-                ) => {
-
-
-                    Object.entries(
-                        programmes
-                    ).forEach(
-                        (
-                            [
-                                programme,
-                                courses
-                            ]
-                        ) => {
-
-
-                            courses.forEach(
-                                courseItem => {
-
-
-                                    const searchable =
-                                        [
-                                            courseItem.code,
-                                            courseItem.title,
-                                            programme,
-                                            level,
-                                            semesterLabels[
-                                                semesterKey
-                                            ],
-                                            "undergraduate"
-                                        ]
-                                            .join(" ")
-                                            .toLowerCase();
-
-
-                                    if (
-                                        searchable.includes(
-                                            normalizedQuery
-                                        )
-                                    ) {
-
-                                        results.push({
-                                            type:
-                                                "Undergraduate",
-
-                                            semesterKey,
-
-                                            semester:
-                                                semesterLabels[
-                                                    semesterKey
-                                                ],
-
-                                            level,
-
-                                            programme,
-
-                                            code:
-                                                courseItem.code,
-
-                                            title:
-                                                courseItem.title,
-
-                                            link:
-                                                courseItem.link
-                                        });
-
-                                    }
-
-                                }
-                            );
-
-                        }
-                    );
-
+    /* Search ONLY the reviewed and published First Semester catalogues. */
+    Object.entries(educationCourseCatalogue).forEach(([programme, levels]) => {
+        Object.entries(levels).forEach(([level, courses]) => {
+            courses.forEach(item => {
+                const searchable = [
+                    "First Semester", "Education", programme, "Level " + level,
+                    item.code || "", item.title || "", item.filename || ""
+                ].join(" ").toLowerCase();
+                if (searchable.includes(normalizedQuery)) {
+                    results.push({
+                        type: "Published", department: "Education",
+                        semesterKey: "firstSemester", semester: "First Semester",
+                        programme, level, code: item.code || "", title: item.title
+                    });
                 }
-            );
-
-        }
-    );
-
-
+            });
+        });
+    });
+    Object.entries(businessCourseCatalogue.firstSemester || {}).forEach(([programme, levels]) => {
+        Object.entries(levels).forEach(([level, options]) => {
+            Object.entries(options).forEach(([specialisation, courses]) => {
+                courses.forEach(item => {
+                    const searchable = [
+                        "First Semester", "Business", programme, "Level " + level,
+                        specialisation, item.code || "", item.title || "", item.filename || ""
+                    ].join(" ").toLowerCase();
+                    if (searchable.includes(normalizedQuery)) {
+                        results.push({
+                            type: "Published", department: "Business",
+                            semesterKey: "firstSemester", semester: "First Semester",
+                            programme, level, specialisation,
+                            code: item.code || "", title: item.title
+                        });
+                    }
+                });
+            });
+        });
+    });
 
     /* =========================
        SWITCH
@@ -8141,17 +8108,15 @@ async function renderSearchResults(
 
 
     count.textContent =
-        "Searching course catalogue and cloud modules…";
+        "Searching published Business and Education modules…";
 
 
     /*
     Search the Nextcloud index through our API.
     */
 
-    let cloudResults =
-        await searchCloudModules(
-            trimmed
-        );
+    // Do not expose the unreviewed Nextcloud index via public search.
+    let cloudResults = [];
 
 
     /*
@@ -8346,6 +8311,33 @@ async function renderSearchResults(
                ========================= */
 
 
+            else if (item.type === "Published") {
+                code.textContent = item.code || "COURSE MODULE";
+                title.textContent = item.title;
+                meta.textContent = item.semester + " · " + item.department +
+                    " · " + item.programme + " · Level " + item.level +
+                    (item.specialisation ? " · " + item.specialisation : "");
+                button.textContent = "VIEW COURSE";
+                button.addEventListener("click", () => {
+                    navigationType = "undergraduate";
+                    selectedSemester = item.semesterKey;
+                    selectedDepartment = item.department;
+                    showDepartmentProgrammes(item.department, false);
+                    showProgrammeLevels(item.programme, false);
+                    selectedLevel = String(item.level);
+                    if (item.department === "Business") {
+                        showBusinessSpecialisations(item.level, false);
+                        showBusinessCourseCards(item.specialisation);
+                    } else {
+                        showEducationCourseCards(item.programme);
+                    }
+                    const searchInput = document.getElementById("courseSearch");
+                    if (searchInput) searchInput.value = "";
+                    const searchBox = document.getElementById("searchResults");
+                    if (searchBox) searchBox.hidden = true;
+                });
+            }
+
             else if (
                 item.type ===
                 "Undergraduate"
@@ -8475,6 +8467,17 @@ function initialisePortal() {
 
     loadSwitchProgrammes();
 
+    const upcomingSemester = document.querySelector(
+        '#homeView .semester-card[onclick*="secondSemester"]'
+    );
+    if (upcomingSemester) {
+        upcomingSemester.disabled = true;
+        upcomingSemester.style.opacity = ".65";
+        upcomingSemester.style.cursor = "not-allowed";
+        upcomingSemester.setAttribute("aria-label", "Second Semester — coming soon");
+        const action = upcomingSemester.querySelector(".semester-action");
+        if (action) action.textContent = "Coming Soon · Not Yet Published";
+    }
 
     const searchInput =
         document.getElementById(
