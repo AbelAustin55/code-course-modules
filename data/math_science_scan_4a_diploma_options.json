@@ -1,0 +1,303 @@
+{
+  "scans": [
+    {
+      "program": "3-Year Diploma in Mathematics Education",
+      "level": "150",
+      "levelFolder": "LEVEL 150 3YR DIPLOPMA IN MATHS EDUCATION",
+      "option": "MATHS WITH CHEMISTRY OPTION",
+      "files": [
+        {
+          "name": "EMA 201D NATURE OF MATHS FINAL.pdf",
+          "id": "14VZlC1LHnFWHkH6L792JGrbGXDhQvPEY",
+          "type": "file"
+        },
+        {
+          "name": "Physical_Chemistry.pdf",
+          "id": "1tZvYq75v9BIqF0LVa1Kcijv8pkfLIAqF",
+          "type": "file"
+        },
+        {
+          "name": "Newtonian_Mechanics_(Theory).pdf",
+          "id": "1BYjsgU-_bhadgBLnvY6TRezfuDFtc9tD",
+          "type": "file"
+        },
+        {
+          "name": "Introduction_to_Abstract_Algebra.pdf",
+          "id": "1eweq4U_-lTC-nbtGfTeHACIqswnB_lsP",
+          "type": "file"
+        },
+        {
+          "name": "EBS 289D Nature of Maths edited.pdf",
+          "id": "13yuG8fvo7I3uEbpCrz_NAvXNknMhiQXN",
+          "type": "file"
+        },
+        {
+          "name": "Newtonian_Mechanics_(Practical).pdf",
+          "id": "1MWTSzq4QSqFFpef9ZxBwO_kTYKqD-xgR",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "program": "3-Year Diploma in Mathematics Education",
+      "level": "150",
+      "levelFolder": "LEVEL 150 3YR DIPLOPMA IN MATHS EDUCATION",
+      "option": "MATHS WITH PHYSICS OPTION",
+      "files": [
+        {
+          "name": "Physical_Chemistry.pdf",
+          "id": "1vdUZkzZzxxQRnBd1FwGqIviHtVsDRr1_",
+          "type": "file"
+        },
+        {
+          "name": "Newtonian_Mechanics_(Theory).pdf",
+          "id": "12aLpaUVxaxJW7rNFiip_IdX3ykDu_nVS",
+          "type": "file"
+        },
+        {
+          "name": "Introduction_to_Abstract_Algebra.pdf",
+          "id": "18Hl5_Om5Nj8lY00bRZw3SEYmNwowWCwt",
+          "type": "file"
+        },
+        {
+          "name": "EBS 289D Nature of Maths edited.pdf",
+          "id": "1dWFloyZMI93DCCtWUI6SpWN-3up03vrc",
+          "type": "file"
+        },
+        {
+          "name": "Newtonian_Mechanics_(Practical).pdf",
+          "id": "17RK8eMJ-jz_ofbnoyS5hLBIXhVtGBvB9",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "program": "3-Year Diploma in Science Education",
+      "level": "150",
+      "levelFolder": "LEVEL 150 3YR DIPLOPMA IN SCIENCE EDUCATION",
+      "option": "BIOLOGY WITH CHEMISTRY OPTION",
+      "files": [
+        {
+          "name": "Nature_of_Science.pdf",
+          "id": "1pK1uypc5hiem4sSfn6Qfj7FS7BPnRSHW",
+          "type": "file"
+        },
+        {
+          "name": "Morphology_and_Anatomy_of_Vascular_Plants.pdf",
+          "id": "1qB8J0ZUmx-500km2PM8nGoNRGCX8MvxE",
+          "type": "file"
+        },
+        {
+          "name": "Cell_and_Tissue.pdf",
+          "id": "17hNg7SzORVHVkolIIK3vEkyFri06H4KG",
+          "type": "file"
+        },
+        {
+          "name": "Physical_Chemistry.pdf",
+          "id": "1QZQPeFz_EyeR3Cz6U4ppwDQ1vtnXPXNV",
+          "type": "file"
+        },
+        {
+          "name": "Newtonian_Mechanics_(Theory).pdf",
+          "id": "1ON5OIGeuaLcADdShFlmI2jluL0l34rVG",
+          "type": "file"
+        },
+        {
+          "name": "Newtonian_Mechanics_(Practical).pdf",
+          "id": "1OeKxTKrNa2zg1E2KIrwEI6hSyVpg569C",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "program": "3-Year Diploma in Science Education",
+      "level": "150",
+      "levelFolder": "LEVEL 150 3YR DIPLOPMA IN SCIENCE EDUCATION",
+      "option": "CHEMISTRY WITH BIOLOGY OPTION",
+      "files": [
+        {
+          "name": "Nature_of_Science.pdf",
+          "id": "1hiZZy_pxN_JuYBMdZTENCfGEUJ1vbvZy",
+          "type": "file"
+        },
+        {
+          "name": "Cell_and_Tissue.pdf",
+          "id": "12hthmenuVELq1ROusnKBg5EzIS5Neqjk",
+          "type": "file"
+        },
+        {
+          "name": "Physical_Chemistry.pdf",
+          "id": "1mh8HpdpgqjPflBwrdU-_qzHWdIXX3Nnb",
+          "type": "file"
+        },
+        {
+          "name": "Newtonian_Mechanics_(Theory).pdf",
+          "id": "1NivINBrkhwOg9eelkqhs3QjViqcNipUY",
+          "type": "file"
+        },
+        {
+          "name": "MAIN_GROUP_CHEMISTRY.pdf",
+          "id": "14kdozcaAM0ghAgaM_ofwjf6ppSpiIh4o",
+          "type": "file"
+        },
+        {
+          "name": "Newtonian_Mechanics_(Practical).pdf",
+          "id": "1wjoJfP-sVGH5zAO_Ob7dINYQSX2yBJs_",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "program": "3-Year Diploma in Science Education",
+      "level": "150",
+      "levelFolder": "LEVEL 150 3YR DIPLOPMA IN SCIENCE EDUCATION",
+      "option": "CHEMISTRY WITH MATHS OPTION",
+      "files": [
+        {
+          "name": "Newtonian_Mechanics_(Theory).pdf",
+          "id": "1L-vg5uBfEoluGD1u77bEifEDnzjolmnZ",
+          "type": "file"
+        },
+        {
+          "name": "Nature_of_Science.pdf",
+          "id": "11Cy_wTLYouNQ82MmDaoQbLcetdcHmc7D",
+          "type": "file"
+        },
+        {
+          "name": "Physical_Chemistry.pdf",
+          "id": "1QBT6xqA8OapKrHUKBY05J9tcekw6HRBk",
+          "type": "file"
+        },
+        {
+          "name": "Introduction_to_Abstract_Algebra.pdf",
+          "id": "1HBm6ODs7SCr3S5_zFOgLlYTVx8ZiIlxh",
+          "type": "file"
+        },
+        {
+          "name": "MAIN_GROUP_CHEMISTRY.pdf",
+          "id": "1uy6ZKiKLBpxd-pluvV9hkj-LNiiVQlDT",
+          "type": "file"
+        },
+        {
+          "name": "Newtonian_Mechanics_(Practical).pdf",
+          "id": "15mMn5Dy2S4pBEQi2xOPnM5hly1vqM3wv",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "program": "3-Year Diploma in Science Education",
+      "level": "150",
+      "levelFolder": "LEVEL 150 3YR DIPLOPMA IN SCIENCE EDUCATION",
+      "option": "CHEMISTRY WITH PHYSICS OPTION",
+      "files": [
+        {
+          "name": "Newtonian_Mechanics_(Theory).pdf",
+          "id": "1zVcR9Mlltce0HOYGA2CwOvaZb0PgBs21",
+          "type": "file"
+        },
+        {
+          "name": "Nature_of_Science.pdf",
+          "id": "119NGPoRMtF1mK8m4HMICMbsuDfBSbozm",
+          "type": "file"
+        },
+        {
+          "name": "Introduction_to_Abstract_Algebra.pdf",
+          "id": "1uypikL7xhZVNYYYBgMm7TkvD2MBT2PRT",
+          "type": "file"
+        },
+        {
+          "name": "Physical_Chemistry.pdf",
+          "id": "18EIe7jKzsimcv3K-0GqwhRbalu5pMQ0z",
+          "type": "file"
+        },
+        {
+          "name": "MAIN_GROUP_CHEMISTRY.pdf",
+          "id": "1_mJXIoCIwQbvdh8gy-3iJUlLQoOkymsM",
+          "type": "file"
+        },
+        {
+          "name": "Newtonian_Mechanics_(Practical).pdf",
+          "id": "1n9MqM2QyHNerfUswjUqU-tg5YClq7XCj",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "program": "3-Year Diploma in Science Education",
+      "level": "150",
+      "levelFolder": "LEVEL 150 3YR DIPLOPMA IN SCIENCE EDUCATION",
+      "option": "PHYSICS WITH CHEMISTRY OPTION",
+      "files": [
+        {
+          "name": "Physical_Chemistry.pdf",
+          "id": "1OIWFfolpO2A4sNa9pOiT3mNMss1xsej_",
+          "type": "file"
+        },
+        {
+          "name": "Newtonian_Mechanics_(Theory).pdf",
+          "id": "1T3hbhRn8qN4jzporBUTkujuBeXuvKA_V",
+          "type": "file"
+        },
+        {
+          "name": "Nature_of_Science.pdf",
+          "id": "11oW0u1kjGYUgASgkhp5Hbpf6tpj1t4rd",
+          "type": "file"
+        },
+        {
+          "name": "Introduction_to_Abstract_Algebra.pdf",
+          "id": "1sFZTT8-YETji50PXTZ8R1RkFvN6tt-3s",
+          "type": "file"
+        },
+        {
+          "name": "Intro Atomic Physics, Heat & Optics (Theory).pdf",
+          "id": "16Gotc7J8v0KnEt1V_9qQYcNfn7BY-kkP",
+          "type": "file"
+        },
+        {
+          "name": "Newtonian_Mechanics_(Practical).pdf",
+          "id": "1T2WWYDiBB_xJH7jozgwNRmMj-CqvDzys",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "program": "3-Year Diploma in Science Education",
+      "level": "150",
+      "levelFolder": "LEVEL 150 3YR DIPLOPMA IN SCIENCE EDUCATION",
+      "option": "PHYSICS WITH MATHS OPTION",
+      "files": [
+        {
+          "name": "Intro Atomic Physics, Heat & Optics (Theory).pdf",
+          "id": "1f3G5bIv1nfrW0D3UYH02chPnDKAZr5p0",
+          "type": "file"
+        },
+        {
+          "name": "Introduction_to_Abstract_Algebra.pdf",
+          "id": "1nElcqN9w351Tko5868N4sDP-JYZP7jf4",
+          "type": "file"
+        },
+        {
+          "name": "Nature_of_Science.pdf",
+          "id": "132YS5-jK0MAJCmpotbqBTSRVyvXK4d5f",
+          "type": "file"
+        },
+        {
+          "name": "Newtonian_Mechanics_(Theory).pdf",
+          "id": "1YqzepAwtxTnFbZJYkqSByQkPqhGaglJD",
+          "type": "file"
+        },
+        {
+          "name": "Physical_Chemistry.pdf",
+          "id": "1yDToLm8cfPxuIOGhdK67ht54fXandnKR",
+          "type": "file"
+        },
+        {
+          "name": "Newtonian_Mechanics_(Practical).pdf",
+          "id": "1YeUsDsTBGixu0fIyqVJiS7VxSREZTLMl",
+          "type": "file"
+        }
+      ]
+    }
+  ]
+}
