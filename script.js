@@ -7474,6 +7474,33 @@ function searchAllCourses(
         });
     });
 
+    /* Mathematic and Science: search reviewed programme/level/option catalogue. */
+    Object.entries(mathsScienceCourseCatalogue).forEach(([programme, levels]) => {
+        Object.entries(levels).forEach(([level, selections]) => {
+            const optionSets = Array.isArray(selections)
+                ? [["", selections]] : Object.entries(selections);
+            optionSets.forEach(([specialisation, courses]) => {
+                courses.forEach(item => {
+                    const textToSearch = [
+                        "First Semester", "Mathematics and Science", programme,
+                        "Level " + level, specialisation, item.title || "",
+                        item.code || "", item.filename || ""
+                    ].join(" ").toLowerCase();
+                    if (textToSearch.includes(normalizedQuery)) {
+                        results.push({
+                            type: "Published",
+                            department: "Mathematics and Science",
+                            semesterKey: "firstSemester",
+                            semester: "First Semester",
+                            programme, level, specialisation,
+                            code: item.code || "", title: item.title
+                        });
+                    }
+                });
+            });
+        });
+    });
+
     /* =========================
        SWITCH
        ========================= */
@@ -8327,7 +8354,7 @@ async function renderSearchResults(
 
 
     count.textContent =
-        "Searching published Business and Education modules…";
+        "Searching published Business, Education and Mathematics & Science modules…";
 
 
     /*
@@ -8547,6 +8574,14 @@ async function renderSearchResults(
                     if (item.department === "Business") {
                         showBusinessSpecialisations(item.level, false);
                         showBusinessCourseCards(item.specialisation);
+                    } else if (item.department === "Mathematics and Science") {
+                        const entry=mathsScienceCourseCatalogue[item.programme]?.[String(item.level)];
+                        if (Array.isArray(entry)) {
+                            showMathsScienceCourseCards();
+                        } else {
+                            showMathsScienceOptions(item.level, false);
+                            showMathsScienceCourseCards(item.specialisation);
+                        }
                     } else {
                         showEducationCourseCards(item.programme);
                     }
