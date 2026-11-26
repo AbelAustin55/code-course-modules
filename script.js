@@ -4143,6 +4143,28 @@ const threeYearBcomYr1Level200Courses = {
     ]
 };
 
+/* =========================================================
+   2YR DCO LEVEL 100 — FIRST SEMESTER
+   Both source folders contain the same eight PDFs, but each option
+   keeps its own Nextcloud directory for direct downloads.
+   ========================================================= */
+const twoYearDcoLevel100Modules = [
+    { code: "SBU053D", title: "Basic Mathematics", filename: "SBU 053D BASIC MATHEMATICS.pdf" },
+    { code: "ECO101D", title: "Principles of Economics 1", filename: "Principles_of_Economics_1.pdf" },
+    { code: "", title: "Principles of Accounting 1", filename: "Principles_of_Accounting_1.pdf" },
+    { code: "", title: "Introduction to Business 1", filename: "Introduction_to_Business_1.pdf" },
+    { code: "INF101D", title: "Introduction to Computing", filename: "INF 101D Introduction to Computing.pdf" },
+    { code: "ASP101D", title: "Core African Studies", filename: "Core-African_Studies.pdf" },
+    { code: "CMS107D", title: "Communicative Skills 1", filename: "Communicative_Skills_1.pdf" },
+    { code: "", title: "Business Law I", filename: "Business_Law_I.pdf" }
+];
+
+const twoYearDcoLevel100Courses = Object.fromEntries(
+    ["Accounting Option", "Management Option"].map(option => [
+        option, twoYearDcoLevel100Modules.map(module => ({ ...module }))
+    ])
+);
+
 const businessCourseCatalogue = {
     firstSemester: {
         "4YR BCOM 100,200,300,400": {
@@ -4168,6 +4190,9 @@ const businessCourseCatalogue = {
         },
         "3YR BCOM YR1 LEVEL 200": {
             "200": threeYearBcomYr1Level200Courses
+        },
+        "2YR DCO LEVEL 100": {
+            "100": twoYearDcoLevel100Courses
         }
     }
 };
@@ -4512,7 +4537,19 @@ function showBusinessCourseCards(specialisation, addHistory = true) {
                   threeYearBcomLevel200Folders[specialisation]
                 : null;
 
+        // 2-Year DCO Level 100 uses two option folders directly beneath
+        // BUSINESS / 2YR DCO LEVEL 100, independent of all BCom paths.
+        const isTwoYearDcoLevel100 =
+            selectedSemester === "firstSemester" &&
+            selectedProgramme === "2YR DCO LEVEL 100" &&
+            String(selectedLevel) === "100";
+        const twoYearDcoLevel100Root = "/BUSINESS/2YR DCO LEVEL 100/";
+        const twoYearDcoLevel100Folder = isTwoYearDcoLevel100
+            ? dcoYear2FolderNames[specialisation]
+            : null;
+
         const activeBusinessFolder =
+            twoYearDcoLevel100Folder ? twoYearDcoLevel100Root + twoYearDcoLevel100Folder :
             threeYearBcomLevel200Folder ? threeYearBcomLevel200Folder :
             threeYearBcomYr1Folder ? threeYearBcomYr1Folder :
             dcoYear3Folder ? dcoYear3Level200Root + dcoYear3Folder :
@@ -4771,7 +4808,8 @@ function showBusinessSpecialisations(level, addHistory = true) {
 
     const isDcoOptionProgramme =
         selectedProgramme === "DCO YR2 LEVEL 200" ||
-        selectedProgramme === "3YR DCO YR3 LEVEL 200";
+        selectedProgramme === "3YR DCO YR3 LEVEL 200" ||
+        selectedProgramme === "2YR DCO LEVEL 100";
     subheading.textContent = isDcoOptionProgramme
         ? "Select Accounting Option or Management Option to view its courses."
         : "Select your specialisation to view its courses.";
@@ -4909,7 +4947,8 @@ if (
      programme === "DCO YR2 LEVEL 200" ||
      programme === "3YR DCO YR3 LEVEL 200" ||
      programme === "3YR BCOM YR1 LEVEL 300 _ LEVEL 400" ||
-     programme === "3YR BCOM YR1 LEVEL 200")
+     programme === "3YR BCOM YR1 LEVEL 200" ||
+     programme === "2YR DCO LEVEL 100")
 ) {
     showBusinessSpecialisations(level);
 } else {
