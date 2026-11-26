@@ -1,0 +1,112 @@
+{
+  "scans": [
+    {
+      "name": "Diploma Mathematics Education L150",
+      "id": "1gA0UMq77XSzjhIUM585726gnsVY647o1",
+      "folder": "LEVEL 150 3YR DIPLOPMA IN MATHS EDUCATION",
+      "files": [
+        {
+          "name": "MATHS WITH CHEMISTRY OPTION",
+          "id": "1RK30Wuncronf1xk6njOS_H0pjOGrm5pm",
+          "type": "folder"
+        },
+        {
+          "name": "MATHS WITH PHYSICS OPTION",
+          "id": "1Y_SAVcBPROnvarWd-25IGLtKlsVmAFoq",
+          "type": "folder"
+        }
+      ]
+    },
+    {
+      "name": "Diploma Science Education L150",
+      "id": "1RRfvoqgpYAyhzTQa2mpmO3NmA6q44L4A",
+      "folder": "LEVEL 150 3YR DIPLOPMA IN SCIENCE EDUCATION",
+      "files": [
+        {
+          "name": "BIOLOGY WITH CHEMISTRY OPTION",
+          "id": "1mLo9gUfR8qF8ZIx4XZL1u9phH80v0nFK",
+          "type": "folder"
+        },
+        {
+          "name": "CHEMISTRY WITH BIOLOGY OPTION",
+          "id": "1-JuOKmoME_fuTz9-ta9Ifor-1vuUhaev",
+          "type": "folder"
+        },
+        {
+          "name": "CHEMISTRY WITH MATHS OPTION",
+          "id": "1Z-_PMZuPGkemSfVLQ3HxfwmtQhTqiEGf",
+          "type": "folder"
+        },
+        {
+          "name": "CHEMISTRY WITH PHYSICS OPTION",
+          "id": "1GUO8eNBW8D-YOV6Ng61niwYwXN904-NM",
+          "type": "folder"
+        },
+        {
+          "name": "PHYSICS WITH CHEMISTRY OPTION",
+          "id": "185HwxV0YbVPJTnO8e9e5-r3kurUr6Qy0",
+          "type": "folder"
+        },
+        {
+          "name": "PHYSICS WITH MATHS OPTION",
+          "id": "1XzC3WPz0FkiduhU1dFHmujo63bAD51bW",
+          "type": "folder"
+        }
+      ]
+    },
+    {
+      "name": "Diploma Mathematics Education L200",
+      "id": "15kP6oguyeKWv71CBJgX-7vlTWIdMtx6c",
+      "folder": "LEVEL 200 3YR DIPLOMA IN MATHS EDUCATION",
+      "files": [
+        {
+          "name": "MATHS WITH CHEMISTRY OPTION",
+          "id": "1hLUATsJti2JiMUpdIOqZYjmh05Jn8dB3",
+          "type": "folder"
+        },
+        {
+          "name": "MATHS WITH PHYSICS OPTION",
+          "id": "1IJLThOFlsZ3L98DmqWkTxYpEbulzr4mO",
+          "type": "folder"
+        }
+      ]
+    },
+    {
+      "name": "Diploma Science Education L200",
+      "id": "1OEjpdDhlN5ewr3TAhCOsgv20F6uMbcy_",
+      "folder": "LEVEL 200 3YR DIPLOPMA IN SCIENCE EDUCATION",
+      "files": [
+        {
+          "name": "CHEMISTRY WITH MATHS OPTION",
+          "id": "1M30-O1DKPxw6w5jF56zfoyrOmPeDG093",
+          "type": "folder"
+        },
+        {
+          "name": "CHEMISTRY WITH PHYSICS OPTION",
+          "id": "1-jqf0PFxt0FR4nrhSiPD_Nm_bDQVkqcM",
+          "type": "folder"
+        },
+        {
+          "name": "PHYSICS WITH CHEMISTRY OPTION",
+          "id": "1nip4GKrmiGRUXr4sHEXJmSZ9BPSjHliO",
+          "type": "folder"
+        },
+        {
+          "name": "PHYSICS WITH MATHS OPTION",
+          "id": "1zoaYm7dSamCzuf56F6Dvciy-f8SRDcdy",
+          "type": "folder"
+        },
+        {
+          "name": "BIOLOGY WITH CHEMISTRY OPTION",
+          "id": "1hI3-N59LA5YzNPh6IeqHji8R8vyylUOW",
+          "type": "folder"
+        },
+        {
+          "name": "CHEMISTRY WITH BIOLOGY OPTION",
+          "id": "1u_AGDtlAhAwbClh0WZZ3wmuTttiDEUsk",
+          "type": "folder"
+        }
+      ]
+    }
+  ]
+}
