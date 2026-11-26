@@ -1,0 +1,369 @@
+{
+  "scans": [
+    {
+      "p": "B.Ed Mathematics",
+      "programFolder": " 4 YEAR BACHELOR OF EDUCATION (MATHEMATICS)(100, 200, 300, 400)",
+      "level": "200",
+      "levelFolder": "LEVEL 200 BACHELOR OF EDUCATION (MATHEMATICS)",
+      "option": "MATHS & CHEMISTRY OPTION",
+      "folderName": "MATHS & CHEMISTRY OPTION",
+      "files": [
+        {
+          "name": "EMA 201D NATURE OF MATHS FINAL.pdf",
+          "id": "1qJ93qxh6mcAiB1SQxW1t1LX7Co_cnCJf",
+          "type": "file"
+        },
+        {
+          "name": "EMA 312 Pedagogical Cont. Knowl. in Maths (formatted).pdf",
+          "id": "1vKKi81ff_eBsbs431XoWE0NecJniHW5P",
+          "type": "file"
+        },
+        {
+          "name": "EBS 252D Educating Individual with Diverse Needs.pdf",
+          "id": "1ALC5lH-C_SN8KrgUcwVbTjrzVVKLiTw6",
+          "type": "file"
+        },
+        {
+          "name": "Physical_Chemistry.pdf",
+          "id": "1aY4l_qBJzUSOCxRTxGXil9qoY_ZFtjKJ",
+          "type": "file"
+        },
+        {
+          "name": "further calculus.pdf",
+          "id": "1MfcegAIwyRN-gseRuzqmHe2muKGfUGPJ",
+          "type": "file"
+        },
+        {
+          "name": "Core-Educating_the_special_individual.pdf",
+          "id": "1Na4USmIoEe9uz1xdrbf4qetT4e9ioFJA",
+          "type": "file"
+        },
+        {
+          "name": "CHE 207D Pract. Physical Inorganic Chemistry I.pdf",
+          "id": "1bptGy5VDj7D79-jEEGmQY2sPw4bt3drt",
+          "type": "file"
+        },
+        {
+          "name": "EBS 289D Nature of Maths edited.pdf",
+          "id": "1zBdt1dx1bkIwua80C2_h6Zs5ZgbRMUJq",
+          "type": "file"
+        },
+        {
+          "name": "Introductory Statistics I.pdf",
+          "id": "1wm0eQJQwUdDRppzhSf1FSXFNLdh5M8cs",
+          "type": "file"
+        },
+        {
+          "name": "EMA 202 Advance Algebra and Calculus.pdf",
+          "id": "1gPbDV4132BertZTGAJVbGg6MMI2OOvN_",
+          "type": "file"
+        },
+        {
+          "name": "CRITICAL_THINKING_formatted.pdf",
+          "id": "1u0-OMF5YSOlnAo9PQ4A260N5I_PYvWUY",
+          "type": "file"
+        },
+        {
+          "name": "EMA_208_METHODS_OF_TEACH._SHS_MATHS_formated.pdf",
+          "id": "1ibiBv_5cxv1oTwAwiLuDpweNOokdG9FZ",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "p": "B.Ed Mathematics",
+      "programFolder": " 4 YEAR BACHELOR OF EDUCATION (MATHEMATICS)(100, 200, 300, 400)",
+      "level": "200",
+      "levelFolder": "LEVEL 200 BACHELOR OF EDUCATION (MATHEMATICS)",
+      "option": "MATHS & PHYSICS OPTION",
+      "folderName": "MATHS & PHYSICS OPTION",
+      "files": [
+        {
+          "name": "EMA 201D NATURE OF MATHS FINAL.pdf",
+          "id": "1r0ppBuD3IQaQDnwBh7I9ARvq66VXNZut",
+          "type": "file"
+        },
+        {
+          "name": "EMA 312 Pedagogical Cont. Knowl. in Maths (formatted).pdf",
+          "id": "11daVUmdEsyObs2QNHiI9pVHrCdUfRJMW",
+          "type": "file"
+        },
+        {
+          "name": "PHY 207D Intro. Atomic Physics, Heat & Optics (Practical).pdf",
+          "id": "1aVXT9ImfRyOCcmvT1UO1EMVNXoX69TLq",
+          "type": "file"
+        },
+        {
+          "name": "Introductory Statistics I.pdf",
+          "id": "16Q-Wb4c5DQpvDrdu9F6DLlWDq3oYg4Kx",
+          "type": "file"
+        },
+        {
+          "name": "EBS 252D Educating Individual with Diverse Needs.pdf",
+          "id": "1EhzEyckhrVkZ-u1LkrMYp92VMam5u39C",
+          "type": "file"
+        },
+        {
+          "name": "Intro Atomic Physics, Heat & Optics (Theory).pdf",
+          "id": "1b402tAHA2EHJwHfhoeGsLoVPtf03ZL5l",
+          "type": "file"
+        },
+        {
+          "name": "further calculus.pdf",
+          "id": "1U_HfWt3_JFzsr4Wvo_ZEp7jC__XXjJkv",
+          "type": "file"
+        },
+        {
+          "name": "EMA_208_METHODS_OF_TEACH._SHS_MATHS_formated.pdf",
+          "id": "1AwF5iD8R98aCPPglsWemkJY7YHb1lXnR",
+          "type": "file"
+        },
+        {
+          "name": "Core-Educating_the_special_individual.pdf",
+          "id": "1EX_Pja5QP3Y6U6D2B9mECc2EK8qWr690",
+          "type": "file"
+        },
+        {
+          "name": "EBS 289D Nature of Maths edited.pdf",
+          "id": "1iGFvmiwm0-qZZRspnRTZMcNACvGJkguy",
+          "type": "file"
+        },
+        {
+          "name": "EMA 202 Advance Algebra and Calculus.pdf",
+          "id": "17x9aOpuYoJObPBv5EF7kIOo6CYRNHDH7",
+          "type": "file"
+        },
+        {
+          "name": "CRITICAL_THINKING_formatted.pdf",
+          "id": "1gcQeW_MsNTtC3TGdCPmcVpF7IBPkeh1k",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "p": "B.Ed Mathematics",
+      "programFolder": " 4 YEAR BACHELOR OF EDUCATION (MATHEMATICS)(100, 200, 300, 400)",
+      "level": "300",
+      "levelFolder": "LEVEL 300 BACHELOR OF EDUCATION (MATHEMATICS)",
+      "option": "MATHS & ICT",
+      "folderName": "MATHS & ICT",
+      "files": [
+        {
+          "name": "INF 213D Web Technology I Edited.pdf",
+          "id": "1wE0a0xXmj8g6KMKCmk51dphm8Db8yTTn",
+          "type": "file"
+        },
+        {
+          "name": "EBS 286 Network Computing edited.pdf",
+          "id": "1tExdBsULqs3DESYq0E3jG5fh_gtePDsq",
+          "type": "file"
+        },
+        {
+          "name": "ESC309D Assessment in Mathematics Education-20250120T135852Z-001",
+          "id": "1wO6EKF2xamwZ-0kjXwyAI5Jwmg8V0m3I",
+          "type": "folder"
+        },
+        {
+          "name": "Advanced_Calculus_I.pdf",
+          "id": "13lWbtVQ70cfqUnYIimoEpjpTSW5yodj6",
+          "type": "file"
+        },
+        {
+          "name": "Introduction_to_Abstract_Algebra.pdf",
+          "id": "1q5B6UVNzYHWlwCGmIsnvD3SpY4eCllon",
+          "type": "file"
+        },
+        {
+          "name": "Core-Development_of_Instructional_Material_in_Mathematics.pdf",
+          "id": "12XPwxLOB8jn6ZaY0_fzwg97GCZ1rFYk0",
+          "type": "file"
+        },
+        {
+          "name": "STA 301D Statistical Methods.pdf",
+          "id": "1tN-m5M_KYh9ZrSIKaQIv7ctK5BGA4Mg0",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "p": "B.Ed Mathematics",
+      "programFolder": " 4 YEAR BACHELOR OF EDUCATION (MATHEMATICS)(100, 200, 300, 400)",
+      "level": "300",
+      "levelFolder": "LEVEL 300 BACHELOR OF EDUCATION (MATHEMATICS)",
+      "option": "MATHS & ACCOUNTING",
+      "folderName": "MATHS & ACCOUNTING",
+      "files": [
+        {
+          "name": "Research_Methods_in_Maths_Education_formating.pdf",
+          "id": "1jNHWeYm1gsNPG-Ub0hNVUoNkRdGxWDd6",
+          "type": "file"
+        },
+        {
+          "name": "ESC309D Assessment in Mathematics Education-20250120T135852Z-001",
+          "id": "1pYNudKzQ5nPspmeohi3kD1notgjNBg5r",
+          "type": "folder"
+        },
+        {
+          "name": "Advanced_Calculus_I.pdf",
+          "id": "14qV8uEQsKI_Ti3RXktXnJYljd-a4HmTh",
+          "type": "file"
+        },
+        {
+          "name": "Introduction_to_Abstract_Algebra.pdf",
+          "id": "1t1CBdN3Rc0vwlwzrM276GLhvVk9mA9FX",
+          "type": "file"
+        },
+        {
+          "name": "Core-Development_of_Instructional_Material_in_Mathematics.pdf",
+          "id": "1lUMqAktcguKPCKx74Q1splM-pnBsBPlE",
+          "type": "file"
+        },
+        {
+          "name": "STA 301D Statistical Methods.pdf",
+          "id": "19y5FQCjBRrv377g-fpxXYlg9J0DF4w_w",
+          "type": "file"
+        },
+        {
+          "name": "COST AND MANAGEMENT ACCOUNTING 1.pdf",
+          "id": "1SK9XvHdfx2-Zt-ad1utb00ZPEkQunAu6",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "p": "B.Ed Mathematics",
+      "programFolder": " 4 YEAR BACHELOR OF EDUCATION (MATHEMATICS)(100, 200, 300, 400)",
+      "level": "300",
+      "levelFolder": "LEVEL 300 BACHELOR OF EDUCATION (MATHEMATICS)",
+      "option": "MATHS & MANAGEMENT",
+      "folderName": "MATHS & MANAGEMENT",
+      "files": [
+        {
+          "name": "Advanced_Calculus_I.pdf",
+          "id": "17tEKxjyJC3r0jQmr1wgsA6XkdwD4dqCA",
+          "type": "file"
+        },
+        {
+          "name": "Introduction_to_Abstract_Algebra.pdf",
+          "id": "1bcrOB5HzFH_6okAezwyrbnOBbdfsdq9a",
+          "type": "file"
+        },
+        {
+          "name": "ESC309D Assessment in Mathematics Education",
+          "id": "105ocwNQ4mRmdVM9D7oL0gsbXuCb5y7fE",
+          "type": "folder"
+        },
+        {
+          "name": "Core-Development_of_Instructional_Material_in_Mathematics.pdf",
+          "id": "1ZjYOoujW9i6x7A_gYsSOT3VZGw3DAsOW",
+          "type": "file"
+        },
+        {
+          "name": "STA 301D Statistical Methods.pdf",
+          "id": "1Er7aeFC-fplLFTsTkdaDGBfV0hX7AAeQ",
+          "type": "file"
+        },
+        {
+          "name": "Operations Management.pdf",
+          "id": "13jixi6kDc13lyamjp8feOR1mr2N3Ez81",
+          "type": "file"
+        },
+        {
+          "name": "Research_Methods_in_Maths_Education_formating.pdf",
+          "id": "1mYuHfIM2lMsE6ORErawGp6BMiNbxkA49",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "p": "B.Ed Mathematics",
+      "programFolder": " 4 YEAR BACHELOR OF EDUCATION (MATHEMATICS)(100, 200, 300, 400)",
+      "level": "300",
+      "levelFolder": "LEVEL 300 BACHELOR OF EDUCATION (MATHEMATICS)",
+      "option": "MATHS & PHYSICS OPTION",
+      "folderName": "MATHS & PHYSICS OPTION",
+      "files": [
+        {
+          "name": "STA 301D Statistical Methods.pdf",
+          "id": "1wB-vRWT6_eipj1Fx6-xW_zLfzRk5JaK4",
+          "type": "file"
+        },
+        {
+          "name": "Core-Development_of_Instructional_Material_in_Mathematics.pdf",
+          "id": "17RAq9tG30sUw7Ctj1H8zet2R5m4HEqWA",
+          "type": "file"
+        },
+        {
+          "name": "Atomic__Modern_Physics.pdf",
+          "id": "12LAHXftud-j5wXwXT8T4H5O0mFM6xlQl",
+          "type": "file"
+        },
+        {
+          "name": "Advanced_Calculus_I.pdf",
+          "id": "1kbv2K4CMJH59UNoU4rQeaNSc-N2feyMl",
+          "type": "file"
+        },
+        {
+          "name": "Introduction_to_Abstract_Algebra.pdf",
+          "id": "1pJzBivZmVO8utYzvyH5jAof75pavCvn5",
+          "type": "file"
+        },
+        {
+          "name": "ASSESSMENT_IN_MATHS_EDUCATION_formattedMM.pdf",
+          "id": "1pZsKz4i31JPDnISa6FKBU-yC-jz6ELuo",
+          "type": "file"
+        },
+        {
+          "name": "Research_Methods_in_Maths_Education_formating.pdf",
+          "id": "1VK_jy-KIJo49tWrQ_iYJufdKsmoDYri-",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "p": "B.Ed Mathematics",
+      "programFolder": " 4 YEAR BACHELOR OF EDUCATION (MATHEMATICS)(100, 200, 300, 400)",
+      "level": "300",
+      "levelFolder": "LEVEL 300 BACHELOR OF EDUCATION (MATHEMATICS)",
+      "option": "MATHS &CHEMISTRY OPTION",
+      "folderName": "MATHS &CHEMISTRY OPTION",
+      "files": [
+        {
+          "name": "Core-Development_of_Instructional_Material_in_Mathematics.pdf",
+          "id": "1pVRVys5oLqfXEkeq_j9ut31Bn0yvII6x",
+          "type": "file"
+        },
+        {
+          "name": "CHE301 Analytical Chemistry.pdf",
+          "id": "1MgqKPBALO3NxWSb1UX-BK2zKMaQgvdsc",
+          "type": "file"
+        },
+        {
+          "name": "Introduction_to_Abstract_Algebra.pdf",
+          "id": "1evAdDd4vtOHKlHdgE9dK9CyivPyW918I",
+          "type": "file"
+        },
+        {
+          "name": "Advanced_Calculus_I.pdf",
+          "id": "1M7wV78pEuk6JC_Whq65NJXal7YKoazAg",
+          "type": "file"
+        },
+        {
+          "name": "STA 301D Statistical Methods.pdf",
+          "id": "1fRoSVEQslSzj0O0javWo73bkiAePrGAN",
+          "type": "file"
+        },
+        {
+          "name": "ASSESSMENT_IN_MATHS_EDUCATION_formattedMM.pdf",
+          "id": "1UdpXefoDkUiOTkUcQcizeaIdm1EUZVk0",
+          "type": "file"
+        },
+        {
+          "name": "Research_Methods_in_Maths_Education_formating.pdf",
+          "id": "1ioVWs3Yy4_pjAXLUpAM6dc2pid5XkQX0",
+          "type": "file"
+        }
+      ]
+    }
+  ]
+}
