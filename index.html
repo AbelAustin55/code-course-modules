@@ -89,13 +89,13 @@
 
             <div class="semester-grid">
 
-                <button class="semester-card" onclick="showLevels('firstSemester')">
+                <button class="semester-card" onclick="showDepartments('firstSemester')">
                     <span class="semester-number">01</span>
                     <span class="semester-name">First Semester</span>
                     <span class="semester-action">Select Semester →</span>
                 </button>
 
-                <button class="semester-card" onclick="showLevels('secondSemester')">
+                <button class="semester-card" onclick="showDepartments('secondSemester')">
                     <span class="semester-number">02</span>
                     <span class="semester-name">Second Semester</span>
                     <span class="semester-action">Select Semester →</span>
@@ -116,6 +116,41 @@
 
     </section>
 
+    <!-- UNDERGRADUATE DEPARTMENT SELECTION -->
+
+<section id="departmentView" class="view">
+
+    <button
+        class="back-btn"
+        type="button"
+        onclick="goHome()">
+        ← Back to Semesters
+    </button>
+
+    <div class="page-heading">
+
+        <span class="eyebrow">
+            Undergraduate Departments
+        </span>
+
+        <h2 id="departmentHeading">
+            Select Your Department
+        </h2>
+
+        <p>
+            Choose your department to view
+            the available programmes.
+        </p>
+
+    </div>
+
+    <div
+        id="departmentList"
+        class="programme-grid">
+    </div>
+
+</section>
+    
     <section id="levelView" class="view">
 
         <button class="back-btn" onclick="goHome()">
@@ -156,6 +191,41 @@
 
         </div>
     </section>
+
+    <!-- BUSINESS SPECIALISATION SELECTION -->
+
+<section id="specialisationView" class="view">
+
+    <button
+        class="back-btn"
+        type="button"
+        onclick="backToProgrammeLevels()">
+        ← Back to Levels
+    </button>
+
+    <div class="page-heading">
+
+        <span class="eyebrow">
+            Business Specialisations
+        </span>
+
+        <h2 id="specialisationHeading">
+            Select Your Specialisation
+        </h2>
+
+        <p id="specialisationSubheading">
+            Choose your specialisation to view
+            the available courses.
+        </p>
+
+    </div>
+
+    <div
+        id="specialisationList"
+        class="programme-grid">
+    </div>
+
+</section>
 
     <section id="programmeView" class="view">
 
