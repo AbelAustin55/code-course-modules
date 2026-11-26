@@ -15,6 +15,74 @@ const PLACEHOLDER_LINK =
 const MODULE_API_BASE =
     "https://api.codemodules.dedyn.io";
 
+/*
+ * Experimental iOS download path. Safari sometimes previews PDFs even when
+ * the API returns Content-Disposition: attachment.
+ * Keep normal attachment navigation on all other platforms, and fall back
+ * to it on iOS if fetching is blocked or the file is too large.
+ * This is a test-only change, not a guarantee of iOS download behaviour.
+ */
+function downloadCoDEModule(url) {
+    const isIOS = /iPad|iPhone|iPod/i.test(navigator.userAgent) ||
+        (/Macintosh/i.test(navigator.userAgent) && navigator.maxTouchPoints > 1);
+    let resolved;
+    try {
+        resolved = new URL(url, window.location.href);
+    } catch (_) {
+        return window.location.assign(url);
+    }
+    const api = new URL(MODULE_API_BASE);
+    if (!isIOS || resolved.origin !== api.origin ||
+        resolved.pathname !== "/module/view") {
+        return window.location.assign(url);
+    }
+
+    // Limit peak in-memory PDF buffering on phones; larger files use the
+    // existing server-controlled attachment response instead.
+    const maxBytes = 80 * 1024 * 1024;
+    (async () => {
+        try {
+            const response = await fetch(resolved.href, {
+                method: "GET",
+                mode: "cors",
+                credentials: "omit",
+                cache: "no-store"
+            });
+            if (!response.ok) throw new Error("PDF HTTP " + response.status);
+            const length = Number(response.headers.get("Content-Length") || 0);
+            if (length > maxBytes) {
+                if (response.body) await response.body.cancel();
+                window.location.assign(url);
+                return;
+            }
+            const pdf = await response.blob();
+            if (!pdf.size || pdf.size > maxBytes) {
+                window.location.assign(url);
+                return;
+            }
+            const filename = decodeURIComponent(
+                resolved.searchParams.get("path")?.split("/").pop() ||
+                "course-module.pdf"
+            ).replace(/[\r\n/\\]/g, "_");
+            const blobUrl = URL.createObjectURL(
+                new Blob([pdf], { type: "application/octet-stream" })
+            );
+            const a = document.createElement("a");
+            a.href = blobUrl;
+            a.download = filename;
+            a.style.display = "none";
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+            setTimeout(() => URL.revokeObjectURL(blobUrl), 60000);
+        } catch (error) {
+            console.warn("iOS download fallback:", error);
+            window.location.assign(url);
+        }
+    })();
+}
+
+
 
 /*
 Each course uses:
@@ -3720,7 +3788,7 @@ function showMathsScienceCourseCards(option=null, addHistory=true) {
                 const realUrl=await mathsScienceResolvePdf(path,{
                     programme,level,option
                 });
-                window.location.assign(realUrl);
+                downloadCoDEModule(realUrl);
             }catch(error){
                 mathsScienceDownloadNotice("Module download could not be matched in Nextcloud",
                     "File: "+path.split("/").pop()+"\nProgramme: "+programme+
@@ -3877,7 +3945,7 @@ function showArtsSocialCourseCards(programme, addHistory=true) {
             button.disabled=true;button.textContent="LOCATING PDF IN NEXTCLOUD…";
             try{
                 const url=await artsSocialResolvePdf(item.relativePath,{programme,level});
-                window.location.assign(url);
+                downloadCoDEModule(url);
             }catch(error){
                 mathsScienceDownloadNotice("Arts and Social Sciences PDF could not be matched",
                     "File: "+item.filename+"\nProgramme: "+programme+
@@ -5335,7 +5403,7 @@ function showEducationCourseCards(programme, addHistory = true) {
         b.textContent = label;
         b.addEventListener("click", () => {
             const query = new URLSearchParams({ semester: "first", path });
-            window.location.assign(`${MODULE_API_BASE}/module/view?${query.toString()}`);
+            downloadCoDEModule(`${MODULE_API_BASE}/module/view?${query.toString()}`);
         });
         holder.appendChild(b);
     }
@@ -5683,7 +5751,7 @@ function showBusinessCourseCards(specialisation, addHistory = true) {
                         semester: semesterApiKeys[selectedSemester],
                         path: unitPath
                     });
-                    window.location.assign(
+                    downloadCoDEModule(
                         `${MODULE_API_BASE}/module/view?${params.toString()}`
                     );
                 });
@@ -5742,7 +5810,7 @@ function showBusinessCourseCards(specialisation, addHistory = true) {
                                 semester: semesterApiKeys[selectedSemester],
                                 path: file.relativePath
                             });
-                            window.location.assign(
+                            downloadCoDEModule(
                                 `${MODULE_API_BASE}/module/view?${params.toString()}`
                             );
                         });
@@ -5814,7 +5882,7 @@ function showBusinessCourseCards(specialisation, addHistory = true) {
                         semester: semesterApiKeys[selectedSemester],
                         path: matches[0].relative_path
                     });
-                    window.location.assign(`${MODULE_API_BASE}/module/view?${params.toString()}`);
+                    downloadCoDEModule(`${MODULE_API_BASE}/module/view?${params.toString()}`);
                 } catch (error) {
                     console.warn("Could not resolve Level 300 PDF:", error);
                     showModuleMessage(
@@ -5845,7 +5913,7 @@ function showBusinessCourseCards(specialisation, addHistory = true) {
                 const downloadUrl =
                     `${MODULE_API_BASE}/module/view?${params.toString()}`;
 
-                window.location.assign(downloadUrl);
+                downloadCoDEModule(downloadUrl);
 
             });
 
@@ -7091,7 +7159,7 @@ function openResolvedModuleUrl(
     clickable result instead of failing silently.
     */
 
-   window.location.assign(url);
+   downloadCoDEModule(url);
 
 }
 
@@ -7426,7 +7494,7 @@ function createModuleFileCard(
             }
 
 
-           window.location.assign(file.url);
+           downloadCoDEModule(file.url);
             
 
         }
@@ -8378,7 +8446,7 @@ function openCloudModule(event, url) {
     }
 
     // Download without opening another browser tab.
-    window.location.assign(url);
+    downloadCoDEModule(url);
 
 }
 
