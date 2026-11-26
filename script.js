@@ -3721,93 +3721,34 @@ let selectedSpecialisation = null;
    BUSINESS COURSE CATALOGUE
    ========================================= */
 
+
+
 const businessCourseCatalogue = {
     firstSemester: {
         "4YR BCOM 100,200,300,400": {
             "100": {
                 "Accounting": [
-                   
-{
-    code: "ECO101D",
-    title: "Principles of Economics 1",
-    filename: "Principles_of_Economics_1.pdf",
-    relativePath: "/BUSINESS/4YR BCOM  100,200,300, 400/YR1 LEVEL 100/ACCOUNTING LEVEL 100/Principles_of_Economics_1.pdf"
-},
-
-                    {
-                        code: "",
-                        title: "Principles of Accounting 1",
-                        filename: "Principles_of_Accounting_1.pdf"
-                    },
-                    {
-                        code: "INF101D",
-                        title: "Introduction to Computing",
-                        filename: "Introduction_to_Computing.pdf"
-                    },
-                    {
-                        code: "",
-                        title: "Introduction to Business 1",
-                        filename: "Introduction_to_Business_1.pdf"
-                    },
-                    {
-                        code: "ILT101D",
-                        title: "Information Literacy",
-                        filename: "Info_Lit. (1).pdf"
-                    },
-                    {
-                        code: "ASP101D",
-                        title: "Core African Studies",
-                        filename: "Core-African_Studies.pdf"
-                    },
-                    {
-                        code: "CMS107D",
-                        title: "Communicative Skills 1",
-                        filename: "Communicative_Skills_1.pdf"
-                    
+                    { code: "ECO101D", title: "Principles of Economics 1", filename: "Principles_of_Economics_1.pdf" },
+                    { code: "", title: "Principles of Accounting 1", filename: "Principles_of_Accounting_1.pdf" },
+                    { code: "INF101D", title: "Introduction to Computing", filename: "Introduction_to_Computing.pdf" },
+                    { code: "", title: "Introduction to Business 1", filename: "Introduction_to_Business_1.pdf" },
+                    { code: "ILT101D", title: "Information Literacy", filename: "Info_Lit. (1).pdf" },
+                    { code: "ASP101D", title: "Core African Studies", filename: "Core-African_Studies.pdf" },
+                    { code: "CMS107D", title: "Communicative Skills 1", filename: "Communicative_Skills_1.pdf" }
                 ],
-
                 "Finance": [
-                    {
-                        code: "ECO101D",
-                        title: "Principles of Economics 1",
-                        filename: "Principles_of_Economics_1.pdf"
-                    },
-                    {
-                        code: "",
-                        title: "Principles of Accounting 1",
-                        filename: "Principles_of_Accounting_1.pdf"
-                    },
-                    {
-                        code: "INF101D",
-                        title: "Introduction to Computing",
-                        filename: "Introduction_to_Computing.pdf"
-                    },
-                    {
-                        code: "",
-                        title: "Introduction to Business 1",
-                        filename: "Introduction_to_Business_1.pdf"
-                    },
-                    {
-                        code: "ILT101D",
-                        title: "Information Literacy",
-                        filename: "Info_Lit. (1).pdf"
-                    },
-                    {
-                        code: "ASP101D",
-                        title: "Core African Studies",
-                        filename: "Core-African_Studies.pdf"
-                    },
-                    {
-                        code: "CMS107D",
-                        title: "Communicative Skills 1",
-                        filename: "Communicative_Skills_1.pdf"
-                    }
+                    { code: "ECO101D", title: "Principles of Economics 1", filename: "Principles_of_Economics_1.pdf" },
+                    { code: "", title: "Principles of Accounting 1", filename: "Principles_of_Accounting_1.pdf" },
+                    { code: "INF101D", title: "Introduction to Computing", filename: "Introduction_to_Computing.pdf" },
+                    { code: "", title: "Introduction to Business 1", filename: "Introduction_to_Business_1.pdf" },
+                    { code: "ILT101D", title: "Information Literacy", filename: "Info_Lit. (1).pdf" },
+                    { code: "ASP101D", title: "Core African Studies", filename: "Core-African_Studies.pdf" },
+                    { code: "CMS107D", title: "Communicative Skills 1", filename: "Communicative_Skills_1.pdf" }
                 ]
             }
         }
     }
 };
-
 
 
 
