@@ -3821,32 +3821,58 @@ const businessLevel300Courses = {
  * Where a programme folder shows two possible course codes,
  * do not select one without confirmation.
  */
+/* =========================================================
+   VERIFIED LEVEL 400 SIX-UNIT MODULES
+   These twelve filenames are taken from the First Semester
+   Nextcloud index output supplied 26 November 2026.
+   Use explicit indexed names, rather than an incomplete ranked
+   /modules/search result that previously returned only 3 units.
+   The existing Business Level 400 specialisation folders remain
+   the download roots; this change does not touch Levels 100–300.
+   ========================================================= */
+const businessLevel400SixUnitFiles = {
+    project: Array.from({ length: 6 }, (_, index) => {
+        const number = index + 1;
+        return {
+            number,
+            filename: `Project Management Unit ${number}.pdf`
+        };
+    }),
+    entrepreneurship: Array.from({ length: 6 }, (_, index) => {
+        const number = index + 1;
+        return {
+            number,
+            filename: `Unit ${number} SBU 408D.ENT 302D Entrepreneurship.pdf`
+        };
+    })
+};
+
 const businessLevel400Courses = {
     "Accounting": [
-        { code: "", title: "Entrepreneurship (SBU 408D / ENT 302D)", unitFolder: "SBU 408D. ENT 302D Entrepreneurship/", folderPending: true },
-        { code: "ADM404D", title: "Project Management", unitFolder: "Project Management/", folderPending: true },
+        { code: "", title: "Entrepreneurship (SBU 408D / ENT 302D)", unitFolder: "SBU 408D. ENT 302D Entrepreneurship/", units: businessLevel400SixUnitFiles.entrepreneurship },
+        { code: "ADM404D", title: "Project Management", unitFolder: "Project Management/", units: businessLevel400SixUnitFiles.project },
         { code: "", title: "Corporate Financial Analysis", unitFolder: "Corporate Financial Analysis/", folderPending: true },
         { code: "ACC403D", title: "Audit and Internal Review", unitFolder: "ACC 403D - Audit and Internal Review/", folderPending: true },
         { code: "", title: "Investment Management", filename: "Investment Management.pdf" },
         { code: "", title: "Advanced Accounting I", filename: "Advanced Accounting 1 (rev'd) 2015.pdf" }
     ],
     "Finance": [
-        { code: "", title: "Entrepreneurship (SBU 408D / ENT 302D)", unitFolder: "SBU 408D. ENT 302D Entrepreneurship/", folderPending: true },
-        { code: "ADM404D", title: "Project Management", unitFolder: "Project Management/", folderPending: true },
+        { code: "", title: "Entrepreneurship (SBU 408D / ENT 302D)", unitFolder: "SBU 408D. ENT 302D Entrepreneurship/", units: businessLevel400SixUnitFiles.entrepreneurship },
+        { code: "ADM404D", title: "Project Management", unitFolder: "Project Management/", units: businessLevel400SixUnitFiles.project },
         { code: "", title: "Financial Modelling IC", unitFolder: "Financial Modelling IC/", folderPending: true },
         { code: "FIN407D", title: "Public Finance", unitFolder: "FIN 407D Public Finance/", folderPending: true },
         { code: "", title: "Corporate Financial Analysis", unitFolder: "Corporate Financial Analysis/", folderPending: true },
         { code: "", title: "Investment Management", filename: "Investment Management.pdf" }
     ],
     "Human Resource Management": [
-        { code: "", title: "Entrepreneurship (SBU 408D / ENT 302D)", unitFolder: "SBU 408D. ENT 302D Entrepreneurship/", folderPending: true },
-        { code: "ADM404D", title: "Project Management", unitFolder: "Project Management/", folderPending: true },
+        { code: "", title: "Entrepreneurship (SBU 408D / ENT 302D)", unitFolder: "SBU 408D. ENT 302D Entrepreneurship/", units: businessLevel400SixUnitFiles.entrepreneurship },
+        { code: "ADM404D", title: "Project Management", unitFolder: "Project Management/", units: businessLevel400SixUnitFiles.project },
         { code: "HUM401D", title: "Collective Bargaining & Negotiation Skills", unitFolder: "HUM 401D Collective Bargaining & Negotiation Skills/", folderPending: true },
         { code: "", title: "Leadership and Emotional Intelligence", filename: "Leadership and Emotional Intelligence_.pdf" },
         { code: "", title: "Health and Safety at Work", filename: "Health and Safety at Work.pdf" }
     ],
     "Management": [
-        { code: "ADM404D", title: "Project Management", unitFolder: "Project Management/", folderPending: true },
+        { code: "ADM404D", title: "Project Management", unitFolder: "Project Management/", units: businessLevel400SixUnitFiles.project },
         { code: "SBU403D", title: "Self-Management Skills", filename: "SBU 403D Self-Management Skills edited.pdf" },
         { code: "", title: "Leadership / Organisational Development", filename: "Leadership_Org_Dev.pdf" },
         { code: "", title: "Investment Management", filename: "Investment Management.pdf" },
@@ -3855,14 +3881,14 @@ const businessLevel400Courses = {
         { code: "ADM405D", title: "Database Management", filename: "Database_Management.pdf" }
     ],
     "Marketing": [
-        { code: "", title: "Entrepreneurship (SBU 408D / ENT 302D)", unitFolder: "SBU 408D. ENT 302D Entrepreneurship/", folderPending: true },
-        { code: "ADM404D", title: "Project Management", unitFolder: "Project Management/", folderPending: true },
+        { code: "", title: "Entrepreneurship (SBU 408D / ENT 302D)", unitFolder: "SBU 408D. ENT 302D Entrepreneurship/", units: businessLevel400SixUnitFiles.entrepreneurship },
+        { code: "ADM404D", title: "Project Management", unitFolder: "Project Management/", units: businessLevel400SixUnitFiles.project },
         { code: "SBU403D", title: "Self-Management Skills", filename: "SBU 403D Self-Management Skills edited.pdf" },
         { code: "MKT402D", title: "Marketing Research", filename: "MARKETING_RESEARCH.pdf" }
     ],
     "Procurement and Supply Chain Management": [
-        { code: "", title: "Entrepreneurship (SBU 408D / ENT 302D)", unitFolder: "SBU 408D. ENT 302D Entrepreneurship/", folderPending: true },
-        { code: "ADM404D", title: "Project Management", unitFolder: "Project Management/", folderPending: true },
+        { code: "", title: "Entrepreneurship (SBU 408D / ENT 302D)", unitFolder: "SBU 408D. ENT 302D Entrepreneurship/", units: businessLevel400SixUnitFiles.entrepreneurship },
+        { code: "ADM404D", title: "Project Management", unitFolder: "Project Management/", units: businessLevel400SixUnitFiles.project },
         { code: "", title: "Sustainable Procurement and Supply", filename: "Sustainable Procurement and Supply_.pdf" },
         { code: "", title: "Management Risk in Procurement and Supply", filename: "Management Risk in Procurement and Supply.pdf" }
     ]
@@ -3905,23 +3931,18 @@ function indexedBusinessUnitNumber(filename) {
 async function findBusinessFolderPdfFiles(folderPrefix, item) {
     const folderName = String(item.unitFolder || "")
         .split("/").filter(Boolean).pop() || "";
-
-    const hints = [
-        item.folderSearchTerm || item.title,
-        folderName.replace(/^(SBU\s*408D[.\s]*ENT\s*302D|ACC\s*403D|HUM\s*401D|FIN\s*407D)\s*/i, "").trim(),
-        item.code || ""
-    ].map(value => String(value || "").trim()).filter(value => value.length >= 3);
-
-    const seenHints = new Set();
-    const uniqueFiles = new Map();
     const prefix = folderPrefix.replace(/\\/g, "/").toLowerCase();
+    const uniqueFiles = new Map();
+    const searched = new Set();
 
-    for (const queryText of hints) {
-        const hintKey = queryText.toLowerCase();
-        if (seenHints.has(hintKey)) continue;
-        seenHints.add(hintKey);
+    // Keep the directory-specific safety check. A similar filename in
+    // a different specialisation must NEVER be used as a download.
+    async function searchAndCollect(term) {
+        const query = String(term || "").trim();
+        if (query.length < 3 || searched.has(query.toLowerCase())) return;
+        searched.add(query.toLowerCase());
 
-        const params = new URLSearchParams({ q: queryText });
+        const params = new URLSearchParams({ q: query });
         const response = await fetch(
             `${MODULE_API_BASE}/modules/search?${params.toString()}`,
             { headers: { Accept: "application/json" } }
@@ -3930,25 +3951,64 @@ async function findBusinessFolderPdfFiles(folderPrefix, item) {
         const data = await response.json();
         const records = Array.isArray(data.results) ? data.results : [];
         for (const entry of records) {
-            const relativePath = String(entry.relative_path || "").replace(/\\/g, "/");
+            const relativePath = String(entry.relative_path || "")
+                .replace(/\\/g, "/");
             if (!relativePath.toLowerCase().startsWith(prefix)) continue;
             if (!relativePath.toLowerCase().endsWith(".pdf")) continue;
-            // Reject traversal and paths from other folders, even if names match.
             if (relativePath.split("/").includes("..")) continue;
-
             const filename = relativePath.split("/").pop();
             const normalizedFilename = filename.replace(/[_-]+/g, " ").toLowerCase();
-            // Screenshots show misfiled Audit PDFs in the Corporate Financial
-            // Analysis directory and one Audit PDF in Project Management.
             if (item.title === "Corporate Financial Analysis" &&
                 !normalizedFilename.includes("corporate financial analysis")) continue;
             if (item.title === "Project Management" &&
                 !normalizedFilename.includes("project management")) continue;
-
             uniqueFiles.set(relativePath.toLowerCase(), { relativePath, filename });
         }
-        // A successful search may already include every PDF for this folder.
-        // Continue the additional focused searches to catch variant names.
+    }
+
+    const hints = [
+        item.folderSearchTerm || item.title,
+        folderName.replace(/^(SBU\s*408D[.\s]*ENT\s*302D|ACC\s*403D|HUM\s*401D|FIN\s*407D)\s*/i, "").trim(),
+        item.code || ""
+    ];
+    for (const hint of hints) await searchAndCollect(hint);
+
+    // The search endpoint can return a partial ranked list when many
+    // Nextcloud modules match a broad title. Project Management and
+    // Entrepreneurship are confirmed six-unit folders. Query for each
+    // missing unit rather than assuming the first three are all files.
+    const needsSixUnits = item.title === "Project Management" ||
+        item.title === "Entrepreneurship (SBU 408D / ENT 302D)";
+    if (needsSixUnits) {
+        const hasUnit = n => Array.from(uniqueFiles.values()).some(
+            file => indexedBusinessUnitNumber(file.filename) === n
+        );
+        for (let n = 1; n <= 6; n++) {
+            if (hasUnit(n)) continue;
+            let targetedTerms;
+            if (item.title === "Project Management") {
+                targetedTerms = [
+                    `Project Management Unit ${n}`,
+                    `Unit ${n} Project Management`
+                ];
+            } else {
+                targetedTerms = [
+                    `Unit ${n} SBU 408D`,
+                    `Unit ${n} Entrepreneurship`,
+                    `Entrepreneurship Unit ${n}`
+                ];
+            }
+            for (const term of targetedTerms) {
+                try {
+                    await searchAndCollect(term);
+                } catch (error) {
+                    // Do not discard already located units if one focused
+                    // search fails. Missing unit numbers will be reported.
+                    console.warn("Focused unit search unavailable:", term, error);
+                }
+                if (hasUnit(n)) break;
+            }
+        }
     }
 
     return Array.from(uniqueFiles.values()).sort((a, b) => {
@@ -4233,6 +4293,23 @@ function showBusinessCourseCards(specialisation, addHistory = true) {
                         });
                         holder.appendChild(unitButton);
                     });
+                    // Never pretend the index is complete when only part
+                    // of a confirmed six-unit folder was returned.
+                    if (
+                        item.title === "Project Management" ||
+                        item.title === "Entrepreneurship (SBU 408D / ENT 302D)"
+                    ) {
+                        const numbers = new Set(
+                            files.map(file => indexedBusinessUnitNumber(file.filename))
+                                .filter(n => n !== null && n >= 1 && n <= 6)
+                        );
+                        if (numbers.size < 6) {
+                            const missing = [1, 2, 3, 4, 5, 6]
+                                .filter(n => !numbers.has(n));
+                            note.textContent = `Units ${missing.join(", ")} could not be found in the Nextcloud search index. The other units remain available.`;
+                            holder.appendChild(note);
+                        }
+                    }
                 } catch (error) {
                     console.warn("Unable to discover Business course units:", error);
                     note.textContent = "Could not load the indexed PDFs. Please try again or check the module index.";
