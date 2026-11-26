@@ -4165,6 +4165,547 @@ const twoYearDcoLevel100Courses = Object.fromEntries(
     ])
 );
 
+/* =========================================================
+   2YR BCOM YR1 LEVEL 300 _ LEVEL 400 — FIRST SEMESTER
+   Source: user-provided BUSINESS Google Drive folder.
+   12 specialisation folders and their 99 PDF files were
+   inspected directly, including six grouped multi-unit
+   courses. Download links use the corresponding Nextcloud
+   paths and require live verification against its index.
+   ========================================================= */
+const twoYearBcomYr1Level300Courses = {
+    "Accounting": [
+        {
+            "code": "",
+            "title": "Cost and Management Accounting I",
+            "filename": "COST AND MANAGEMENT ACCOUNTING 1.pdf"
+        },
+        {
+            "code": "",
+            "title": "Operations Management",
+            "filename": "Operations Management.pdf"
+        },
+        {
+            "code": "",
+            "title": "Taxation",
+            "unitFolder": "",
+            "units": [
+                {
+                    "number": 3,
+                    "filename": "UNIT 3 TAXATION.pdf"
+                },
+                {
+                    "number": 4,
+                    "filename": "TAXATION UNIT 4.pdf"
+                },
+                {
+                    "number": 5,
+                    "filename": "TAXATION UNIT 5.pdf"
+                },
+                {
+                    "label": "ADDITIONAL PDF",
+                    "filename": "TAXATION.pdf"
+                }
+            ]
+        },
+        {
+            "code": "ACC303D",
+            "title": "Public Sector Accounting",
+            "filename": "Public Sector Accounting”.pdf"
+        },
+        {
+            "code": "",
+            "title": "Company and Partnership Law",
+            "filename": "Company and Partnership Law.pdf"
+        },
+        {
+            "code": "",
+            "title": "Managerial Economics",
+            "filename": "MANAGERIAL ECONOMICS.pdf"
+        }
+    ],
+    "Finance": [
+        {
+            "code": "",
+            "title": "Cost and Management Accounting I",
+            "filename": "COST AND MANAGEMENT ACCOUNTING 1.pdf"
+        },
+        {
+            "code": "FIN071D",
+            "title": "Principles of Finance",
+            "filename": "FIN 071D Principles of Finance.pdf"
+        },
+        {
+            "code": "",
+            "title": "Operations Management",
+            "filename": "Operations Management.pdf"
+        },
+        {
+            "code": "",
+            "title": "Financial Market and Institutions",
+            "filename": "Financial Market and Institutions.pdf"
+        },
+        {
+            "code": "",
+            "title": "Company and Partnership Law",
+            "filename": "Company and Partnership Law.pdf"
+        },
+        {
+            "code": "",
+            "title": "Managerial Economics",
+            "filename": "MANAGERIAL ECONOMICS.pdf"
+        }
+    ],
+    "Human Resource Management": [
+        {
+            "code": "",
+            "title": "Operations Management",
+            "filename": "Operations Management.pdf"
+        },
+        {
+            "code": "",
+            "title": "Human Resource Information System",
+            "filename": "Human_Resource_Info_System.pdf"
+        },
+        {
+            "code": "",
+            "title": "Employment Law",
+            "filename": "Employment_Law.pdf"
+        },
+        {
+            "code": "",
+            "title": "Introduction to Cost and Management Accounting",
+            "filename": "Introduction to Cost and Management Accounting.pdf"
+        },
+        {
+            "code": "",
+            "title": "Managerial Economics",
+            "filename": "MANAGERIAL ECONOMICS.pdf"
+        },
+        {
+            "code": "HUM311D",
+            "title": "Managing Workplace Conflict",
+            "filename": "HUM 311D Managing Workplace Conflict.pdf"
+        }
+    ],
+    "Management": [
+        {
+            "code": "",
+            "title": "Operations Management",
+            "filename": "Operations Management.pdf"
+        },
+        {
+            "code": "",
+            "title": "International Business",
+            "filename": "INTERNATIONAL_BUS.pdf"
+        },
+        {
+            "code": "",
+            "title": "Introduction to Cost and Management Accounting",
+            "filename": "Introduction to Cost and Management Accounting.pdf"
+        },
+        {
+            "code": "",
+            "title": "Company and Partnership Law",
+            "filename": "Company and Partnership Law.pdf"
+        },
+        {
+            "code": "",
+            "title": "Managerial Economics",
+            "filename": "MANAGERIAL ECONOMICS.pdf"
+        },
+        {
+            "code": "",
+            "title": "Public Relations",
+            "filename": "Public_Relations.pdf"
+        }
+    ],
+    "Marketing": [
+        {
+            "code": "",
+            "title": "Innovations and Digital Marketing",
+            "filename": "Innovations_and_Digital_Marketing (1).pdf"
+        },
+        {
+            "code": "",
+            "title": "Operations Management",
+            "filename": "Operations Management.pdf"
+        },
+        {
+            "code": "",
+            "title": "Marketing Management",
+            "filename": "Marketing_Management.pdf"
+        },
+        {
+            "code": "",
+            "title": "Introduction to Cost and Management Accounting",
+            "filename": "Introduction_to_Cost_and_Management_Accounting.pdf"
+        },
+        {
+            "code": "",
+            "title": "Consumer Behaviour",
+            "filename": "Consumer_Behaviour.pdf"
+        },
+        {
+            "code": "",
+            "title": "Managerial Economics",
+            "filename": "MANAGERIAL ECONOMICS.pdf"
+        }
+    ],
+    "Procurement and Supply Chain Management": [
+        {
+            "code": "",
+            "title": "Procurement and Supply Context",
+            "filename": "PROCUREMENT AND SUPPLY CONTEXT edited.pdf"
+        },
+        {
+            "code": "",
+            "title": "Elective: Introduction to Cost and Management Accounting",
+            "filename": "Elective-Introduction_to_Cost_and_Management_Accounting.pdf"
+        },
+        {
+            "code": "",
+            "title": "Operations Management",
+            "filename": "Operations Management.pdf"
+        },
+        {
+            "code": "",
+            "title": "Company and Partnership Law",
+            "filename": "Company and Partnership Law.pdf"
+        },
+        {
+            "code": "",
+            "title": "Managerial Economics",
+            "filename": "MANAGERIAL ECONOMICS.pdf"
+        },
+        {
+            "code": "",
+            "title": "Managing Procurement and Supply Relationships",
+            "filename": "MANAGING_PROCUREMENT_AND_SUPPLY_RELATIONSHIP.pdf"
+        }
+    ]
+};
+
+const twoYearBcomYr1Level400Courses = {
+    "Accounting": [
+        {
+            "code": "",
+            "title": "Advanced Accounting I",
+            "filename": "Advanced Accounting 1 (rev'd) 2015.pdf"
+        },
+        {
+            "code": "ACC403D",
+            "title": "Audit and Internal Review",
+            "filename": "ACC 403D Audit and Internal Review.pdf"
+        },
+        {
+            "code": "ADM404D",
+            "title": "Project Management",
+            "unitFolder": "Project Management/",
+            "units": [
+                {
+                    "number": 1,
+                    "filename": "Project Management Unit 1.pdf"
+                },
+                {
+                    "number": 2,
+                    "filename": "Project Management Unit 2.pdf"
+                },
+                {
+                    "number": 3,
+                    "filename": "Project Management Unit 3.pdf"
+                },
+                {
+                    "number": 4,
+                    "filename": "Project Management Unit 4.pdf"
+                },
+                {
+                    "number": 5,
+                    "filename": "Project Management Unit 5.pdf"
+                },
+                {
+                    "number": 6,
+                    "filename": "Project Management Unit 6.pdf"
+                }
+            ]
+        },
+        {
+            "code": "FIN405D",
+            "title": "Corporate Financial Analysis",
+            "filename": "Corporate Financial Analysis.pdf"
+        },
+        {
+            "code": "",
+            "title": "Investment Management",
+            "filename": "Investment Management.pdf"
+        },
+        {
+            "code": "",
+            "title": "Introduction to Project Management",
+            "filename": "Intro_to_Project_Management.pdf"
+        }
+    ],
+    "Finance": [
+        {
+            "code": "",
+            "title": "Entrepreneurship",
+            "filename": "Entrepreneurship.pdf"
+        },
+        {
+            "code": "ADM404D",
+            "title": "Project Management",
+            "unitFolder": "Project Management/",
+            "units": [
+                {
+                    "number": 1,
+                    "filename": "Project Management Unit 1.pdf"
+                },
+                {
+                    "number": 2,
+                    "filename": "Project Management Unit 2.pdf"
+                },
+                {
+                    "number": 3,
+                    "filename": "Project Management Unit 3.pdf"
+                },
+                {
+                    "number": 4,
+                    "filename": "Project Management Unit 4.pdf"
+                },
+                {
+                    "number": 5,
+                    "filename": "Project Management Unit 5.pdf"
+                },
+                {
+                    "number": 6,
+                    "filename": "Project Management Unit 6.pdf"
+                }
+            ]
+        },
+        {
+            "code": "FIN407D",
+            "title": "Public Finance",
+            "unitFolder": "FIN 407D Public Finance/",
+            "units": [
+                {
+                    "number": 1,
+                    "filename": "Unit 1 FIN 407D Public Finance editted.pdf"
+                },
+                {
+                    "number": 2,
+                    "filename": "Unit 2 FIN 407D Public Finance editted.pdf"
+                },
+                {
+                    "number": 3,
+                    "filename": "Unit 3 FIN 407D Public Finance editted.pdf"
+                },
+                {
+                    "number": 4,
+                    "filename": "Unit 4 FIN 407D Public Finance editted.pdf"
+                },
+                {
+                    "number": 5,
+                    "filename": "Unit 5 FIN 407D Public Finance editted.pdf"
+                },
+                {
+                    "number": 6,
+                    "filename": "Unit 6 FIN 407D Public Finance editted.pdf"
+                }
+            ]
+        },
+        {
+            "code": "",
+            "title": "Financial Modelling",
+            "filename": "FINANCIAL MODELING.pdf"
+        },
+        {
+            "code": "FIN405D",
+            "title": "Corporate Financial Analysis",
+            "filename": "Corporate Financial Analysis.pdf"
+        },
+        {
+            "code": "",
+            "title": "Investment Management",
+            "filename": "Investment Management.pdf"
+        },
+        {
+            "code": "",
+            "title": "Introduction to Project Management",
+            "filename": "Intro_to_Project_Management.pdf"
+        }
+    ],
+    "Human Resource Management": [
+        {
+            "code": "",
+            "title": "Collective Bargaining and Negotiation Skills",
+            "filename": "Collective Bargaining and Negotiation Skills.pdf"
+        },
+        {
+            "code": "",
+            "title": "Entrepreneurship",
+            "filename": "Entrepreneurship.pdf"
+        },
+        {
+            "code": "",
+            "title": "Health and Safety at Work",
+            "filename": "Health and Safety at Work.pdf"
+        },
+        {
+            "code": "",
+            "title": "Leadership and Emotional Intelligence",
+            "filename": "Leadership and Emotional Intelligence_.pdf"
+        },
+        {
+            "code": "",
+            "title": "Introduction to Project Management",
+            "filename": "Intro_to_Project_Management.pdf"
+        }
+    ],
+    "Management": [
+        {
+            "code": "",
+            "title": "Entrepreneurship",
+            "filename": "Entrepreneurship.pdf"
+        },
+        {
+            "code": "",
+            "title": "Leadership and Organisational Development",
+            "filename": "Leadership__Org_Dev.pdf"
+        },
+        {
+            "code": "ADM405D",
+            "title": "Database Management",
+            "filename": "Database_Management.pdf"
+        },
+        {
+            "code": "SBU403D",
+            "title": "Self-Management Skills",
+            "filename": "Self-Management Skills.pdf"
+        },
+        {
+            "code": "",
+            "title": "Investment Management",
+            "filename": "Investment Management.pdf"
+        },
+        {
+            "code": "",
+            "title": "Industrial and Employment Relationship",
+            "filename": "Industrial and Employment Relationship.pdf"
+        },
+        {
+            "code": "",
+            "title": "Introduction to Project Management",
+            "filename": "Intro_to_Project_Management.pdf"
+        }
+    ],
+    "Marketing": [
+        {
+            "code": "",
+            "title": "Entrepreneurship",
+            "filename": "Entrepreneurship.pdf"
+        },
+        {
+            "code": "ADM404D",
+            "title": "Project Management",
+            "unitFolder": "Project Management/",
+            "units": [
+                {
+                    "number": 1,
+                    "filename": "Project Management Unit 1.pdf"
+                },
+                {
+                    "number": 2,
+                    "filename": "Project Management Unit 2.pdf"
+                },
+                {
+                    "number": 3,
+                    "filename": "Project Management Unit 3.pdf"
+                },
+                {
+                    "number": 4,
+                    "filename": "Project Management Unit 4.pdf"
+                },
+                {
+                    "number": 5,
+                    "filename": "Project Management Unit 5.pdf"
+                },
+                {
+                    "number": 6,
+                    "filename": "Project Management Unit 6.pdf"
+                }
+            ]
+        },
+        {
+            "code": "SBU403D",
+            "title": "Self-Management Skills",
+            "filename": "Self-Management Skills.pdf"
+        },
+        {
+            "code": "MKT402D",
+            "title": "Marketing Research",
+            "filename": "MARKETING_RESEARCH.pdf"
+        },
+        {
+            "code": "",
+            "title": "Introduction to Project Management",
+            "filename": "Intro_to_Project_Management.pdf"
+        }
+    ],
+    "Procurement and Supply Chain Management": [
+        {
+            "code": "",
+            "title": "Entrepreneurship",
+            "filename": "Entrepreneurship.pdf"
+        },
+        {
+            "code": "ADM404D",
+            "title": "Project Management",
+            "unitFolder": "Project Management/",
+            "units": [
+                {
+                    "number": 1,
+                    "filename": "Project Management Unit 1.pdf"
+                },
+                {
+                    "number": 2,
+                    "filename": "Project Management Unit 2.pdf"
+                },
+                {
+                    "number": 3,
+                    "filename": "Project Management Unit 3.pdf"
+                },
+                {
+                    "number": 4,
+                    "filename": "Project Management Unit 4.pdf"
+                },
+                {
+                    "number": 5,
+                    "filename": "Project Management Unit 5.pdf"
+                },
+                {
+                    "number": 6,
+                    "filename": "Project Management Unit 6.pdf"
+                }
+            ]
+        },
+        {
+            "code": "",
+            "title": "Managing Risk in Procurement and Supply",
+            "filename": "Managing Risk in Procurement and Supply_.pdf"
+        },
+        {
+            "code": "",
+            "title": "Sustainable Procurement and Supply",
+            "filename": "Sustainable Procurement and Supply_.pdf"
+        },
+        {
+            "code": "",
+            "title": "Introduction to Project Management",
+            "filename": "Intro_to_Project_Management.pdf"
+        }
+    ]
+};
+
 const businessCourseCatalogue = {
     firstSemester: {
         "4YR BCOM 100,200,300,400": {
@@ -4193,6 +4734,10 @@ const businessCourseCatalogue = {
         },
         "2YR DCO LEVEL 100": {
             "100": twoYearDcoLevel100Courses
+        },
+        "2YR BCOM YR1 LEVEL 300 _ LEVEL 400": {
+            "300": twoYearBcomYr1Level300Courses,
+            "400": twoYearBcomYr1Level400Courses
         }
     }
 };
@@ -4548,7 +5093,29 @@ function showBusinessCourseCards(specialisation, addHistory = true) {
             ? dcoYear2FolderNames[specialisation]
             : null;
 
+        // 2-Year BCom Year 1: 12 source folders across Levels 300 and 400.
+        // Use exact directory names from the connected Google Drive source.
+        const isTwoYearBcomYr1 =
+            selectedSemester === "firstSemester" &&
+            selectedProgramme === "2YR BCOM YR1 LEVEL 300 _ LEVEL 400" &&
+            ["300", "400"].includes(String(selectedLevel));
+        const twoYearBcomYr1Folders = {
+            "Accounting": "ACCOUNTING",
+            "Finance": "FINANCE",
+            "Human Resource Management": "HRM",
+            "Management": "MANAGEMENT",
+            "Marketing": "MARKETING",
+            "Procurement and Supply Chain Management": "PSCM"
+        };
+        const twoYearBcomYr1Folder =
+            isTwoYearBcomYr1 && twoYearBcomYr1Folders[specialisation]
+                ? "/BUSINESS/2YR BCOM YR1 LEVEL 300 _ LEVEL 400/" +
+                  twoYearBcomYr1Folders[specialisation] +
+                  " LEVEL " + selectedLevel + "/"
+                : null;
+
         const activeBusinessFolder =
+            twoYearBcomYr1Folder ? twoYearBcomYr1Folder :
             twoYearDcoLevel100Folder ? twoYearDcoLevel100Root + twoYearDcoLevel100Folder :
             threeYearBcomLevel200Folder ? threeYearBcomLevel200Folder :
             threeYearBcomYr1Folder ? threeYearBcomYr1Folder :
@@ -4948,7 +5515,8 @@ if (
      programme === "3YR DCO YR3 LEVEL 200" ||
      programme === "3YR BCOM YR1 LEVEL 300 _ LEVEL 400" ||
      programme === "3YR BCOM YR1 LEVEL 200" ||
-     programme === "2YR DCO LEVEL 100")
+     programme === "2YR DCO LEVEL 100" ||
+     programme === "2YR BCOM YR1 LEVEL 300 _ LEVEL 400")
 ) {
     showBusinessSpecialisations(level);
 } else {
