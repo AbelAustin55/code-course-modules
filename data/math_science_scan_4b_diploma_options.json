@@ -1,0 +1,233 @@
+{
+  "scans": [
+    {
+      "program": "3-Year Diploma in Mathematics Education",
+      "level": "200",
+      "levelFolder": "LEVEL 200 3YR DIPLOMA IN MATHS EDUCATION",
+      "option": "MATHS WITH CHEMISTRY OPTION",
+      "files": [
+        {
+          "name": "CHE301 Analytical Chemistry.pdf",
+          "id": "17mMWyT0dHSAakrmcyqw3sKQSdS92Plj7",
+          "type": "file"
+        },
+        {
+          "name": "Introd._to_Probability.pdf",
+          "id": "1FPyZSvxIEJ6uIF5Quu2f6Ucb9_og6NCD",
+          "type": "file"
+        },
+        {
+          "name": "Advanced_Calculus_I.pdf",
+          "id": "1bah9QBh0yrKVc8LJmkt3lHxFDcqF0goV",
+          "type": "file"
+        },
+        {
+          "name": "Pedagogical_Cont._Knowl._in_Maths.pdf",
+          "id": "1FHRoUkvkv1wNp-HbksrWhed_GEOBFlyt",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "program": "3-Year Diploma in Mathematics Education",
+      "level": "200",
+      "levelFolder": "LEVEL 200 3YR DIPLOMA IN MATHS EDUCATION",
+      "option": "MATHS WITH PHYSICS OPTION",
+      "files": [
+        {
+          "name": "thermal_physics.pdf",
+          "id": "1TU2aTNh4ZLb7LyRQv4-I25TL8bBWDBvZ",
+          "type": "file"
+        },
+        {
+          "name": "Introd._to_Probability.pdf",
+          "id": "1QgZ6lc95j-Q223C7mHKptuVn1QgCEPJ2",
+          "type": "file"
+        },
+        {
+          "name": "Advanced_Calculus_I.pdf",
+          "id": "1bO4zHKdukIkO2ZJHI_LpYO4rI3R7uC7k",
+          "type": "file"
+        },
+        {
+          "name": "Pedagogical_Cont._Knowl._in_Maths.pdf",
+          "id": "1dcNxyKRps4r-shVo0Ygjlmc_tOhbcQzs",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "program": "3-Year Diploma in Science Education",
+      "level": "200",
+      "levelFolder": "LEVEL 200 3YR DIPLOPMA IN SCIENCE EDUCATION",
+      "option": "CHEMISTRY WITH MATHS OPTION",
+      "files": [
+        {
+          "name": "CHE301 Analytical Chemistry.pdf",
+          "id": "18znGB2lkMufhyadSceinXWsB3gfm2k09",
+          "type": "file"
+        },
+        {
+          "name": "sterochemistry.pdf",
+          "id": "15_j-end8sYZLDatVUuzfGMUshmete6K1",
+          "type": "file"
+        },
+        {
+          "name": "Advanced_Calculus_I.pdf",
+          "id": "1URSncWHK4kqqsXMOCqm67tFglFkt4PgN",
+          "type": "file"
+        },
+        {
+          "name": "sterochemistry",
+          "id": "1_iuSg0yKlC97oiqTBYFY3qNP8ECatEczNmsgATiOqCc",
+          "type": "file"
+        },
+        {
+          "name": "Pedagogical_content_knowl._in_chemistry.pdf",
+          "id": "1iVdNNL3JP1K8a_-3u2SVjVpvTuWJiBFx",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "program": "3-Year Diploma in Science Education",
+      "level": "200",
+      "levelFolder": "LEVEL 200 3YR DIPLOPMA IN SCIENCE EDUCATION",
+      "option": "CHEMISTRY WITH PHYSICS OPTION",
+      "files": [
+        {
+          "name": "CHE301 Analytical Chemistry.pdf",
+          "id": "1meBs9cQ45KTgyCdks4TzhmhEhWNTHUf-",
+          "type": "file"
+        },
+        {
+          "name": "sterochemistry.pdf",
+          "id": "1GCWM-Jp26sCuNocBC5vx8zVg7ILsKOIT",
+          "type": "file"
+        },
+        {
+          "name": "thermal_physics.pdf",
+          "id": "1qRo3ruRUUVWgGZk9BPZNRMMSCrxsSDf5",
+          "type": "file"
+        },
+        {
+          "name": "Pedagogical_content_knowl._in_chemistry.pdf",
+          "id": "1H6S5bABlLMvS0g0H9Nx3rznswlLll1J1",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "program": "3-Year Diploma in Science Education",
+      "level": "200",
+      "levelFolder": "LEVEL 200 3YR DIPLOPMA IN SCIENCE EDUCATION",
+      "option": "PHYSICS WITH CHEMISTRY OPTION",
+      "files": [
+        {
+          "name": "CHE301 Analytical Chemistry.pdf",
+          "id": "15wRMfE1ynnDlKDhCSysX2sWuO7MV9qeJ",
+          "type": "file"
+        },
+        {
+          "name": "Atomic__Modern_Physics.pdf",
+          "id": "1SAz2IZWt1U45afuiy51FsnpF3cGTfEal",
+          "type": "file"
+        },
+        {
+          "name": "thermal_physics.pdf",
+          "id": "1bf5cRcKEFydOXTb0NrzmedCB_Sdpm2kX",
+          "type": "file"
+        },
+        {
+          "name": "Pedagogical_Cont._Knowl._in_Physics.pdf",
+          "id": "1RgrcDgPW4KLE_VOSf-Cujyecovg_5FOn",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "program": "3-Year Diploma in Science Education",
+      "level": "200",
+      "levelFolder": "LEVEL 200 3YR DIPLOPMA IN SCIENCE EDUCATION",
+      "option": "PHYSICS WITH MATHS OPTION",
+      "files": [
+        {
+          "name": "thermal_physics.pdf",
+          "id": "1dsAxW0mzdV8jLJET1G1xOdWsoJVrAIoK",
+          "type": "file"
+        },
+        {
+          "name": "Advanced_Calculus_I.pdf",
+          "id": "1bo7_3Lrb9rN_LRtPKnKC811VFKVl6K_8",
+          "type": "file"
+        },
+        {
+          "name": "Atomic__Modern_Physics.pdf",
+          "id": "1RNUifWQcpZrHzxE-FfKUN1shKChrdfoY",
+          "type": "file"
+        },
+        {
+          "name": "Pedagogical_Cont._Knowl._in_Physics.pdf",
+          "id": "10l7t4PZ_u2b0-tLyVYvDnKhMhfd3iNZD",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "program": "3-Year Diploma in Science Education",
+      "level": "200",
+      "levelFolder": "LEVEL 200 3YR DIPLOPMA IN SCIENCE EDUCATION",
+      "option": "BIOLOGY WITH CHEMISTRY OPTION",
+      "files": [
+        {
+          "name": "Intro._Microbiology_and_Parasitology.pdf",
+          "id": "1xzSQFKhSYZK-dhz3EfctSUSQnZCyyma6",
+          "type": "file"
+        },
+        {
+          "name": "CHE301 Analytical Chemistry.pdf",
+          "id": "1CbrVWHEzOx-BAmP8MNQuxRXidTkH-fk7",
+          "type": "file"
+        },
+        {
+          "name": "Basic_Soil_Science.pdf",
+          "id": "17DsCfRBu6JOHwvt3LbJZS5EuV-L-qsDw",
+          "type": "file"
+        },
+        {
+          "name": "Pedagogical_content_knowl._in_biology.pdf",
+          "id": "1vySl0JeXGOdKnOS103ek3jWQUfmZ63jc",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "program": "3-Year Diploma in Science Education",
+      "level": "200",
+      "levelFolder": "LEVEL 200 3YR DIPLOPMA IN SCIENCE EDUCATION",
+      "option": "CHEMISTRY WITH BIOLOGY OPTION",
+      "files": [
+        {
+          "name": "CHE301 Analytical Chemistry.pdf",
+          "id": "15MKbUz8XX5pbAXdgJnaF6VYGGOODhYbR",
+          "type": "file"
+        },
+        {
+          "name": "sterochemistry.pdf",
+          "id": "1ZR3WUCqUahGiu6l9-2DZDBO-9cSdcpyd",
+          "type": "file"
+        },
+        {
+          "name": "Basic_Soil_Science.pdf",
+          "id": "1T_etU_oDP5X0pcE92cxDvVNr-gr0gf1k",
+          "type": "file"
+        },
+        {
+          "name": "Pedagogical_content_knowl._in_chemistry.pdf",
+          "id": "1bPKBhudEmH8jxfAnqdCe_Xuy9ky8aHM_",
+          "type": "file"
+        }
+      ]
+    }
+  ]
+}

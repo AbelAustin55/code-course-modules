@@ -1,0 +1,371 @@
+{
+  "root": "1VvJQQ3X4VX-7l9m_HdxciPChLWyzFXdl",
+  "note": "Source folders as provided. Duplicate modules across folders intentionally not automatically chosen.",
+  "scans": [
+    {
+      "program": "4YR BSc IT",
+      "folder": "4 YEAR BACHELOR OF SCIENCE IN INFORMATION TECHNOLOGY 100, 200, 300, 400",
+      "level": "100",
+      "id": "1rj7fpcsDw6VU5m18hLlX8sOpbcyvtkbC",
+      "levelFolder": "LEVEL 100",
+      "files": [
+        {
+          "name": "INF 105 Introduction to Mgt.pdf",
+          "id": "1p2ByFD3OsgOjl6JgFXeO2hpAfySwtfnr",
+          "type": "file"
+        },
+        {
+          "name": "Communicative_Skills_1.pdf",
+          "id": "1551G0Np3g8k1elQmIFAAHbGO4s3vk1qR",
+          "type": "file"
+        },
+        {
+          "name": "Core-African_Studies.pdf",
+          "id": "1dSRo31bR1HH6A2X3dseIcEc8dq3_za9t",
+          "type": "file"
+        },
+        {
+          "name": "Info_Lit. (2).pdf",
+          "id": "1_A38mAOq3EwZ-ddc8M28L9BiMwFEQvnj",
+          "type": "file"
+        },
+        {
+          "name": "INF109D_Mathematics_For_Computing_I.pdf",
+          "id": "147eVuJjpewmiD0qABVstZKbvxxfFMvaN",
+          "type": "file"
+        },
+        {
+          "name": "Software Suite.pdf",
+          "id": "1xEZwBg8zddwhf02gCoSN6ZL6B_Bf_efz",
+          "type": "file"
+        },
+        {
+          "name": "Introduction_to_Computing.pdf",
+          "id": "195_lrIw1uXqca7iEbzWxrquF4Ff7ifpG",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "program": "4YR BSc IT",
+      "folder": "4 YEAR BACHELOR OF SCIENCE IN INFORMATION TECHNOLOGY 100, 200, 300, 400",
+      "level": "200",
+      "id": "14chq4SHR7_HxDwR0wmoMZkqOTdXdaEXB",
+      "levelFolder": "LEVEL 200",
+      "files": [
+        {
+          "name": "INF 209D STATISTICALMODELLING FINAL.pdf",
+          "id": "1k8xXcdxld6_Y3fDzsm-ovk6ebVAzbAaE",
+          "type": "file"
+        },
+        {
+          "name": "INF209D_Statistical_Modeling_Edited (1).pdf",
+          "id": "1BrZwTAJua1rTxAbu6maydJpnT7LKM2Zy",
+          "type": "file"
+        },
+        {
+          "name": "OPERATING SYSTEM",
+          "id": "17ty8FrfEbq9TDwa1rtyx5oc9DfWS4nDs",
+          "type": "folder"
+        },
+        {
+          "name": "INF 217D PROGRAMMING AND PROBLEM SOLVING.pdf",
+          "id": "1yRKHZqy1kKMApdPlwViz2Hn2_sTvfrxt",
+          "type": "file"
+        },
+        {
+          "name": "INF 215 Databases  Management I A.pdf",
+          "id": "14IfeZoKcIku3AjcHrZdMquCbplqNsiaP",
+          "type": "file"
+        },
+        {
+          "name": "INF 211D Computer Architecture.pdf",
+          "id": "1xCjb1ZvHFJOH8AZP0pzd4EA9Q3daIKMF",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "program": "4YR BSc IT",
+      "folder": "4 YEAR BACHELOR OF SCIENCE IN INFORMATION TECHNOLOGY 100, 200, 300, 400",
+      "level": "300",
+      "id": "1mr7yPtGF6Y_I7WY3SmK6zNnwrpffttok",
+      "levelFolder": "LEVEL 300",
+      "files": [
+        {
+          "name": "INF 315D Discrete Maths Units1 to 3.pdf",
+          "id": "1gzpcecacBvVoDpeS--FiY33ICVfbfvzs",
+          "type": "file"
+        },
+        {
+          "name": "INF 307D Software Engineering Edited.pdf",
+          "id": "1etNBQR3kR4EbM0yiLf6bRYNLkgcuGRCm",
+          "type": "file"
+        },
+        {
+          "name": "INF 313D Advanced Website Develop Edited.pdf",
+          "id": "1laohAvbNA2K89LWo-0CTjIBH67rrH0LE",
+          "type": "file"
+        },
+        {
+          "name": "INF 309D Information Systems Mgt.pdf",
+          "id": "1Ht2gpehHOv5MwAZ7BxokVU34bGYIu5RT",
+          "type": "file"
+        },
+        {
+          "name": "INF 305D Network Computing 1 Edited.pdf",
+          "id": "1aFdL0n5Z2JH2l3mN-UQiglC1JD-A4xCq",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "program": "4YR BSc IT",
+      "folder": "4 YEAR BACHELOR OF SCIENCE IN INFORMATION TECHNOLOGY 100, 200, 300, 400",
+      "level": "400",
+      "id": "186oBbYmV2CI25t_amVTw-GdQ9piTRTxE",
+      "levelFolder": "LEVEL 400",
+      "files": [
+        {
+          "name": "Innovations_and_Digital_Marketing (2).pdf",
+          "id": "1ebWjx9YUtRErWvea3pHHQcn2668W19CC",
+          "type": "file"
+        },
+        {
+          "name": "E-Commerce formatted edited I.pdf",
+          "id": "12qt1d6U3vY9C4M5FxU07uaCCJ9o5l0mS",
+          "type": "file"
+        },
+        {
+          "name": "INF 403D Mobile and Distributed Computing_complete module (1).pdf",
+          "id": "1VMUz3ZGjNpaoIhTOCcHgmBvJOPwONbdr",
+          "type": "file"
+        },
+        {
+          "name": "INF 401D Intro to Multimedia Computing.pdf",
+          "id": "14OrBOdB-mC9GTX2mxW8bth_wlD0U1SYk",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "program": "3YR BSc IT",
+      "folder": "3 YEAR BACHELOR OF SCIENCE IN INFORMATION TECHNOLOGY",
+      "level": "200",
+      "id": "1i-yBXy2yBUw76BlBfUqRBljj5cdzCIAV",
+      "levelFolder": null,
+      "files": [
+        {
+          "name": "INF 209D STATISTICALMODELLING FINAL.pdf",
+          "id": "1qApYFg7iP_ekq2LTIP5XTzXBuU2Y1H89",
+          "type": "file"
+        },
+        {
+          "name": "Database_Management.pdf",
+          "id": "15Nzhe9Tqs1tKGynlSt4l3GQF4h-3B8Gx",
+          "type": "file"
+        },
+        {
+          "name": "INF209D_Statistical_Modeling_Edited.pdf",
+          "id": "1jpM0rQeOzPT6L1v5TPZAMA8x_nYmesgb",
+          "type": "file"
+        },
+        {
+          "name": "INF 217D PROGRAMMING AND PROBLEM SOLVING ANALYSIS.pdf",
+          "id": "1XUQ32_KkeX0f1n-vjQM0vm_Xlvtt7E0h",
+          "type": "file"
+        },
+        {
+          "name": "INF 211D Computer Architecture.pdf",
+          "id": "1qpYPjdcN5tzmbBaJWHDVaQaFRJPc1kaE",
+          "type": "file"
+        },
+        {
+          "name": "CRITICAL_THINKING.pdf",
+          "id": "159I7aJNauhxu-wir-xwz2ezOm2J4ZGVV",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "program": "3YR BSc IT",
+      "folder": "LEVEL 200 3YEAR BACHELOR OF SCIENCE IN INFORMATION TECHNOLOGY",
+      "level": "200",
+      "id": "1CBemIq5BD1UWv8qieTV4-kC01XkZWSOU",
+      "levelFolder": null,
+      "files": [
+        {
+          "name": "INF 217D PROGRAMMING AND PROBLEM SOLVING.pdf",
+          "id": "1L-9wy3pjrfjyb-x1jFPkIi7SRBWash3v",
+          "type": "file"
+        },
+        {
+          "name": "INF 215 Databases  Management I A.pdf",
+          "id": "1uYJDnWZ-c5tSUA1g6tZ0CCuSd3E1sxXe",
+          "type": "file"
+        },
+        {
+          "name": "INF 211D Computer Architecture.pdf",
+          "id": "1Jn0F3Mmbb1GM5QM2RoyLGUfZf-Vhylro",
+          "type": "file"
+        },
+        {
+          "name": "CRITICAL_THINKING.pdf",
+          "id": "1BDUR3yYIJcvPMvCTN61BEcleJ7fmDuNe",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "program": "2YR BSc IT",
+      "folder": "2 YEAR BACHELOR OF SCIENCE IN INFORMATION TECHNOLOGY",
+      "level": "300",
+      "id": "1F5dnW9wpKy9HPewUovKg_5oDSQhhB9im",
+      "levelFolder": null,
+      "files": [
+        {
+          "name": "EBS451D Information Systems Mgt.pdf",
+          "id": "1lyzrRfXIcrsncAGvqEQi1HdMKgkLDQHa",
+          "type": "file"
+        },
+        {
+          "name": "INF 307D Software Engineering Edited.pdf",
+          "id": "1cORNP_3zhhXP0b3P4CtOlq7jfcd6ARew",
+          "type": "file"
+        },
+        {
+          "name": "INF 315D Discrete Maths Units1 to 3.pdf",
+          "id": "1eZdrBXCKOz3Bu0FgzVieGF92HVHDLbZh",
+          "type": "file"
+        },
+        {
+          "name": "INF 313D Advanced Website Develop Edited.pdf",
+          "id": "16jZ1OdDZ0RJROxWnEGAgiBrOr_8cniMA",
+          "type": "file"
+        },
+        {
+          "name": "Network Computing.pdf",
+          "id": "10kmmjIDEZxBZj3eDrQsKVsGfK_w2txJE",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "program": "2YR BSc IT",
+      "folder": "LEVEL 300 2YEAR BACHELOR OF SCIENCE IN INFORMATION TECHNOLOGY",
+      "level": "300",
+      "id": "1KmTWPFtc8BbQMJIzJS4_EATcaGxPkFqr",
+      "levelFolder": null,
+      "files": [
+        {
+          "name": "INF 307D Software Engineering Edited.pdf",
+          "id": "1q1UlIojHlwH6zLSljdwONvKi61B-6BTd",
+          "type": "file"
+        },
+        {
+          "name": "INF 315D Discrete Maths Units1 to 3.pdf",
+          "id": "1fIJnXxiDYldwOu0n7JX3ViehtZ_NxAmj",
+          "type": "file"
+        },
+        {
+          "name": "INF 313D Advanced Website Develop Edited.pdf",
+          "id": "1dP2nPHhjJdPIJ4ckUH511P_U3s0DjdPh",
+          "type": "file"
+        },
+        {
+          "name": "INF 309D Information Systems Management.pdf",
+          "id": "1NBT8sDbOaCqYnZqbz0QsfIYyaisqMmY4",
+          "type": "file"
+        },
+        {
+          "name": "INF 305D Network Computer 1.pdf",
+          "id": "1SLRijehqmacBLxnPIwMXKAWLcxNrgaLs",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "program": "2YR Diploma IT",
+      "folder": "2YEAR DIPLOMA IN INFORMATION TECHNOLOGY",
+      "level": "100",
+      "id": "10MzvkVIT7bBgQmvHMzuBsBX9UKulsHJm",
+      "levelFolder": null,
+      "files": [
+        {
+          "name": "Communicative_Skills_1.pdf",
+          "id": "1y6g_VXfXEVU82Ca0WsSP7mcDVNZ0qmDG",
+          "type": "file"
+        },
+        {
+          "name": "Core-African_Studies.pdf",
+          "id": "12X-yzlk6GXsk5RkBeozq_Oj67eDWcpWI",
+          "type": "file"
+        },
+        {
+          "name": "INF109D_Mathematics_For_Computing_I.pdf",
+          "id": "1-J6t_U3uC94cQp2VvaIvsXl1ohVCwO7o",
+          "type": "file"
+        },
+        {
+          "name": "Software Suite.pdf",
+          "id": "1FO76jjZ3AYim3Wu3cSNnJZryYRAHhdP7",
+          "type": "file"
+        },
+        {
+          "name": "INF 105 Introduction to Mgt.pdf",
+          "id": "1JOZMck1e4RtKGBXsk8SSWSUZmtM1x0LN",
+          "type": "file"
+        },
+        {
+          "name": "Info_Lit..pdf",
+          "id": "1jXN3BwTr1qL0irPWFfAxiwnxFXNGam8R",
+          "type": "file"
+        },
+        {
+          "name": "Introduction_to_Computing.pdf",
+          "id": "1SzTtNPBghrpaaaZ6552bao7o55rcDSnR",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "program": "2YR Diploma IT",
+      "folder": "LEVEL 100 2YEAR DIPLOMA (INFORMATION TECHNOLOGY)",
+      "level": "100",
+      "id": "1OpC-9Or5FvWi9hp7T1Xcn34uVXPcjQok",
+      "levelFolder": null,
+      "files": [
+        {
+          "name": "Communicative_Skills_1.pdf",
+          "id": "19zAACKLV9FTDTTDx1JpaszlhLM2rC9_6",
+          "type": "file"
+        },
+        {
+          "name": "INF 101D Introduction to Computing.pdf",
+          "id": "1sCxCnnNB7d2nPfIwvs0lcEzYl3qXYUds",
+          "type": "file"
+        },
+        {
+          "name": "Core-African_Studies.pdf",
+          "id": "1uD3q9CFzlhAjgFozogwJRGBJQGZoySDk",
+          "type": "file"
+        },
+        {
+          "name": "Software Suite.pdf",
+          "id": "1mYtaAuPax-AgnSBnLAO_Nd206IgVrIfv",
+          "type": "file"
+        },
+        {
+          "name": "INF 105 Introduction to Mgt.pdf",
+          "id": "111yhmLKx0CUGAdFFuoTRzboTM8qyS1Kg",
+          "type": "file"
+        },
+        {
+          "name": "Info_Lit..pdf",
+          "id": "1GYGrD6LmMz1jbFiT-w5URMF8ww5h36qw",
+          "type": "file"
+        }
+      ]
+    }
+  ]
+}

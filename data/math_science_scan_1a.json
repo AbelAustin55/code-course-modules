@@ -1,0 +1,574 @@
+{
+  "scans": [
+    {
+      "p": "B.Ed Science",
+      "programFolder": "4 YEAR BACHELOR OF EDUCATION (SCIENCE) (100, 200, 300, 400)",
+      "level": "200",
+      "levelFolder": "LEVEL 200 BACHELOR OF EDUCATION (SCIENCE)",
+      "option": "PHYSICS & CHEMISTRY OPTION",
+      "folderName": "PHYSICS & CHEMISTRY OPTION",
+      "files": [
+        {
+          "name": "PHY 207D Intro. Atomic Physics, Heat & Optics (Practical).pdf",
+          "type": "file",
+          "id": "1kyVbnXSjQrcVZf4D-ei419iQN5NcD6YK"
+        },
+        {
+          "name": "Intro Atomic Physics, Heat & Optics (Theory).pdf",
+          "type": "file",
+          "id": "19G4Gz3c7nZs8Bhqbims-5wcpkL8KX6Kj"
+        },
+        {
+          "name": "CHE 207D Pract. Physical Inorganic Chemistry I.pdf",
+          "type": "file",
+          "id": "1MBEOYAVeqZIweOnUl0uJNNava3-m3MAb"
+        },
+        {
+          "name": "ESC 306D Science, Technology & Society.pdf",
+          "type": "file",
+          "id": "15QESbF2C3pipGRkVYygrXlkxHx3Aomwg"
+        },
+        {
+          "name": "ESC 210D Prin. & Meth. of Teaching SHS Physics formatted.pdf",
+          "type": "file",
+          "id": "1P3lU9xD-pAieNewHtInA9DF2o8ojKfzq"
+        },
+        {
+          "name": "CRITICAL_THINKING_formatted.pdf",
+          "type": "file",
+          "id": "1tyfTTqnccmwMfLZDn8pLl83-RSDt9Z7Q"
+        },
+        {
+          "name": "Prin.___Meth._of_Teaching_SHS_Physics_formatted.pdf",
+          "type": "file",
+          "id": "1BDpWokfCHRQFnxxgn6fdz_SERFc83SBC"
+        },
+        {
+          "name": "Physical_Chemistry.pdf",
+          "type": "file",
+          "id": "1oH2EIyiVXut2UjIwkICFHRVLH0JZ8CD2"
+        },
+        {
+          "name": "Newtonian_Mechanics_(Theory).pdf",
+          "type": "file",
+          "id": "1gD3pZXXgnnAPTiex35u9g3bm-Z9ux9GO"
+        },
+        {
+          "name": "Newtonian_Mechanics_(Practical).pdf",
+          "type": "file",
+          "id": "1K7T7TQGTaxa7KgmaNmqJecBPubFNHvwo"
+        },
+        {
+          "name": "Nature_of_Science.pdf",
+          "type": "file",
+          "id": "1CPmV2fC28q6-yjkxDxsTBJEP61VGQ_2O"
+        },
+        {
+          "name": "Core-Educating_the_special_individual.pdf",
+          "type": "file",
+          "id": "14HIMcEkcCCZzdrBf6Y6JjozkhfR7uJdt"
+        }
+      ]
+    },
+    {
+      "p": "B.Ed Science",
+      "programFolder": "4 YEAR BACHELOR OF EDUCATION (SCIENCE) (100, 200, 300, 400)",
+      "level": "200",
+      "levelFolder": "LEVEL 200 BACHELOR OF EDUCATION (SCIENCE)",
+      "option": "PHYSICS & MATHS OPTION",
+      "folderName": "PHYSICS & MATHS OPTION",
+      "files": [
+        {
+          "name": "PHY 207D Intro. Atomic Physics, Heat & Optics (Practical).pdf",
+          "type": "file",
+          "id": "18TGzo3sxvtKmLGaPyaY-ajEuAReQP6wU"
+        },
+        {
+          "name": "Intro Atomic Physics, Heat & Optics (Theory).pdf",
+          "type": "file",
+          "id": "1m11pdTDaIx8k0rpg8REFltMjoqRdPngD"
+        },
+        {
+          "name": "ESC 306D Science, Technology & Society.pdf",
+          "type": "file",
+          "id": "1s89tL88BZ_7HWEOaT7zPo30tzhsbUzsZ"
+        },
+        {
+          "name": "CRITICAL_THINKING_formatted.pdf",
+          "type": "file",
+          "id": "1pMtTsDXksPeQH5uWJcSl26aAAphvQSxF"
+        },
+        {
+          "name": "Prin.___Meth._of_Teaching_SHS_Physics_formatted.pdf",
+          "type": "file",
+          "id": "1HJ2jjBqSXbiQ-wMehO-AsUKqcmALf5PK"
+        },
+        {
+          "name": "further calculus.pdf",
+          "type": "file",
+          "id": "16x3fbO0lh3pdIH_z92OrW7ccM5N6NtjS"
+        },
+        {
+          "name": "Newtonian_Mechanics_(Theory).pdf",
+          "type": "file",
+          "id": "15Fh40XDPCcnL7t82ME1R1zBj4NpbaYHk"
+        },
+        {
+          "name": "Newtonian_Mechanics_(Practical).pdf",
+          "type": "file",
+          "id": "1F6E9_8n6fUNbjf6_T0RcYN1Nt2ef0RS9"
+        },
+        {
+          "name": "Nature_of_Science.pdf",
+          "type": "file",
+          "id": "1TTpUFCshiDIhILPpOpeRuUmI_0ZKjcfZ"
+        },
+        {
+          "name": "Core-Educating_the_special_individual.pdf",
+          "type": "file",
+          "id": "1EB-VYXn0aHXA20Rm1DXRMP7FCwodHofN"
+        }
+      ]
+    },
+    {
+      "p": "B.Ed Science",
+      "programFolder": "4 YEAR BACHELOR OF EDUCATION (SCIENCE) (100, 200, 300, 400)",
+      "level": "200",
+      "levelFolder": "LEVEL 200 BACHELOR OF EDUCATION (SCIENCE)",
+      "option": "CHEMISTRY & PHYSICS OPTION",
+      "folderName": "CHEMISTRY & PHYSICS OPTION",
+      "files": [
+        {
+          "name": "PHY 207D Intro. Atomic Physics, Heat & Optics (Practical).pdf",
+          "type": "file",
+          "id": "1RSwhYzmZrCGapk-QtZ01HEb-NUyG_0cX"
+        },
+        {
+          "name": "Intro Atomic Physics, Heat & Optics (Theory).pdf",
+          "type": "file",
+          "id": "1IaqLbXYo7oXdbAPwzu3uYPdkB_nt5JSw"
+        },
+        {
+          "name": "EBS 252D Educating Individual with Diverse Needs.pdf",
+          "type": "file",
+          "id": "1o3dnbQgUZpuooc_Fj6Xo0XG6ALJl2wcz"
+        },
+        {
+          "name": "ESC 306D Science, Technology & Society.pdf",
+          "type": "file",
+          "id": "13nCtNW4hevkIcjO_rQPlds4FWu6IamAK"
+        },
+        {
+          "name": "MAIN_GROUP_CHEMISTRY.pdf",
+          "type": "file",
+          "id": "1PaOkufqG2tMSUmEPbgYYCPqseLFO4ZLt"
+        },
+        {
+          "name": "CHE 207D Pract. Physical Inorganic Chemistry I.pdf",
+          "type": "file",
+          "id": "1DHwEwL4PqZLNTHJ84qf8sbnSfqjLhY1i"
+        },
+        {
+          "name": "Methods of Teaching Chemistry.pdf",
+          "type": "file",
+          "id": "1e8wqkJumdwilny1vErQy5cep0YaKRRul"
+        },
+        {
+          "name": "CRITICAL_THINKING_formatted.pdf",
+          "type": "file",
+          "id": "18O93qQrV1CA6ERERbRge1_F34P3x35zq"
+        },
+        {
+          "name": "Physical_Chemistry.pdf",
+          "type": "file",
+          "id": "1p5gLsYv0Iryg00ZPSMP_2Aq3JZAiR7TZ"
+        },
+        {
+          "name": "Nature_of_Science.pdf",
+          "type": "file",
+          "id": "1N3G5gKp7-sTSqAxz7KPeR-8D2Yknsxag"
+        },
+        {
+          "name": "Core-Educating_the_special_individual.pdf",
+          "type": "file",
+          "id": "1WkrMnFdZi5oQjzjxVuHocG1-CU3r0lmk"
+        }
+      ]
+    },
+    {
+      "p": "B.Ed Science",
+      "programFolder": "4 YEAR BACHELOR OF EDUCATION (SCIENCE) (100, 200, 300, 400)",
+      "level": "200",
+      "levelFolder": "LEVEL 200 BACHELOR OF EDUCATION (SCIENCE)",
+      "option": "PHYSICS & BIOLOGY OPTION",
+      "folderName": "PHYSICS & BIOLOGY OPTION",
+      "files": [
+        {
+          "name": "PHY 207D Intro. Atomic Physics, Heat & Optics (Practical).pdf",
+          "type": "file",
+          "id": "1JxND-RHZXdO2c0pRdvaasyNOvTceoM9Y"
+        },
+        {
+          "name": "Intro Atomic Physics, Heat & Optics (Theory).pdf",
+          "type": "file",
+          "id": "1X1yu01rdusPr3AMfB3_5cqF4Nw6ermZD"
+        },
+        {
+          "name": "ESC 306D Science, Technology & Society.pdf",
+          "type": "file",
+          "id": "11JQxyZ3zn6e9Am-Vi_Vt2QRe0sPlUaK_"
+        },
+        {
+          "name": "CRITICAL_THINKING_formatted.pdf",
+          "type": "file",
+          "id": "1Uwxn_4WGDlX8y8NK0i1o3k1YKXOs-26p"
+        },
+        {
+          "name": "Prin.___Meth._of_Teaching_SHS_Physics_formatted.pdf",
+          "type": "file",
+          "id": "1rgE-PmRKjbNUBxbpkfUDOvGs_J9CAD2N"
+        },
+        {
+          "name": "Newtonian_Mechanics_(Theory).pdf",
+          "type": "file",
+          "id": "1QhghwOcRg7G-HHUoPNRMf8GD2BjzceIx"
+        },
+        {
+          "name": "Newtonian_Mechanics_(Practical).pdf",
+          "type": "file",
+          "id": "1kWDVg8pT1UMjBNKi_CbgqmEu-QrFBM7G"
+        },
+        {
+          "name": "Nature_of_Science.pdf",
+          "type": "file",
+          "id": "1Bx8r4ZWfpHpv-GC7JXJz0ByJbUzEU3og"
+        },
+        {
+          "name": "Cell_and_Tissue.pdf",
+          "type": "file",
+          "id": "1zVbzfkZnjwNErJQe6xbZfk2_7BDED6vF"
+        },
+        {
+          "name": "Core-Educating_the_special_individual.pdf",
+          "type": "file",
+          "id": "1i3AzHgUewI3zTSITRL7EsVC-yplvne2c"
+        }
+      ]
+    },
+    {
+      "p": "B.Ed Science",
+      "programFolder": "4 YEAR BACHELOR OF EDUCATION (SCIENCE) (100, 200, 300, 400)",
+      "level": "200",
+      "levelFolder": "LEVEL 200 BACHELOR OF EDUCATION (SCIENCE)",
+      "option": "CHEMISTRY & BIOLOGY OPTION",
+      "folderName": "CHEMISTRY & BIOLOGY OPTION",
+      "files": [
+        {
+          "name": "EBS 252D Educating Individual with Diverse Needs.pdf",
+          "type": "file",
+          "id": "1TBej0wEy4DXQazZnRHuxCYSi5CT2l_9y"
+        },
+        {
+          "name": "CHE 207D Pract. Physical Inorganic Chemistry I.pdf",
+          "type": "file",
+          "id": "1WWDCvqPk-y2jgjYL-1gAyxbQddNb3q3s"
+        },
+        {
+          "name": "ESC 306D Science, Technology & Society.pdf",
+          "type": "file",
+          "id": "1kMNXR2D7-GNty6FMXa5zftElyxsbKYGB"
+        },
+        {
+          "name": "Methods of Teaching Chemistry.pdf",
+          "type": "file",
+          "id": "1Kkemp0r5E4UhC7vNwrHknsoemlyfKv7v"
+        },
+        {
+          "name": "CRITICAL_THINKING.pdf",
+          "type": "file",
+          "id": "1AoRRjIHgdEOOI0qrMVopNKI-QOhHy2uw"
+        },
+        {
+          "name": "MAIN_GROUP_CHEMISTRY.pdf",
+          "type": "file",
+          "id": "1SpaKQ5FI8VRBpD_8liltWpvqhVFDcKKY"
+        },
+        {
+          "name": "Physical_Chemistry.pdf",
+          "type": "file",
+          "id": "1MRpffPyb69RzaZbaUrzeVQ4TD0TZgX0z"
+        },
+        {
+          "name": "Nature_of_Science.pdf",
+          "type": "file",
+          "id": "15GVrdie4ZaIQ_II-LyJYU-czTIsRhIEi"
+        },
+        {
+          "name": "Cell_and_Tissue.pdf",
+          "type": "file",
+          "id": "1os2ryEEkw7beyRFFra0Yefl4c6xzFMk0"
+        },
+        {
+          "name": "Core-Educating_the_special_individual.pdf",
+          "type": "file",
+          "id": "1KrDbP1ME1uXMezZ0ORxix4gi1vUek053"
+        }
+      ]
+    },
+    {
+      "p": "B.Ed Science",
+      "programFolder": "4 YEAR BACHELOR OF EDUCATION (SCIENCE) (100, 200, 300, 400)",
+      "level": "200",
+      "levelFolder": "LEVEL 200 BACHELOR OF EDUCATION (SCIENCE)",
+      "option": "CHEMISTRY & MATHS  OPTION",
+      "folderName": "CHEMISTRY & MATHS  OPTION",
+      "files": [
+        {
+          "name": "CHE 207D Pract. Physical Inorganic Chemistry I.pdf",
+          "type": "file",
+          "id": "10nAsjd9upjXySibY0sVRsEZ3BjwTmh2P"
+        },
+        {
+          "name": "ESC 306D Science, Technology & Society.pdf",
+          "type": "file",
+          "id": "12jJ_7rOYe4fCI-hGk8_JoNVC2Wg0dBFm"
+        },
+        {
+          "name": "Methods of Teaching Chemistry.pdf",
+          "type": "file",
+          "id": "1H_bBlKXyRtI1KA6IWzcUM1kHAFGuU7Nt"
+        },
+        {
+          "name": "CRITICAL_THINKING_formatted.pdf",
+          "type": "file",
+          "id": "17yMQPC06GX9Wv9ceWm5hXsNSsnEb3o2X"
+        },
+        {
+          "name": "further calculus.pdf",
+          "type": "file",
+          "id": "1yjlCkq_XN_YL3dvISFB4lBRhR3w7hmEA"
+        },
+        {
+          "name": "MAIN_GROUP_CHEMISTRY.pdf",
+          "type": "file",
+          "id": "1afWCxSPAv0dgbmFYzY0RHQ3NoZUntmSJ"
+        },
+        {
+          "name": "Physical_Chemistry.pdf",
+          "type": "file",
+          "id": "1D_QTJpr1TeyywsPhIJj2dyKniyz6iFcN"
+        },
+        {
+          "name": "Nature_of_Science.pdf",
+          "type": "file",
+          "id": "1-FqeDId4zVjAfJ3EjCt5tKGdwG0u7kSx"
+        },
+        {
+          "name": "Core-Educating_the_special_individual.pdf",
+          "type": "file",
+          "id": "1SjH41oCOFF_PHJa-9hQ1TYW6YNCxwm4m"
+        }
+      ]
+    },
+    {
+      "p": "B.Ed Science",
+      "programFolder": "4 YEAR BACHELOR OF EDUCATION (SCIENCE) (100, 200, 300, 400)",
+      "level": "200",
+      "levelFolder": "LEVEL 200 BACHELOR OF EDUCATION (SCIENCE)",
+      "option": "BIOLOGY & CHEMISTRY",
+      "folderName": "BIOLOGY & CHEMISTRY",
+      "files": [
+        {
+          "name": "ESC 306D Science, Technology & Society.pdf",
+          "type": "file",
+          "id": "1TnDbdKZdNhVXkcldpXPLJyo6CTbqhzTd"
+        },
+        {
+          "name": "EBS 252D Educating Individual with Diverse Needs.pdf",
+          "type": "file",
+          "id": "1yqMZgGWLL04DURlytNtwAvn5QyCxJYQN"
+        },
+        {
+          "name": "Copy of Morphology_and_Anatomy_of_Vascular_Plants.pdf",
+          "type": "file",
+          "id": "1BdcZ81MXK9M0eayP8jzEFqI4IF_5s8r7"
+        },
+        {
+          "name": "CHE 207D Pract. Physical Inorganic Chemistry I.pdf",
+          "type": "file",
+          "id": "1Bvex4IinDR_ktlsGgwRs33u2baDzCnl-"
+        },
+        {
+          "name": "CRITICAL_THINKING_formatted.pdf",
+          "type": "file",
+          "id": "14OwYili1GJgp7qah-QtQXMAiXM2mj9yV"
+        },
+        {
+          "name": "METHODS_OF_TEACHING_BIOLOGY.pdf",
+          "type": "file",
+          "id": "1ffF6vnzUrT5u_F28cEtg8FmoFFeLaVZ9"
+        },
+        {
+          "name": "Physical_Chemistry.pdf",
+          "type": "file",
+          "id": "1VsllT1bILQu2xK01NLAvGoCYcJQJqvAP"
+        },
+        {
+          "name": "Nature_of_Science.pdf",
+          "type": "file",
+          "id": "1hIV19aeWMst6Kvd09MQImyJ4cPR1AeSl"
+        },
+        {
+          "name": "Morphology_and_Anatomy_of_Vascular_Plants.pdf",
+          "type": "file",
+          "id": "1zqMaNcsuN_Pf8bSB0UvMpsR_ZGzbnbPx"
+        },
+        {
+          "name": "Cell_and_Tissue.pdf",
+          "type": "file",
+          "id": "1AJDKyBZI1ZB4-Y_EYqs4qhh0uomQLBBr"
+        },
+        {
+          "name": "Core-Educating_the_special_individual.pdf",
+          "type": "file",
+          "id": "1KQXyW7iQcXoYl-EyyA-uEtGafuGOVKUc"
+        }
+      ]
+    },
+    {
+      "p": "B.Ed Science",
+      "programFolder": "4 YEAR BACHELOR OF EDUCATION (SCIENCE) (100, 200, 300, 400)",
+      "level": "200",
+      "levelFolder": "LEVEL 200 BACHELOR OF EDUCATION (SCIENCE)",
+      "option": "BIOLOGY & PHYSICS",
+      "folderName": "BIOLOGY & PHYSICS",
+      "files": [
+        {
+          "name": "PHY 207D Intro. Atomic Physics, Heat & Optics (Practical).pdf",
+          "type": "file",
+          "id": "1gYQ_9danKdoZ7kcRYbvG8NBCufoi9SZs"
+        },
+        {
+          "name": "Intro Atomic Physics, Heat & Optics (Theory).pdf",
+          "type": "file",
+          "id": "1x5UK75WNcVxIK0LsITfr75mF9U7sCfdv"
+        },
+        {
+          "name": "ESC 306D Science, Technology & Society.pdf",
+          "type": "file",
+          "id": "1uomSAhV9W8HCq8-6TWqQlw0UenxBSGne"
+        },
+        {
+          "name": "Morphology_and_Anatomy_of_Vascular_Plants.pdf",
+          "type": "file",
+          "id": "12mvSH7K4Vca65wsREnVzMAXcnd6W7zzB"
+        },
+        {
+          "name": "Cell_and_Tissue.pdf",
+          "type": "file",
+          "id": "1__kuqNl-YwZJAWtW4-kcIlgfks3XJdxn"
+        },
+        {
+          "name": "CRITICAL_THINKING_formatted.pdf",
+          "type": "file",
+          "id": "17tPTcebmwXtZ-mvlN8MxwwwWL_ucdPeP"
+        },
+        {
+          "name": "METHODS_OF_TEACHING_BIOLOGY.pdf",
+          "type": "file",
+          "id": "1fAtW3zyG3AX94y-gEkaGLYoIPSPk9faR"
+        },
+        {
+          "name": "Nature_of_Science.pdf",
+          "type": "file",
+          "id": "1bTSK_ZPJT3bgnQ1ZIfmAsnMJ3RX114gM"
+        },
+        {
+          "name": "Core-Educating_the_special_individual.pdf",
+          "type": "file",
+          "id": "1pmM7M7bj0dV4jVTl8rX2IzFq0zbru6Fc"
+        }
+      ]
+    },
+    {
+      "p": "B.Ed Science",
+      "programFolder": "4 YEAR BACHELOR OF EDUCATION (SCIENCE) (100, 200, 300, 400)",
+      "level": "300",
+      "levelFolder": "LEVEL 300 BACHELOR OF EDUCATION (SCIENCE)",
+      "option": "BIOLOGY & CHEMISTRY",
+      "folderName": "BIOLOGY & CHEMISTRY",
+      "files": [
+        {
+          "name": "CHE301 Analytical Chemistry.pdf",
+          "type": "file",
+          "id": "1a0ExTYOrOnTQThk7e2ErBnP-jD4m6wMP"
+        },
+        {
+          "name": "Basic_Soil_Science.pdf",
+          "type": "file",
+          "id": "1khxA4yR2OfUl5rY00AddP612nkPeG4mh"
+        },
+        {
+          "name": "ASSESSMENT_IN_SCIENCE_EDUCATION_formatted.pdf",
+          "type": "file",
+          "id": "1FYVGnBllhJwMVnX2IBz5go-B-goI80Ih"
+        },
+        {
+          "name": "Introduction_to_Molecular_Genetics_Formating.pdf",
+          "type": "file",
+          "id": "1nZFtg9xlW8MTCv5nJmAgW6cOIb0-ZbLS"
+        },
+        {
+          "name": "Pedagogical_content_knowl._in_biology.pdf",
+          "type": "file",
+          "id": "1QVtHvmgNSlxmGIsV7gDRNJwtpFfTx5uD"
+        },
+        {
+          "name": "Core-Development_of_science_teaching_materials (1).pdf",
+          "type": "file",
+          "id": "1q7plOtlbXdnP6ALZzTi56WaYzqjdDo9o"
+        }
+      ]
+    },
+    {
+      "p": "B.Ed Science",
+      "programFolder": "4 YEAR BACHELOR OF EDUCATION (SCIENCE) (100, 200, 300, 400)",
+      "level": "300",
+      "levelFolder": "LEVEL 300 BACHELOR OF EDUCATION (SCIENCE)",
+      "option": "BIOLOGY & PHYSICS",
+      "folderName": "BIOLOGY & PHYSICS",
+      "files": [
+        {
+          "name": "Basic_Soil_Science.pdf",
+          "type": "file",
+          "id": "186orss8QFP5-LstzO5FRfxXiZNZd5YR1"
+        },
+        {
+          "name": "Atomic__Modern_Physics.pdf",
+          "type": "file",
+          "id": "1CE6ZWk_ZWw2dFoRYM7o3bh-_8iXw4CGM"
+        },
+        {
+          "name": "Pedagogical content knowl. in biology.pdf",
+          "type": "file",
+          "id": "1M5TnHEnDNEfj4AollWlmloKPtdtzPudm"
+        },
+        {
+          "name": "ASSESSMENT_IN_SCIENCE_EDUCATION_formatted.pdf",
+          "type": "file",
+          "id": "1OoxrGLfq_e4Nfjcp-o49Tks3P7kDZxRt"
+        },
+        {
+          "name": "Introduction_to_Molecular_Genetics_Formating.pdf",
+          "type": "file",
+          "id": "1RacG5fUDwtiziUK_dO0lJ7JLNanTzDbG"
+        },
+        {
+          "name": "Core-Development_of_science_teaching_materials (1).pdf",
+          "type": "file",
+          "id": "1F5-JQywXfj8SNpXjz-HEygySv-xNSlG8"
+        }
+      ]
+    }
+  ]
+}
