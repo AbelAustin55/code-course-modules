@@ -3133,6 +3133,8 @@ function showView(viewId) {
     }
 
 
+    updatePortalNavigation(viewId);
+
     window.scrollTo({
         top: 0,
         behavior: "smooth"
@@ -3140,6 +3142,96 @@ function showView(viewId) {
 
 }
 
+
+
+/* Student-friendly navigation; no changes to the course catalogue. */
+function portalGoBackFrom(viewId) {
+    if (navigationType === "switch") return goHome();
+    if (viewId === "departmentView") return goHome();
+    if (viewId === "programmeView") return selectedSemester ? showDepartments(selectedSemester) : goHome();
+    if (viewId === "levelView") return selectedDepartment ? showDepartmentProgrammes(selectedDepartment) : goHome();
+    if (viewId === "specialisationView") return selectedProgramme ? showProgrammeLevels(selectedProgramme) : goHome();
+    if (viewId === "courseView") {
+        if (selectedDepartment === "Business" && selectedSpecialisation) return showBusinessSpecialisations(selectedLevel);
+        return selectedProgramme ? showProgrammeLevels(selectedProgramme) : goHome();
+    }
+    return goHome();
+}
+function updatePortalNavigation(viewId) {
+    const main = document.querySelector("main.container");
+    if (!main) return;
+    let trail = document.getElementById("portalNavigationTrail");
+    if (!trail) {
+        trail = document.createElement("nav");
+        trail.id = "portalNavigationTrail";
+        trail.className = "portal-navigation-trail";
+        trail.setAttribute("aria-label","Current course location");
+        const firstView=document.getElementById("homeView");
+        main.insertBefore(trail,firstView || main.firstChild);
+        const css=document.createElement("style");
+        css.textContent = ".portal-navigation-trail{display:flex;align-items:center;gap:8px;overflow-x:auto;white-space:nowrap;position:sticky;top:0;z-index:25;background:#fff;border:1px solid #e2e7f0;border-radius:12px;margin-bottom:22px;padding:12px 16px;box-shadow:0 3px 12px rgba(7,30,88,.05);scrollbar-width:thin}.portal-navigation-trail[hidden]{display:none}.portal-navigation-trail button{border:0;background:transparent;color:#0c3278;padding:5px 3px;font-weight:650;white-space:nowrap}.portal-navigation-trail button:hover,.portal-navigation-trail button:focus-visible{text-decoration:underline}.portal-navigation-trail .portal-current{font-weight:700;color:#172033}.portal-navigation-trail .portal-separator{color:#98a2b3}.portal-programme-filter{margin-bottom:18px;width:100%;padding:14px 16px;border:1px solid #cbd5e1;border-radius:10px;background:#fff;color:#172033;font:inherit}.portal-programme-filter:focus{outline:2px solid #0c3278;outline-offset:1px}@media(max-width:600px){.portal-navigation-trail{padding:10px;gap:5px;font-size:13px}}";
+        document.head.appendChild(css);
+    }
+    trail.replaceChildren();
+    trail.hidden = viewId === "homeView";
+    if (trail.hidden) return;
+    const crumbs=[{label:"Home",click:() => goHome()}];
+    if (navigationType === "switch") {
+        crumbs.push({label:"SWITCH"});
+        if (selectedProgramme) crumbs.push({label:selectedProgramme});
+    } else {
+        if (selectedSemester) crumbs.push({label:semesterLabels[selectedSemester] || "Semester",click:() => showDepartments(selectedSemester)});
+        if (selectedDepartment) crumbs.push({label:selectedDepartment,click:() => showDepartmentProgrammes(selectedDepartment)});
+        if (selectedProgramme) crumbs.push({label:selectedProgramme,click:() => showProgrammeLevels(selectedProgramme)});
+        if (selectedLevel) crumbs.push({label:"Level "+selectedLevel,click:() => showProgrammeLevels(selectedProgramme)});
+        if (selectedSpecialisation) crumbs.push({label:selectedSpecialisation,click:() => showBusinessSpecialisations(selectedLevel)});
+        const names={departmentView:"Departments",programmeView:"Programmes",levelView:"Choose Level",specialisationView:"Specialisations",courseView:"Courses",moduleResultsView:"Modules"};
+        if (names[viewId]) crumbs.push({label:names[viewId]});
+    }
+    crumbs.forEach((item,i)=>{
+        if(i){const sep=document.createElement("span");sep.className="portal-separator";sep.textContent="›";sep.setAttribute("aria-hidden","true");trail.appendChild(sep);}
+        const last=i===crumbs.length-1;
+        const part=document.createElement(last || !item.click ? "span" : "button");
+        part.textContent=item.label;
+        if(last){part.className="portal-current";part.setAttribute("aria-current","page");}
+        else if(item.click){part.type="button";part.addEventListener("click",item.click);}
+        trail.appendChild(part);
+    });
+    const back=document.querySelector("#"+viewId+" .back-btn");
+    if (back && viewId!=="moduleResultsView"){
+        const captions={departmentView:"← Back to Semesters",programmeView:"← Back to Departments",levelView:"← Back to Programmes",specialisationView:"← Back to Levels",courseView:"← Back to Previous Step"};
+        back.textContent=captions[viewId] || "← Back";
+        back.onclick=() => portalGoBackFrom(viewId);
+    }
+}
+function prepareProgrammeFilter() {
+    const list=document.getElementById("programmeList");
+    if(!list || !list.parentNode) return;
+    let input=document.getElementById("portalProgrammeFilter");
+    if(!input){
+        input=document.createElement("input");
+        input.id="portalProgrammeFilter";
+        input.type="search";
+        input.className="portal-programme-filter";
+        input.placeholder="Find your programme or subject combination…";
+        input.setAttribute("aria-label","Filter available programmes");
+        list.parentNode.insertBefore(input,list);
+    }
+    input.value="";
+    input.oninput=()=>{
+        const query=input.value.trim().toLocaleLowerCase();
+        list.querySelectorAll(".programme-card").forEach(card=>{card.hidden=!card.textContent.toLocaleLowerCase().includes(query);});
+    };
+}
+function readPortalHashState(){
+    const p=new URLSearchParams(window.location.hash.replace(/^#/,""));
+    const view=p.get("view");
+    if(!["departments","programmes","levels","specialisations","businessCourses","educationCourses","courses"].includes(view)) return null;
+    const semester=p.get("semester");
+    if(!semesterLabels[semester]) return null;
+    return {portal:true,view,navigationType:p.get("type")==="switch"?"switch":"undergraduate",semester,
+        department:p.get("department"),programme:p.get("programme"),level:p.get("level"),specialisation:p.get("specialisation")};
+}
 
 function escapeHtml(value = "") {
 
@@ -3418,6 +3510,8 @@ function showDepartments(
     selectedSemester = semesterKey;
     selectedLevel = null;
     selectedProgramme = null;
+    selectedDepartment = null;
+    selectedSpecialisation = null;
 
     const heading =
         document.getElementById("departmentHeading");
@@ -3578,6 +3672,8 @@ function showDepartmentProgrammes(
     }
 
     list.innerHTML = "";
+
+    prepareProgrammeFilter();
 
     programmes.sort((a, b) => a.localeCompare(b));
 
@@ -8407,14 +8503,13 @@ function initialisePortal() {
     );
 
 
-    /*
-    Make the initially loaded Home screen the first
-    portal state in browser history.
-    */
-
-    replacePortalHistory(
-        "home"
-    );
+    const bookmarkedState=readPortalHashState();
+    if(bookmarkedState){
+        restorePortalHistory(bookmarkedState);
+        replacePortalHistory(bookmarkedState.view);
+    }else{
+        replacePortalHistory("home");
+    }
 
 }
 
