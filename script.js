@@ -3742,11 +3742,16 @@ const businessLevel200Courses = Object.fromEntries(
  */
 const businessLevel300Courses = {
     "Accounting": [
-        { code: "", title: "Taxation — Unit 6: Taxation Practice", filename: "UNIT 6 TAXATION PRACTICE-TAXATION.pdf" },
-        { code: "", title: "Taxation — Unit 3", filename: "UNIT 3 TAXATION.pdf" },
-        { code: "", title: "Taxation — Unit 5", filename: "TAXATION UNIT 5.pdf" },
-        { code: "", title: "Taxation — Unit 4", filename: "TAXATION UNIT 4.pdf" },
-        { code: "", title: "Taxation (2)", filename: "TAXATION (2).pdf" },
+        {
+            code: "", title: "Taxation", unitFolder: "",
+            units: [
+                { number: 3, filename: "UNIT 3 TAXATION.pdf" },
+                { number: 4, filename: "TAXATION UNIT 4.pdf" },
+                { number: 5, filename: "TAXATION UNIT 5.pdf" },
+                { number: 6, filename: "UNIT 6 TAXATION PRACTICE-TAXATION.pdf" },
+                { label: "ADDITIONAL PDF", filename: "TAXATION (2).pdf" }
+            ]
+        },
         { code: "ACC303D", title: "Public Sector Accounting", lookupQuery: "Public Sector Accounting", lookupPrefix: "Public Sector Accounting" },
         { code: "", title: "Operations Management", filename: "Operations Management.pdf" },
         { code: "", title: "Managerial Economics", filename: "MANAGERIAL ECONOMICS.pdf" },
@@ -3807,6 +3812,62 @@ const businessLevel300Courses = {
     ]
 };
 
+/*
+ * First Semester / Business / 4YR BCOM / Level 400.
+ * Six screenshots supplied 26 November 2026.
+ * A folder name is not itself a PDF: those course cards remain
+ * displayed as one course card each. Their unit PDFs are loaded on
+ * demand from the Nextcloud index and remain inside that card.
+ * Where a programme folder shows two possible course codes,
+ * do not select one without confirmation.
+ */
+const businessLevel400Courses = {
+    "Accounting": [
+        { code: "", title: "Entrepreneurship (SBU 408D / ENT 302D)", unitFolder: "SBU 408D. ENT 302D Entrepreneurship/", folderPending: true },
+        { code: "ADM404D", title: "Project Management", unitFolder: "Project Management/", folderPending: true },
+        { code: "", title: "Corporate Financial Analysis", unitFolder: "Corporate Financial Analysis/", folderPending: true },
+        { code: "ACC403D", title: "Audit and Internal Review", unitFolder: "ACC 403D - Audit and Internal Review/", folderPending: true },
+        { code: "", title: "Investment Management", filename: "Investment Management.pdf" },
+        { code: "", title: "Advanced Accounting I", filename: "Advanced Accounting 1 (rev'd) 2015.pdf" }
+    ],
+    "Finance": [
+        { code: "", title: "Entrepreneurship (SBU 408D / ENT 302D)", unitFolder: "SBU 408D. ENT 302D Entrepreneurship/", folderPending: true },
+        { code: "ADM404D", title: "Project Management", unitFolder: "Project Management/", folderPending: true },
+        { code: "", title: "Financial Modelling IC", unitFolder: "Financial Modelling IC/", folderPending: true },
+        { code: "FIN407D", title: "Public Finance", unitFolder: "FIN 407D Public Finance/", folderPending: true },
+        { code: "", title: "Corporate Financial Analysis", unitFolder: "Corporate Financial Analysis/", folderPending: true },
+        { code: "", title: "Investment Management", filename: "Investment Management.pdf" }
+    ],
+    "Human Resource Management": [
+        { code: "", title: "Entrepreneurship (SBU 408D / ENT 302D)", unitFolder: "SBU 408D. ENT 302D Entrepreneurship/", folderPending: true },
+        { code: "ADM404D", title: "Project Management", unitFolder: "Project Management/", folderPending: true },
+        { code: "HUM401D", title: "Collective Bargaining & Negotiation Skills", unitFolder: "HUM 401D Collective Bargaining & Negotiation Skills/", folderPending: true },
+        { code: "", title: "Leadership and Emotional Intelligence", filename: "Leadership and Emotional Intelligence_.pdf" },
+        { code: "", title: "Health and Safety at Work", filename: "Health and Safety at Work.pdf" }
+    ],
+    "Management": [
+        { code: "ADM404D", title: "Project Management", unitFolder: "Project Management/", folderPending: true },
+        { code: "SBU403D", title: "Self-Management Skills", filename: "SBU 403D Self-Management Skills edited.pdf" },
+        { code: "", title: "Leadership / Organisational Development", filename: "Leadership_Org_Dev.pdf" },
+        { code: "", title: "Investment Management", filename: "Investment Management.pdf" },
+        { code: "", title: "Industrial and Employment Relationship", filename: "Industrial and Employment Relationship.pdf" },
+        { code: "", title: "Entrepreneurship", filename: "Entrepreneurship.pdf" },
+        { code: "ADM405D", title: "Database Management", filename: "Database_Management.pdf" }
+    ],
+    "Marketing": [
+        { code: "", title: "Entrepreneurship (SBU 408D / ENT 302D)", unitFolder: "SBU 408D. ENT 302D Entrepreneurship/", folderPending: true },
+        { code: "ADM404D", title: "Project Management", unitFolder: "Project Management/", folderPending: true },
+        { code: "SBU403D", title: "Self-Management Skills", filename: "SBU 403D Self-Management Skills edited.pdf" },
+        { code: "MKT402D", title: "Marketing Research", filename: "MARKETING_RESEARCH.pdf" }
+    ],
+    "Procurement and Supply Chain Management": [
+        { code: "", title: "Entrepreneurship (SBU 408D / ENT 302D)", unitFolder: "SBU 408D. ENT 302D Entrepreneurship/", folderPending: true },
+        { code: "ADM404D", title: "Project Management", unitFolder: "Project Management/", folderPending: true },
+        { code: "", title: "Sustainable Procurement and Supply", filename: "Sustainable Procurement and Supply_.pdf" },
+        { code: "", title: "Management Risk in Procurement and Supply", filename: "Management Risk in Procurement and Supply.pdf" }
+    ]
+};
+
 const businessCourseCatalogue = {
     firstSemester: {
         "4YR BCOM 100,200,300,400": {
@@ -3817,7 +3878,8 @@ const businessCourseCatalogue = {
                 ])
             ),
             "200": businessLevel200Courses,
-            "300": businessLevel300Courses
+            "300": businessLevel300Courses,
+            "400": businessLevel400Courses
         }
     }
 };
@@ -3825,6 +3887,79 @@ const businessCourseCatalogue = {
 /* =========================================
    DISPLAY BUSINESS COURSE CARDS
    ========================================= */
+
+/* =========================================================
+   LEVEL 400: DISCOVER PDF FILES INSIDE A CONFIRMED COURSE FOLDER
+   =========================================================
+   The First Semester index is searched on demand. The API may
+   return the same filename in many departments, so the COMPLETE
+   indexed path must start with our exact selected folder prefix.
+   Never infer or construct a filename from its title.
+*/
+
+function indexedBusinessUnitNumber(filename) {
+    const match = String(filename || "").match(/\bunit[\s._-]*(\d+)\b/i);
+    return match ? Number(match[1]) : null;
+}
+
+async function findBusinessFolderPdfFiles(folderPrefix, item) {
+    const folderName = String(item.unitFolder || "")
+        .split("/").filter(Boolean).pop() || "";
+
+    const hints = [
+        item.folderSearchTerm || item.title,
+        folderName.replace(/^(SBU\s*408D[.\s]*ENT\s*302D|ACC\s*403D|HUM\s*401D|FIN\s*407D)\s*/i, "").trim(),
+        item.code || ""
+    ].map(value => String(value || "").trim()).filter(value => value.length >= 3);
+
+    const seenHints = new Set();
+    const uniqueFiles = new Map();
+    const prefix = folderPrefix.replace(/\\/g, "/").toLowerCase();
+
+    for (const queryText of hints) {
+        const hintKey = queryText.toLowerCase();
+        if (seenHints.has(hintKey)) continue;
+        seenHints.add(hintKey);
+
+        const params = new URLSearchParams({ q: queryText });
+        const response = await fetch(
+            `${MODULE_API_BASE}/modules/search?${params.toString()}`,
+            { headers: { Accept: "application/json" } }
+        );
+        if (!response.ok) throw new Error("The module index search is unavailable");
+        const data = await response.json();
+        const records = Array.isArray(data.results) ? data.results : [];
+        for (const entry of records) {
+            const relativePath = String(entry.relative_path || "").replace(/\\/g, "/");
+            if (!relativePath.toLowerCase().startsWith(prefix)) continue;
+            if (!relativePath.toLowerCase().endsWith(".pdf")) continue;
+            // Reject traversal and paths from other folders, even if names match.
+            if (relativePath.split("/").includes("..")) continue;
+
+            const filename = relativePath.split("/").pop();
+            const normalizedFilename = filename.replace(/[_-]+/g, " ").toLowerCase();
+            // Screenshots show misfiled Audit PDFs in the Corporate Financial
+            // Analysis directory and one Audit PDF in Project Management.
+            if (item.title === "Corporate Financial Analysis" &&
+                !normalizedFilename.includes("corporate financial analysis")) continue;
+            if (item.title === "Project Management" &&
+                !normalizedFilename.includes("project management")) continue;
+
+            uniqueFiles.set(relativePath.toLowerCase(), { relativePath, filename });
+        }
+        // A successful search may already include every PDF for this folder.
+        // Continue the additional focused searches to catch variant names.
+    }
+
+    return Array.from(uniqueFiles.values()).sort((a, b) => {
+        const aUnit = indexedBusinessUnitNumber(a.filename);
+        const bUnit = indexedBusinessUnitNumber(b.filename);
+        if (aUnit !== null && bUnit !== null && aUnit !== bUnit) return aUnit - bUnit;
+        if (aUnit !== null && bUnit === null) return -1;
+        if (aUnit === null && bUnit !== null) return 1;
+        return a.filename.localeCompare(b.filename, undefined, { numeric: true });
+    });
+}
 
 function showBusinessCourseCards(specialisation, addHistory = true) {
 
@@ -3966,23 +4101,46 @@ function showBusinessCourseCards(specialisation, addHistory = true) {
             ? businessLevel300Folders[specialisation]
             : null;
 
+        /*
+         * Level 400 source folder names appear in the six screenshots.
+         * The full root is inferred from the working Years 1–3 layout;
+         * it has not been verified against the Nextcloud index.
+         */
+        const businessLevel400Root =
+            "/BUSINESS/4YR BCOM  100,200,300, 400/YR4 LEVEL 400/";
+        const businessLevel400Folders = {
+            "Accounting": "ACCOUNTING LEVEL 400/",
+            "Finance": "FINANCE LEVEL 400/",
+            "Human Resource Management": "HUMAN RESOURCE MANAGEMENT LEVEL 400/",
+            "Management": "MANAGEMENT LEVEL 400/",
+            "Marketing": "MARKETING LEVEL 400/",
+            "Procurement and Supply Chain Management": "PSCM LEVEL 400/"
+        };
+        const isBusinessLevel400 =
+            selectedSemester === "firstSemester" &&
+            selectedProgramme === "4YR BCOM 100,200,300,400" &&
+            String(selectedLevel) === "400";
+        const selectedLevel400Folder = isBusinessLevel400
+            ? businessLevel400Folders[specialisation]
+            : null;
+        const activeBusinessFolder =
+            selectedLevel400Folder ? businessLevel400Root + selectedLevel400Folder :
+            selectedLevel300Folder ? businessLevel300Root + selectedLevel300Folder :
+            selectedLevel200Folder ? businessLevel200Root + selectedLevel200Folder :
+            selectedFolder ? businessLevel100Root + selectedFolder : null;
+
         const relativePath = item.relativePath ||
-            (selectedFolder && item.filename
-                ? businessLevel100Root + selectedFolder + item.filename
-                : selectedLevel200Folder && item.filename
-                    ? businessLevel200Root + selectedLevel200Folder + item.filename
-                    : selectedLevel300Folder && item.filename
-                        ? businessLevel300Root + selectedLevel300Folder + item.filename
-                        : "");
+            (activeBusinessFolder && item.filename
+                ? activeBusinessFolder + item.filename
+                : "");
 
         // A course may contain several unit PDFs within one Nextcloud folder.
         // Show one course card with separate direct-download controls per unit.
         let downloadControl = button;
         if (
-            selectedLevel300Folder &&
+            activeBusinessFolder &&
             Array.isArray(item.units) &&
-            item.units.length > 0 &&
-            item.unitFolder
+            item.units.length > 0
         ) {
             const unitList = document.createElement("div");
             unitList.className = "course-unit-downloads";
@@ -3996,12 +4154,13 @@ function showBusinessCourseCards(specialisation, addHistory = true) {
                 const unitButton = document.createElement("button");
                 unitButton.type = "button";
                 unitButton.className = "open-btn";
-                unitButton.textContent = `DOWNLOAD UNIT ${unit.number}`;
+                unitButton.textContent = unit.label
+                    ? `DOWNLOAD ${unit.label}`
+                    : `DOWNLOAD UNIT ${unit.number}`;
 
                 const unitPath =
-                    businessLevel300Root +
-                    selectedLevel300Folder +
-                    item.unitFolder +
+                    activeBusinessFolder +
+                    (item.unitFolder || "") +
                     unit.filename;
 
                 unitButton.addEventListener("click", () => {
@@ -4019,9 +4178,72 @@ function showBusinessCourseCards(specialisation, addHistory = true) {
         }
 
         if (downloadControl !== button) {
-            // Six unit download buttons have been added in place of one.
+            // Multiple PDFs are grouped within a single course card.
         }
-        // A folder without known contents is not a downloadable PDF.
+        // Level 400 course subfolders can contain multiple unit PDFs.
+        // Resolve only indexed files in this exact specialisation folder,
+        // and render each PDF as a button in the SAME course card.
+        else if (item.folderPending && activeBusinessFolder && item.unitFolder) {
+            const holder = document.createElement("div");
+            holder.className = "course-unit-downloads";
+            holder.style.display = "grid";
+            holder.style.gridTemplateColumns = "repeat(auto-fit, minmax(150px, 1fr))";
+            holder.style.gap = "10px";
+            holder.style.marginTop = "14px";
+            const note = document.createElement("div");
+            note.className = "course-unit-status";
+            note.style.gridColumn = "1 / -1";
+            note.textContent = "";
+            button.textContent = "VIEW UNIT DOWNLOADS";
+            button.disabled = false;
+            holder.appendChild(button);
+            holder.appendChild(note);
+            downloadControl = holder;
+
+            button.addEventListener("click", async () => {
+                button.disabled = true;
+                button.textContent = "FINDING COURSE FILES";
+                note.textContent = "";
+                try {
+                    const folderPrefix = activeBusinessFolder + item.unitFolder;
+                    const files = await findBusinessFolderPdfFiles(folderPrefix, item);
+                    if (!files.length) {
+                        note.textContent = "No PDFs were found in the index for this course folder. Please verify the Nextcloud index.";
+                        return;
+                    }
+                    // Keep one course card and show ALL discovered unit PDFs here.
+                    holder.replaceChildren();
+                    files.forEach(file => {
+                        const unitButton = document.createElement("button");
+                        unitButton.type = "button";
+                        unitButton.className = "open-btn";
+                        const n = indexedBusinessUnitNumber(file.filename);
+                        unitButton.textContent = n === null
+                            ? `DOWNLOAD ${file.filename.replace(/\.pdf$/i, "")}`
+                            : `DOWNLOAD UNIT ${n}`;
+                        unitButton.title = file.filename;
+                        unitButton.addEventListener("click", () => {
+                            const params = new URLSearchParams({
+                                semester: semesterApiKeys[selectedSemester],
+                                path: file.relativePath
+                            });
+                            window.location.assign(
+                                `${MODULE_API_BASE}/module/view?${params.toString()}`
+                            );
+                        });
+                        holder.appendChild(unitButton);
+                    });
+                } catch (error) {
+                    console.warn("Unable to discover Business course units:", error);
+                    note.textContent = "Could not load the indexed PDFs. Please try again or check the module index.";
+                } finally {
+                    // On success the button is removed from holder.
+                    button.disabled = false;
+                    button.textContent = "VIEW UNIT DOWNLOADS";
+                }
+            });
+        }
+        // A folder whose path is not known should not show a false download.
         else if (item.folderPending) {
             button.textContent = "FOLDER CONTENTS PENDING";
             button.disabled = true;
