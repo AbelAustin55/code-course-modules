@@ -3199,6 +3199,8 @@ function getPortalHistoryUrl(view) {
             selectedProgramme
         );
     }
+    if (selectedDepartment) params.set("department", selectedDepartment);
+    if (selectedSpecialisation) params.set("specialisation", selectedSpecialisation);
 
     return `#${params.toString()}`;
 }
@@ -3220,7 +3222,9 @@ function savePortalHistory(view) {
         navigationType: navigationType,
         semester: selectedSemester,
         level: selectedLevel,
-        programme: selectedProgramme
+        programme: selectedProgramme,
+        department: selectedDepartment,
+        specialisation: selectedSpecialisation
     };
 
     window.history.pushState(
@@ -3243,7 +3247,9 @@ function replacePortalHistory(view) {
         navigationType: navigationType,
         semester: selectedSemester,
         level: selectedLevel,
-        programme: selectedProgramme
+        programme: selectedProgramme,
+        department: selectedDepartment,
+        specialisation: selectedSpecialisation
     };
 
     window.history.replaceState(
@@ -3278,94 +3284,32 @@ function restorePortalHistory(state) {
 
     selectedProgramme =
         state.programme || null;
+    selectedDepartment = state.department || null;
+    selectedSpecialisation = state.specialisation || null;
 
 
     if (state.view === "home") {
-
-        selectedSemester = null;
-        selectedLevel = null;
-        selectedProgramme = null;
-        navigationType = "undergraduate";
-
-        showView(
-            "homeView"
-        );
-
-    }
-
-
-    else if (
-        state.view === "levels" &&
-        selectedSemester
-    ) {
-
-        showLevels(
-            selectedSemester,
-            false
-        );
-
-    }
-
-else if (
-    state.view === "departments" &&
-    selectedSemester
-) {
-
-    showDepartments(
-        selectedSemester,
-        false
-    );
-
-}
-    else if (
-        state.view === "programmes" &&
-        selectedSemester &&
-        selectedLevel
-    ) {
-
-        showProgrammes(
-            selectedLevel,
-            false
-        );
-
-    }
-
-
-    else if (
-        state.view === "courses" &&
-        navigationType === "switch" &&
-        selectedProgramme
-    ) {
-
-        showSwitchCourses(
-            selectedProgramme,
-            false
-        );
-
-    }
-
-
-    else if (
-        state.view === "courses" &&
-        selectedSemester &&
-        selectedLevel &&
-        selectedProgramme
-    ) {
-
-        showCourses(
-            selectedProgramme,
-            false
-        );
-
-    }
-
-
-    else {
-
-        showView(
-            "homeView"
-        );
-
+        showView("homeView");
+    } else if (state.view === "departments" && selectedSemester) {
+        showDepartments(selectedSemester, false);
+    } else if (state.view === "programmes" && selectedSemester && selectedDepartment) {
+        showDepartmentProgrammes(selectedDepartment, false);
+    } else if (state.view === "levels" && selectedSemester && selectedProgramme) {
+        showProgrammeLevels(selectedProgramme, false);
+    } else if (state.view === "levels" && selectedSemester) {
+        showLevels(selectedSemester, false);
+    } else if (state.view === "specialisations" && selectedSemester && selectedProgramme && selectedLevel) {
+        showBusinessSpecialisations(selectedLevel, false);
+    } else if (state.view === "businessCourses" && selectedSemester && selectedProgramme && selectedLevel && selectedSpecialisation) {
+        showBusinessCourseCards(selectedSpecialisation, false);
+    } else if (state.view === "programmes" && selectedSemester && selectedLevel) {
+        showProgrammes(selectedLevel, false);
+    } else if (state.view === "courses" && navigationType === "switch" && selectedProgramme) {
+        showSwitchCourses(selectedProgramme, false);
+    } else if (state.view === "courses" && selectedSemester && selectedLevel && selectedProgramme) {
+        showCourses(selectedProgramme, false);
+    } else {
+        showView("homeView");
     }
 
     isRestoringHistory = false;
@@ -3394,6 +3338,8 @@ function goHome(
     selectedSemester = null;
     selectedLevel = null;
     selectedProgramme = null;
+    selectedDepartment = null;
+    selectedSpecialisation = null;
     navigationType = "undergraduate";
 
     showView("homeView");
@@ -3721,36 +3667,34 @@ let selectedSpecialisation = null;
    BUSINESS COURSE CATALOGUE
    ========================================= */
 
-
+/*
+ * First Semester, 4-year BCom, Level 100.
+ * The seven PDF filenames were shown for all six specialisations in
+ * supplied Google Drive screenshots. Their exact Nextcloud paths still
+ * require verification against the server index.
+ */
+const businessLevel100Courses = [
+    { code: "ECO101D", title: "Principles of Economics 1", filename: "Principles_of_Economics_1.pdf" },
+    { code: "", title: "Principles of Accounting 1", filename: "Principles_of_Accounting_1.pdf" },
+    { code: "INF101D", title: "Introduction to Computing", filename: "Introduction_to_Computing.pdf" },
+    { code: "", title: "Introduction to Business 1", filename: "Introduction_to_Business_1.pdf" },
+    { code: "ILT101D", title: "Information Literacy", filename: "Info_Lit. (1).pdf" },
+    { code: "ASP101D", title: "Core African Studies", filename: "Core-African_Studies.pdf" },
+    { code: "CMS107D", title: "Communicative Skills 1", filename: "Communicative_Skills_1.pdf" }
+];
 
 const businessCourseCatalogue = {
     firstSemester: {
         "4YR BCOM 100,200,300,400": {
-            "100": {
-                "Accounting": [
-                    { code: "ECO101D", title: "Principles of Economics 1", filename: "Principles_of_Economics_1.pdf" },
-                    { code: "", title: "Principles of Accounting 1", filename: "Principles_of_Accounting_1.pdf" },
-                    { code: "INF101D", title: "Introduction to Computing", filename: "Introduction_to_Computing.pdf" },
-                    { code: "", title: "Introduction to Business 1", filename: "Introduction_to_Business_1.pdf" },
-                    { code: "ILT101D", title: "Information Literacy", filename: "Info_Lit. (1).pdf" },
-                    { code: "ASP101D", title: "Core African Studies", filename: "Core-African_Studies.pdf" },
-                    { code: "CMS107D", title: "Communicative Skills 1", filename: "Communicative_Skills_1.pdf" }
-                ],
-                "Finance": [
-                    { code: "ECO101D", title: "Principles of Economics 1", filename: "Principles_of_Economics_1.pdf" },
-                    { code: "", title: "Principles of Accounting 1", filename: "Principles_of_Accounting_1.pdf" },
-                    { code: "INF101D", title: "Introduction to Computing", filename: "Introduction_to_Computing.pdf" },
-                    { code: "", title: "Introduction to Business 1", filename: "Introduction_to_Business_1.pdf" },
-                    { code: "ILT101D", title: "Information Literacy", filename: "Info_Lit. (1).pdf" },
-                    { code: "ASP101D", title: "Core African Studies", filename: "Core-African_Studies.pdf" },
-                    { code: "CMS107D", title: "Communicative Skills 1", filename: "Communicative_Skills_1.pdf" }
-                ]
-            }
+            "100": Object.fromEntries(
+                businessSpecialisations.map(name => [
+                    name,
+                    businessLevel100Courses.map(module => ({...module}))
+                ])
+            )
         }
     }
 };
-
-
 
 /* =========================================
    DISPLAY BUSINESS COURSE CARDS
@@ -3818,36 +3762,35 @@ function showBusinessCourseCards(specialisation, addHistory = true) {
    BUSINESS LEVEL 100 MODULE FOLDERS
    ========================================= */
 
-const businessLevel100Root =
-    "/BUSINESS/4YR BCOM  100,200,300, 400/YR1 LEVEL 100/";
+        // Nextcloud subfolders under BUSINESS / 4YR BCOM / YR1 LEVEL 100.
+        // Folder names are based on supplied Drive screenshots;
+        // verify the matching folder paths in the Nextcloud index.
+        const businessLevel100Root =
+            "/BUSINESS/4YR BCOM  100,200,300, 400/YR1 LEVEL 100/";
 
-const businessLevel100Folders = {
+        const businessLevel100Folders = {
+            "Accounting": "ACCOUNTING LEVEL 100/",
+            "Finance": "FINANCE LEVEL 100/",
+            "Human Resource Management": "HRM LEVEL 100/",
+            "Management": "MANAGEMENT LEVEL 100/",
+            "Marketing": "MARKETING LEVEL 100/",
+            "Procurement and Supply Chain Management":
+                "PSCM LEVEL 100/"
+        };
 
-    "Accounting":
-        businessLevel100Root + "ACCOUNTING LEVEL 100/",
+        const isBusinessLevel100 =
+            selectedSemester === "firstSemester" &&
+            selectedProgramme === "4YR BCOM 100,200,300,400" &&
+            String(selectedLevel) === "100";
 
-    "Finance":
-        businessLevel100Root + "FINANCE LEVEL 100/"
+        const selectedFolder = isBusinessLevel100
+            ? businessLevel100Folders[specialisation]
+            : null;
 
-};
-
-const isBusinessLevel100 =
-    selectedSemester === "firstSemester" &&
-    selectedProgramme === "4YR BCOM 100,200,300,400" &&
-    String(selectedLevel) === "100";
-
-const selectedFolder =
-    isBusinessLevel100
-        ? businessLevel100Folders[specialisation]
-        : null;
-
-const relativePath =
-    item.relativePath ||
-    (
-        selectedFolder && item.filename
-            ? selectedFolder + item.filename
-            : ""
-    );
+        const relativePath = item.relativePath ||
+            (selectedFolder && item.filename
+                ? businessLevel100Root + selectedFolder + item.filename
+                : "");
 
         if (
             relativePath &&
