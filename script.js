@@ -3660,6 +3660,10 @@ const businessSpecialisations = [
     "Procurement and Supply Chain Management"
 ];
 
+// DCO Year 2 has two programme options, not the six BCom specialisations.
+const dcoYear2Options = ["Accounting Option", "Management Option"];
+
+
 let selectedSpecialisation = null;
 
 
@@ -3894,6 +3898,32 @@ const businessLevel400Courses = {
     ]
 };
 
+/* =========================================================
+   DCO YR2 LEVEL 200 — FIRST SEMESTER
+   PDF filenames and option folders transcribed from the supplied screenshots.
+   Folder contents are discovered inside their exact Nextcloud directory.
+   The root path must be validated against the live Nextcloud index.
+   ========================================================= */
+const dcoYear2Level200Courses = {
+    "Accounting Option": [
+        { code: "", title: "Taxation", unitFolder: "Taxation/", folderPending: true, folderSearchTerm: "Taxation" },
+        { code: "", title: "Business Law Module Reviewed", unitFolder: "Business Law Module Reviewed/", folderPending: true, folderSearchTerm: "Business Law" },
+        { code: "SBU201D", title: "Quantitative Methods I", filename: "Quantitative_Methods_1.pdf" },
+        { code: "SBU205D", title: "Principles of Management I", filename: "Principles_of_Management_1.pdf" },
+        { code: "", title: "Financial Reporting I", filename: "Financial_Reporting_I.pdf" },
+        { code: "", title: "Cost and Management Accounting I", filename: "COST AND MANAGEMENT ACCOUNTING 1.pdf" },
+        { code: "CMS108D", title: "Communicative Skills II", filename: "Communicative_Skills_2.pdf" }
+    ],
+    "Management Option": [
+        { code: "SBU202D", title: "Quantitative Methods II", filename: "Quantitative Methods II.pdf" },
+        { code: "SBU205D", title: "Principles of Management I", filename: "Principles_of_Management_1.pdf" },
+        { code: "", title: "Principles of Corporate Governance and Ethics", filename: "Principles_of_Corporate_Governance_and_Ethics.pdf" },
+        { code: "", title: "Principles and Practice of Procurement", filename: "Principles__Practice_of_Procurement.pdf" },
+        { code: "SBU206D", title: "Principles of Marketing", filename: "Principles of Marketing.pdf" },
+        { code: "CMS108D", title: "Communicative Skills II", filename: "Communicative_Skills_2.pdf" }
+    ]
+};
+
 const businessCourseCatalogue = {
     firstSemester: {
         "4YR BCOM 100,200,300,400": {
@@ -3906,6 +3936,9 @@ const businessCourseCatalogue = {
             "200": businessLevel200Courses,
             "300": businessLevel300Courses,
             "400": businessLevel400Courses
+        },
+        "DCO YR2 LEVEL 200": {
+            "200": dcoYear2Level200Courses
         }
     }
 };
@@ -4183,7 +4216,23 @@ function showBusinessCourseCards(specialisation, addHistory = true) {
         const selectedLevel400Folder = isBusinessLevel400
             ? businessLevel400Folders[specialisation]
             : null;
+        // Separate DCO Year 2 paths from the 4-year BCom specialisations.
+        // This keeps the existing Level 100–400 BCom download mappings untouched.
+        const isDcoYear2Level200 =
+            selectedSemester === "firstSemester" &&
+            selectedProgramme === "DCO YR2 LEVEL 200" &&
+            String(selectedLevel) === "200";
+        const dcoYear2Level200Root = "/BUSINESS/DCO YR2 LEVEL 200/";
+        const dcoYear2FolderNames = {
+            "Accounting Option": "ACCOUNTING OPTION/",
+            "Management Option": "MANAGEMENT OPTION/"
+        };
+        const dcoYear2Folder = isDcoYear2Level200
+            ? dcoYear2FolderNames[specialisation]
+            : null;
+
         const activeBusinessFolder =
+            dcoYear2Folder ? dcoYear2Level200Root + dcoYear2Folder :
             selectedLevel400Folder ? businessLevel400Root + selectedLevel400Folder :
             selectedLevel300Folder ? businessLevel300Root + selectedLevel300Folder :
             selectedLevel200Folder ? businessLevel200Root + selectedLevel200Folder :
@@ -4436,13 +4485,15 @@ function showBusinessSpecialisations(level, addHistory = true) {
     heading.textContent =
         `${selectedProgramme} · Level ${selectedLevel}`;
 
-    subheading.textContent =
-        "Select your specialisation to view its courses.";
+    const isDcoYear2 = selectedProgramme === "DCO YR2 LEVEL 200";
+    subheading.textContent = isDcoYear2
+        ? "Select Accounting Option or Management Option to view its courses."
+        : "Select your specialisation to view its courses.";
 
     list.innerHTML = "";
 
-    
-businessSpecialisations.forEach(name => {
+    const availableOptions = isDcoYear2 ? dcoYear2Options : businessSpecialisations;
+    availableOptions.forEach(name => {
 
     const courses =
         businessCourseCatalogue[selectedSemester]
@@ -4564,7 +4615,8 @@ const availableLevels =
 
 if (
     selectedDepartment === "Business" &&
-    programme === "4YR BCOM 100,200,300,400"
+    (programme === "4YR BCOM 100,200,300,400" ||
+     programme === "DCO YR2 LEVEL 200")
 ) {
     showBusinessSpecialisations(level);
 } else {
