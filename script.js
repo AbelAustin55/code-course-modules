@@ -3683,15 +3683,63 @@ const businessLevel100Courses = [
     { code: "CMS107D", title: "Communicative Skills 1", filename: "Communicative_Skills_1.pdf" }
 ];
 
+/*
+ * First Semester, 4-year BCom, Level 200.
+ * Six PDF filenames for each specialisation were transcribed from the
+ * supplied folder screenshots. Common courses are reused safely.
+ * The existing UCC website catalogue supplied the matched course codes.
+ * Blank codes mean the code was not confirmed in that catalogue.
+ */
+const businessLevel200CommonCourses = [
+    { code: "SBU201D", title: "Quantitative Methods I", filename: "Quantitative_Methods_1.pdf" },
+    { code: "SBU205D", title: "Principles of Management", filename: "Principles_of_Management_1.pdf" },
+    { code: "", title: "Human Resource Mgt. (Revised) 2016", filename: "Human Resource Mgt. (Revised) 2016.pdf" },
+    { code: "", title: "Business Law I", filename: "Business_Law_I.pdf" },
+    { code: "SBU207D", title: "Business Communication", filename: "Bus._communication.pdf" }
+];
+
+const businessLevel200SpecificCourses = {
+    "Accounting":
+        { code: "", title: "Financial Reporting I", filename: "Financial_Reporting_I.pdf" },
+    "Finance":
+        { code: "", title: "Financial Reporting I", filename: "Financial_Reporting_I.pdf" },
+    "Human Resource Management":
+        { code: "", title: "Psychology of Personnel Mgt UNIT 1-5", filename: "Psychology of Personnel Mgt UNIT 1-5.pdf" },
+    "Management":
+        { code: "EMG203D", title: "Document Processing II", filename: "Document Processing II edited.pdf" },
+    "Marketing":
+        { code: "SBU206D", title: "Principles of Marketing", filename: "Principles of Marketing.pdf" },
+    "Procurement and Supply Chain Management":
+        { code: "", title: "Sourcing in Procurement and Supply", filename: "Sourcing in Procurement and Supply editted.pdf" }
+};
+
+const businessLevel200Courses = Object.fromEntries(
+    businessSpecialisations.map(name => {
+        const modules = businessLevel200CommonCourses.map(item => ({ ...item }));
+        const uniqueModule = businessLevel200SpecificCourses[name];
+        if (uniqueModule) {
+            // Keep the ordering shown in the supplied source folders.
+            const insertAt = name === "Human Resource Management"
+                ? 1
+                : name === "Procurement and Supply Chain Management"
+                    ? 0
+                    : 3;
+            modules.splice(insertAt, 0, { ...uniqueModule });
+        }
+        return [name, modules];
+    })
+);
+
 const businessCourseCatalogue = {
     firstSemester: {
         "4YR BCOM 100,200,300,400": {
             "100": Object.fromEntries(
                 businessSpecialisations.map(name => [
                     name,
-                    businessLevel100Courses.map(module => ({...module}))
+                    businessLevel100Courses.map(module => ({ ...module }))
                 ])
-            )
+            ),
+            "200": businessLevel200Courses
         }
     }
 };
@@ -3787,10 +3835,39 @@ function showBusinessCourseCards(specialisation, addHistory = true) {
             ? businessLevel100Folders[specialisation]
             : null;
 
+        /*
+         * Level 200 root/subfolder naming follows the supplied Drive
+         * screenshots and the established Level 100 Nextcloud pattern.
+         * Confirm these Level 200 paths against first-semester-index.json
+         * before publishing to production.
+         */
+        const businessLevel200Root =
+            "/BUSINESS/4YR BCOM  100,200,300, 400/YR2 LEVEL 200/";
+
+        const businessLevel200Folders = {
+            "Accounting": "ACCOUNTING LEVEL 200/",
+            "Finance": "FINANCE LEVEL 200/",
+            "Human Resource Management": "HRM LEVEL 200/",
+            "Management": "MANAGEMENT LEVEL 200/",
+            "Marketing": "MARKETING LEVEL 200/",
+            "Procurement and Supply Chain Management": "PSCM LEVEL 200/"
+        };
+
+        const isBusinessLevel200 =
+            selectedSemester === "firstSemester" &&
+            selectedProgramme === "4YR BCOM 100,200,300,400" &&
+            String(selectedLevel) === "200";
+
+        const selectedLevel200Folder = isBusinessLevel200
+            ? businessLevel200Folders[specialisation]
+            : null;
+
         const relativePath = item.relativePath ||
             (selectedFolder && item.filename
                 ? businessLevel100Root + selectedFolder + item.filename
-                : "");
+                : selectedLevel200Folder && item.filename
+                    ? businessLevel200Root + selectedLevel200Folder + item.filename
+                    : "");
 
         if (
             relativePath &&
